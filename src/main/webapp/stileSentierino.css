@@ -1,0 +1,128 @@
+body {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Six columns */
+  grid-gap: 10px;
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: rgb(210, 205, 182);
+}
+
+.thematic-block {
+  grid-column: 2 / span 4; /* 'Modulo Java' from column 2 to 5 */
+  background-color: rgba(40, 40, 40, 0.9);
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.course-roadmap {
+  grid-column: 3 / span 4; /* Roadmap from column 3 to 6 */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for the buttons */
+  align-items: start; /* Align modules to the start */
+  background: url('https://i.imgur.com/6928avU.png') no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+}
+
+.module {
+  background-color: rgb(231, 231, 231);
+  color: #333;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-align: center;
+  width: 100%; /* Full width of the column */
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.module-link {
+  justify-self: center; /* Center the links in their grid cell */
+  width: 100%; /* Ensure links take full width of their cell */
+}
+
+.module:nth-child(odd) {
+  grid-column: 1; /* Place odd modules in the first column */
+}
+
+.module:nth-child(even) {
+  grid-column: 2; /* Place even modules in the second column */
+}
+
+.module:hover, .module:focus {
+  background-color: rgb(255, 235, 59, 0.9);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+  border-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .course-roadmap {
+    grid-template-columns: 1fr; /* One column for the modules on small screens */
+  }
+
+  .module:nth-child(odd), .module:nth-child(even) {
+    grid-column: 1; /* All modules in the same column on small screens */
+  }
+}
+
+footer {
+  grid-column: 2 / span 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+progress {
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.navbar {
+  background-color: #283030;
+  padding: 10px 0;
+  grid-column: 2 / span 4;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffeb3b;
+}
+
+.back-button {
+  background-color: rgb(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  grid-column: 1; /* Button positioned in column 1 */
+  justify-self: start;
+}
+
+.back-button:hover {
+  background-color: #ffeb3b;
+  transform: translateY(-3px);
+}

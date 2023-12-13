@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>La tua Roadmap di Apprendimento Java</title>
+    <link rel="stylesheet" href="stileSentierino.css">
+</head>
+<body>
+	<nav class="navbar">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Argomenti</a>
+        <a href="#" class="nav-link">Contatti</a>
+    </nav>
+     <button class="back-button">Indietro</button>
+    <div class="thematic-block">
+        <h1>Modulo JAVA</h1>
+        <p>Qui puoi aggiungere descrizioni o informazioni sul blocco tematico affrontato.</p>
+    </div>
+
+<div class="course-roadmap">
+    <a href="prova.html" class="module-link">
+        <button class="module" id="module1">Array in Java</button>
+    </a>
+    <a href="link-per-module2.html" class="module-link">
+        <button class="module" id="module2">Classi e Oggetti</button>
+    </a>
+    <a href="link-per-module3.html" class="module-link">
+        <button class="module" id="module3">Modificatori di Visibilità</button>
+    </a>
+    <a href="link-per-module4.html" class="module-link">
+        <button class="module" id="module4">Ereditarietà</button>
+    </a>
+    <a href="link-per-module5.html" class="module-link">
+        <button class="module" id="module5">Interfacce e Astrazione</button>
+    </a>
+    <a href="link-per-module6.html" class="module-link">
+        <button class="module" id="module6">Gestione Eccezioni</button>
+    </a>
+    <a href="link-per-module7.html" class="module-link">
+        <button class="module" id="module7">Stream API</button>
+    </a>
+    <a href="link-per-module8.html" class="module-link">
+        <button class="module" id="module8">Multithreading</button>
+    </a>
+    <a href="link-per-module9.html" class="module-link">
+        <button class="module" id="module9">Lambda Expressions</button>
+    </a>
+    <a href="link-per-module10.html" class="module-link">
+        <button class="module" id="module10">JavaFX Basics</button>
+    </a>
+</div>
+
+
+
+    <footer>
+        <progress id="progress-bar" max="100" value="0"></progress>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var modules = document.querySelectorAll('.module');
+            var progressBar = document.getElementById('progress-bar');
+
+            modules.forEach(function(module, index) {
+                module.addEventListener('click', function() {
+                    this.classList.toggle('highlight');
+                    updateProgressBar(index + 1, modules.length);
+                });
+            });
+
+            function updateProgressBar(completed, total) {
+                var progress = (completed / total) * 100;
+                progressBar.value = progress;
+            }
+        });
+    </script>
+</body>
+</html>
+
+
