@@ -1,6 +1,6 @@
 body {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* Six columns */
+  grid-template-columns: repeat(6, 1fr); /* Sei colonne */
   grid-gap: 10px;
   margin: 0;
   padding: 20px;
@@ -10,7 +10,7 @@ body {
 }
 
 .thematic-block {
-  grid-column: 2 / span 4; /* 'Modulo Java' from column 2 to 5 */
+  grid-column: 2 ; /* 'Modulo Java' nelle prime due colonne */
   background-color: rgba(40, 40, 40, 0.9);
   color: white;
   padding: 20px;
@@ -19,13 +19,20 @@ body {
 }
 
 .course-roadmap {
-  grid-column: 3 / span 4; /* Roadmap from column 3 to 6 */
+  grid-column: 3 / span 4; /* Moduli sulle colonne 3, 4, 5 e 6 */
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns for the buttons */
-  align-items: start; /* Align modules to the start */
-  background: url('https://i.imgur.com/6928avU.png') no-repeat center center;
+  grid-template-columns: repeat(2, 1fr); /* Due colonne per i bottoni */
+  grid-column: 3 / span 3;
+  flex-direction: column;
+  align-items: flex-start; /* Allinea i moduli a sinistra */
+  background: url('https://i.imgur.com/6928avU.png');
+  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
   padding: 20px;
+ 
+  
+  
 }
 
 .module {
@@ -33,50 +40,64 @@ body {
   color: #333;
   margin-bottom: 10px;
   padding: 20px;
-  border-radius: 14px;
+  border-radius: 14px; /* Forma arrotondata */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  width: calc((100% / 2) - 10px); /* Larghezza per adattarsi alle colonne 4 e 5 */
   cursor: pointer;
-  border: 2px solid transparent;
+  position: relative;
+  border: 2px solid transparent; /* Prepara per il bordo luminoso */
+  transition: background-color 0.4s, box-shadow 0.4s, transform 0.3s, border-color 0.4s;
+  max-width: 350px; /* o un valore che preferisci */
+ /* Imposta una larghezza massima per i bottoni */
   text-align: center;
-  width: 100%; /* Full width of the column */
-  margin: 10px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.module-link {
-  justify-self: center; /* Center the links in their grid cell */
-  width: 100%; /* Ensure links take full width of their cell */
+  margin: 33px auto; /* Margini per separare i bottoni */
+   
+  padding: 10px; /* Aumenta se necessario per maggiore spazio intorno al testo */
+  font-size: 16px; /* Aumenta la dimensione del testo */
+  font-weight: bold; /* Rende il testo in grassetto */
+  
 }
 
 .module:nth-child(odd) {
-  grid-column: 1; /* Place odd modules in the first column */
+  justify-self: end; /* Allinea i bottoni dispari a destra */
 }
 
 .module:nth-child(even) {
-  grid-column: 2; /* Place even modules in the second column */
+  justify-self: start; /* Allinea i bottoni pari a sinistra */
 }
+
 
 .module:hover, .module:focus {
-  background-color: rgb(255, 235, 59, 0.9);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  transform: translateY(-3px);
-  border-color: #fff;
+  background-color: rgb(	255, 235, 59,0.9); /* Colore di illuminazione */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombra più pronunciata */
+  transform: translateY(-3px); /* Sollevamento più sottile */
+  border-color: #fff; /* Bordo luminoso */
+  animation: pulse 1.5s infinite;
 }
 
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
 @media (max-width: 768px) {
-  .course-roadmap {
-    grid-template-columns: 1fr; /* One column for the modules on small screens */
+  body {
+    grid-template-columns: 1fr;
   }
 
-  .module:nth-child(odd), .module:nth-child(even) {
-    grid-column: 1; /* All modules in the same column on small screens */
+  .thematic-block, .course-roadmap {
+    grid-column: 1;
+  }
+
+  .module {
+    width: 100%;
+    align-self: center; /* Centra i moduli su schermi piccoli */
   }
 }
 
 footer {
-  grid-column: 2 / span 4;
+  grid-column: 2 / span 4; /* Footer esteso su tutte le colonne */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,39 +111,40 @@ progress {
 }
 
 .navbar {
-  background-color: #283030;
-  padding: 10px 0;
-  grid-column: 2 / span 4;
-  display: flex;
-  justify-content: center;
+    background-color: #283030;
+    padding: 10px 0;
+    grid-column: 2 / span 4; /* Posiziona la navbar sulle colonne 2, 3, 4, 5 */
+    display: flex;
+    justify-content: center;
 }
 
 .nav-link {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-size: 20px;
-  transition: color 0.3s;
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s;
 }
 
 .nav-link:hover {
-  color: #ffeb3b;
+    color: #ffeb3b;
 }
 
 .back-button {
-  background-color: rgb(0, 0, 0, 0.8);
-  color: white;
-  padding: 11px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-  grid-column: 1; /* Button positioned in column 1 */
-  justify-self: start;
+    background-color:rgb(0, 0, 0,0.8)   ;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    grid-column: 2; /* Posiziona il bottone nella colonna 1 */
+    justify-self: start;
 }
- 
+
 .back-button:hover {
-  background-color: #ffeb3b;
-  transform: translateY(-3px);
+    background-color: #ffeb3b;
+    transform: translateY(-3px);
 }
