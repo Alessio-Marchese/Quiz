@@ -1,0 +1,101 @@
+body {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 8 colonne */
+  grid-gap: 10px;
+  margin: 0;
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  color: #c0c0c0;
+  background-color: #1a1a1a;
+}
+
+.thematic-block {
+  grid-column: 2 / span 2; /* Occupa la 2ª e la 3ª colonna */
+  background-color: #282a36;
+  color: #8be9fd;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(139, 233, 253, 0.6);
+  transition: all 0.3s ease;
+}
+
+.course-roadmap {
+  grid-column: 4 / span 4; /* Occupa dalla 4ª alla 7ª colonna */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background: url('https://i.imgur.com/xg4hpg8.png') center / cover no-repeat;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(139, 233, 253, 0.6); /* Dimensioni ombra allineate */
+  border: 2px solid transparent; /* Aggiunto colore al bordo */
+}
+
+.module { 
+  background-color: rgba(68, 71, 90, 0.9);
+  color: #f1fa8c;
+  margin: 30px auto; /* Margin uniformato */
+  padding: 20px;
+  border-radius: 10px; /* Raggio bordi arrotondati uniformato */
+  box-shadow: 0 4px 8px rgba(241, 250, 140, 0.6); /* Dimensioni e colore ombra allineati */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  width: calc(50% - 10px);
+  cursor: pointer;
+  position: relative;
+  border: 2px solid #f1fa8c;
+  text-align: center;
+  font-size: 13px;
+}
+
+.module:hover, .module:focus {
+  background-color: #6272a4;
+  box-shadow: 0 6px 12px rgba(241, 250, 140, 0.5); /* Dimensioni ombra allineate */
+  transform: translateY(-3px);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+
+
+.navbar {
+  grid-column: 2 / span 6; /* Esteso dalla 2ª alla 7ª colonna */
+  background-color: #282a36;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(139, 233, 253, 0.6); /* Dimensioni ombra allineate */
+  border-radius: 6px;
+}
+
+.nav-link {
+  color: #50fa7b; /* Verde neon */
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-link:hover {
+  color: #ff79c6; /* Rosa neon */
+  transform: translateY(-2px);
+}
+
+.back-button {
+  grid-column: 2; /* Posizionato nella 2ª colonna */
+  background-color: rgba(80, 250, 123, 0.3); /* Verde neon trasparente */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 8px rgba(80, 250, 123, 0.6); /* Ombra coerente con il colore, dimensioni allineate */
+}
+
+.back-button:hover {
+  background-color: #ff79c6; /* Rosa neon al passaggio del mouse */
+  transform: translateY(-2px);
+}
