@@ -13,6 +13,7 @@ import it.generationitaly.quizapp.entity.Utente;
 import it.generationitaly.quizapp.repository.UtenteRepository;
 import it.generationitaly.quizapp.repository.impl.UtenteRepositoryImpl;
 
+@WebServlet("/deleteUtente")
 public class DeleteUtenteServlet extends HttpServlet {
 	
 	private UtenteRepository utenteRepository = new UtenteRepositoryImpl(getClass());
