@@ -63,6 +63,9 @@ public class Utente {
 	@Column(name = "cognome", length = 45, nullable = false)
 	private String cognome;
 	
+	@Column(name = "numero_telefono", nullable = false)
+	private int numeroTelefono;
+	
 	@Column(name = "data_nascita")
 	@Temporal(TemporalType.DATE)
 	private Date dataNascita;
