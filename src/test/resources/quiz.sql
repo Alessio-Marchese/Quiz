@@ -14,13 +14,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `quiz` DEFAULT CHARACTER SET utf8 ;
+USE `quiz` ;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`indirizzo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`indirizzo` (
+CREATE TABLE IF NOT EXISTS `quiz`.`indirizzo` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `paese` VARCHAR(45) NOT NULL,
   `citta` VARCHAR(45) NOT NULL,
@@ -33,7 +33,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`utente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`utente` (
+CREATE TABLE IF NOT EXISTS `quiz`.`utente` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(20) NOT NULL,
   `password` VARCHAR(20) NOT NULL,
@@ -59,7 +59,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`linguaggio`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`linguaggio` (
+CREATE TABLE IF NOT EXISTS `quiz`.`linguaggio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -69,7 +69,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`capitolo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`capitolo` (
+CREATE TABLE IF NOT EXISTS `quiz`.`capitolo` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `numero_capitolo` INT NOT NULL,
   `argomento` VARCHAR(500) NOT NULL,
@@ -87,7 +87,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`quiz_vero_falso`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`quiz_vero_falso` (
+CREATE TABLE IF NOT EXISTS `quiz`.`quiz_vero_falso` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `domanda` VARCHAR(100) NOT NULL,
   `bool` TINYINT NOT NULL,
@@ -105,7 +105,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`quiz_multiplo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`quiz_multiplo` (
+CREATE TABLE IF NOT EXISTS `quiz`.`quiz_multiplo` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `domanda` VARCHAR(100) NOT NULL,
   `corretta` VARCHAR(100) NOT NULL,
@@ -125,7 +125,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`badge`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`badge` (
+CREATE TABLE IF NOT EXISTS `quiz`.`badge` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -135,7 +135,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`utente_has_badge`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`utente_has_badge` (
+CREATE TABLE IF NOT EXISTS `quiz`.`utente_has_badge` (
   `utente_id` INT NOT NULL,
   `badge_id` INT NOT NULL,
   `conseguimento_badge` DATE NULL,
