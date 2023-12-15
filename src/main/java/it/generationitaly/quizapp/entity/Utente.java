@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`utente` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 */
+
 @Entity
 @Table(name = "utente")
 public class Utente {
