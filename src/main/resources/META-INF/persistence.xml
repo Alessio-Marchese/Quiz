@@ -8,7 +8,14 @@
 		<!-- Persistence provider -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<!-- Entity classes -->
+		<class>it.generationitaly.quizapp.entity.Capitolo</class>
+		<class>it.generationitaly.quizapp.entity.Badge</class>
+		<class>it.generationitaly.quizapp.entity.Indirizzo</class>
+		<class>it.generationitaly.quizapp.entity.Linguaggio</class>
 		<class>it.generationitaly.quizapp.entity.Utente</class>
+		<class>it.generationitaly.quizapp.entity.QuizVeroFalso</class>
+		<class>it.generationitaly.quizapp.entity.QuizMultiplo</class>
+		<class>it.generationitaly.quizapp.entity.UtenteHasBadge</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.driver"
