@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`utente_has_badge` (
 @Entity
 @Table(name = "utente_has_badge")
 public class UtenteHasBadge {
-
+	
 	@ManyToOne
 	@JoinColumn(name = "utente_id", unique = true, nullable = false)
 	private Utente utenteId;
