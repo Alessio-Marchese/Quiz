@@ -63,12 +63,12 @@ public class Utente {
 	@Column(name = "cognome", length = 45, nullable = false)
 	private String cognome;
 	
-	@Column(name = "numero_telefono", nullable = false)
-	private int numeroTelefono;
-	
 	@Column(name = "data_nascita")
 	@Temporal(TemporalType.DATE)
 	private Date dataNascita;
+	
+	@Column(name = "numero_telefono", nullable = false)
+	private int numeroTelefono;
 	
 	@OneToOne(cascade = {  CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name = "indirizzo_id", unique = true, nullable = false)
@@ -79,8 +79,10 @@ public class Utente {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Utente(int id, String username, String password, String email, String nome, String cognome, Date dataNascita,
-			Indirizzo indirizzo) {
+	
+
+	public Utente(int id, String username, String password, String email, String nome, String cognome,
+			int numeroTelefono, Date dataNascita, Indirizzo indirizzo) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -89,6 +91,7 @@ public class Utente {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.dataNascita = dataNascita;
+		this.numeroTelefono = numeroTelefono;
 		this.indirizzo = indirizzo;
 	}
 
@@ -156,10 +159,27 @@ public class Utente {
 		this.indirizzo = indirizzo;
 	}
 
+
+
+	public int getNumeroTelefono() {
+		return numeroTelefono;
+	}
+
+
+
+	public void setNumeroTelefono(int numeroTelefono) {
+		this.numeroTelefono = numeroTelefono;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Utente [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", nome="
-				+ nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita + ", indirizzo=" + indirizzo + "]";
+				+ nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita + ", numeroTelefono=" + numeroTelefono
+				+ ", indirizzo=" + indirizzo + "]";
 	}
+
+	
 
 }
