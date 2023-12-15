@@ -30,8 +30,7 @@ public class LoginServlet extends HttpServlet {
 		if (utente != null && utente.getPassword() == password) {
 
 			HttpSession session = request.getSession();
-			session.setAttribute("utenteId", utente.getId());
-			session.setAttribute("username", utente.getUsername());
+			session.setAttribute("utente", utente);
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
 			requestDispatcher.forward(request, response);
 

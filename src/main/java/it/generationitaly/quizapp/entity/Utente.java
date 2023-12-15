@@ -71,7 +71,7 @@ public class Utente {
 	private int numeroTelefono;
 	
 	@OneToOne(cascade = {  CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinColumn(name = "indirizzo_id", unique = true, nullable = false)
+	@JoinColumn(name = "indirizzo_id", unique = true, nullable = true)
 	private Indirizzo indirizzo;
 
 	public Utente() {

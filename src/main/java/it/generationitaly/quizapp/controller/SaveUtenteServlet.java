@@ -49,20 +49,6 @@ public class SaveUtenteServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		// Recupero dei dati dal form di registrazione INDIRIZZO
-		String paese = request.getParameter("paese");
-		String citta = request.getParameter("citta");
-		String via = request.getParameter("via");
-		String numeroCivico = request.getParameter("numeroCivico");
-
-		// Creazione oggetto inidirzzo e settaggio parametri
-		Indirizzo indirizzo = new Indirizzo();
-
-		indirizzo.setCitta(citta);
-		indirizzo.setPaese(paese);
-		indirizzo.setVia(via);
-		indirizzo.setNumeroCivico(numeroCivico);
-
 		// Creazione oggetto utente e settaggio parametri
 		Utente utente = new Utente();
 
@@ -75,7 +61,6 @@ public class SaveUtenteServlet extends HttpServlet {
 			utente.setDataNascita(dataNascita);
 		}
 		utente.setNumeroTelefono(numeroTelefono);
-		utente.setIndirizzo(indirizzo);
 		
 		//Salvare nuovo utente nel database
 		utenteRepository.save(utente);
