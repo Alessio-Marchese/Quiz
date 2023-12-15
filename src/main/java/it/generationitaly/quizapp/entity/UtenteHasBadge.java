@@ -4,6 +4,9 @@ import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -20,6 +23,11 @@ CREATE TABLE IF NOT EXISTS `mydb`.`utente_has_badge` (
 @Entity
 @Table(name = "utente_has_badge")
 public class UtenteHasBadge {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
 	
 	@ManyToOne
 	@JoinColumn(name = "utente_id", unique = true, nullable = false)
