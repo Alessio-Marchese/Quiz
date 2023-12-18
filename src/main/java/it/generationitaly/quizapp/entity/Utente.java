@@ -70,7 +70,7 @@ public class Utente {
 	@Column(name = "numero_telefono", nullable = false)
 	private int numeroTelefono;
 	
-	@OneToOne(cascade = {  CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToOne(cascade = {  CascadeType.MERGE, CascadeType.REMOVE})
 	@JoinColumn(name = "indirizzo_id", unique = true, nullable = true)
 	private Indirizzo indirizzo;
 
