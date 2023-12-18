@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
     
 
@@ -18,8 +18,8 @@
 		          <button id="forum" class="btn btn-outline-primary">Forum</button>
 		        </li>
 		      </ul>
-		      <button class="btn btn-primary" style="">Accedi</button>
-		      <button class="btn btn-primary">Registrati</button>
+		      <a href="login.jsp" class="btn btn-primary">Accedi</a>
+		      <a href="register.jsp" class="btn btn-primary">Registrati</a>
 		    </div>
 		  </div>
 		</nav>
@@ -90,7 +90,7 @@
         		elBody.style.backgroundColor = "grey";
     		} else {
     			elBody.style.backgroundColor = "white";
-    			elWelcome.style.display = 'flex';
+    			elWelcome.style.display = 'block';
     			elRow.style.display = 'none';
     		}
     		
