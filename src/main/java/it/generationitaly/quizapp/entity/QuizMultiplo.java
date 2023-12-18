@@ -69,6 +69,17 @@ public class QuizMultiplo {
 		this.errore2 = errore2;
 		this.liguaggio = liguaggio;
 	}
+	
+	
+	public QuizMultiplo(String domanda, String corretta, String errore1, String errore2, Linguaggio liguaggio) {
+		super();
+		this.domanda = domanda;
+		this.corretta = corretta;
+		this.errore1 = errore1;
+		this.errore2 = errore2;
+		this.liguaggio = liguaggio;
+	}
+	
 
 	public int getId() {
 		return id;
