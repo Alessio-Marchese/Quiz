@@ -1,0 +1,89 @@
+package it.generationitaly.quizapp.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+
+
+//create table contenuto (
+//		id int primary key auto_increment,
+//	    tipo enum('titolo','spazio','paragrafo','immagine') not null,
+//	    altezza int not null,
+//	    larghezza int not null,
+//	    contenuto varchar(300),
+//	    capitolo_id int not null references capitolo(id)
+//	);
+
+@Entity
+@Table(name = "contenuto")
+public class Contenuto {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
+	
+	@Column(name= "tipo")
+	@Enumerated(EnumType.STRING)
+	private Tipo tipo;
+	
+	@Column(name = "larghezza")
+	private int larghezza;
+	
+	@Column(name = "contenuto")
+	private String contenuto;
+	
+	@JoinColumn(name = "capitolo_id")
+	@ManyToOne
+	private Capitolo capitolo;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
+
+	public int getLarghezza() {
+		return larghezza;
+	}
+
+	public void setLarghezza(int larghezza) {
+		this.larghezza = larghezza;
+	}
+
+	public String getContenuto() {
+		return contenuto;
+	}
+
+	public void setContenuto(String contenuto) {
+		this.contenuto = contenuto;
+	}
+
+	public Capitolo getCapitolo() {
+		return capitolo;
+	}
+
+	public void setCapitolo(Capitolo capitolo) {
+		this.capitolo = capitolo;
+	}
+	
+	
+}

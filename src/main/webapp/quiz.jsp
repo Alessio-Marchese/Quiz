@@ -1,41 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
     import="it.generationitaly.quizapp.entity.Utente"
+    import="it.generationitaly.quizapp.entity.QuizMultiplo"
     %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Insert title here</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-	<style>
-		a {
-		color: black;
-		}
-		
-		
-	</style>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">	
 	</head>
-	<body id="body">
+	<body>
 		<% Utente utente = (Utente) session.getAttribute("utente"); %>
 		<% if(utente == null) { %>
-			<%@ include file="header-unlogged.jsp" %>
+			<%@ include file="header-logged.jsp" %>
 	    <% } else { %>
 			<%@ include file="header-logged.jsp" %>
 		<% } %>
-		<div id="welcome" class="container-fluid">
+		<div class="container">
 			<div class="row">
-				<div class="col">
-				<h1>CONTENUTO PAGINA</h1>
-				<h1>CONTENUTO PAGINA</h1>
-				<h1>CONTENUTO PAGINA</h1>
-				<h1>CONTENUTO PAGINA</h1>
-				<h1>CONTENUTO PAGINA</h1>
-				<h1>CONTENUTO PAGINA</h1>
-				<h1>CONTENUTO PAGINA</h1>
-				<h1>CONTENUTO PAGINA</h1>
-				<h1>CONTENUTO PAGINA</h1>
-				<h1>CONTENUTO PAGINA</h1>
+				<div class="col-2">
+					
+				</div>
+				<div class="col-6">
+					
 				</div>
 			</div>
 		</div>

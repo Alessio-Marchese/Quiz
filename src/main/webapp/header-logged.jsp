@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
 		  <div class="container-fluid">
@@ -22,18 +22,18 @@
 		        </li>
 		        
 		      </ul>
-		      <ul>
-		      <li class="nav-item dropdown" style="margin-right: 50px;">
-		          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		            Icona utente
-		          </a>
-		          <ul class="dropdown-menu">
-		            <li><a class="dropdown-item" href="#">Gestisci dati</a></li>
-		            <li><a class="dropdown-item" href="#">Logout</a></li>
-		            <li><hr class="dropdown-divider"></li>
-		          </ul>
-		        </li>
-		        </ul>
+		      <p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+    Toggle width collapse
+  </button>
+</p>
+<div style="min-height: 120px;">
+  <div class="collapse collapse-horizontal" id="collapseWidthExample">
+    <div class="card card-body" style="width: 300px;">
+      This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+    </div>
+  </div>
+</div>
 		    </div>
 		  </div>
 		</nav>
