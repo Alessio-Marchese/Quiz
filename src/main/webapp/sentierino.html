@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>La tua Roadmap di Apprendimento Java</title>
+    <link rel="stylesheet" href="style/sentierino.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Argomenti</a>
+        <a href="#" class="nav-link">Contatti</a>
+    </header>
+    <br><br>
+
+    <section class="thematic-block">
+        <h1 class="typewriter">Modulo JAVA</h1>
+        <p class="typewriter">Qui puoi aggiungere descrizioni o informazioni sul blocco tematico affrontato.</p>
+    </section>
+
+    <main class="course-roadmap">
+        <a href="prova.html" class="module-link">
+            <div class="module">Array in Java</div>
+        </a>
+        <a href="link-per-module2.html" class="module-link">
+            <div class="module">Classi e Oggetti</div>
+        </a>
+        <a href="link-per-module3.html" class="module-link">
+            <div class="module">Modificatori di Visibilità</div>
+        </a>
+        <a href="link-per-module4.html" class="module-link">
+            <div class="module">Ereditarietà</div>
+        </a>
+        <a href="link-per-module5.html" class="module-link">
+            <div class="module">Interfacce e Astrazione</div>
+        </a>
+        <a href="link-per-module6.html" class="module-link">
+            <div class="module">Gestione Eccezioni</div>
+        </a>
+        <a href="link-per-module7.html" class="module-link">
+            <div class="module">Stream API</div>
+        </a>
+        <a href="link-per-module8.html" class="module-link">
+            <div class="module">Multithreading</div>
+        </a>
+        <a href="link-per-module9.html" class="module-link">
+            <div class="module">Lambda Expressions</div>
+        </a>
+        <a href="link-per-module10.html" class="module-link">
+            <div class="module">JavaFX Basics</div>
+        </a>
+    </main>
+
+    <a href="paginaPrecedente.html" class="back-button">Indietro</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var typewriters = document.querySelectorAll('.typewriter');
+
+            typewriters.forEach(function (element) {
+                var text = element.innerHTML;
+                var i = 0;
+                element.innerHTML = '';
+                var typingDelay = 50; // Ritardo tra le lettere
+                var nextElementDelay = 500; // Ritardo prima di iniziare il prossimo elemento
+                var delay = element === typewriters[0] ? 0 : nextElementDelay; 
+
+                function typeWriter() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, typingDelay);
+                    }
+                }
+
+                setTimeout(typeWriter, delay);
+            });
+        });
+    </script>
+</body>
+</html>
