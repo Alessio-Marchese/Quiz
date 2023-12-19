@@ -12,7 +12,7 @@ import it.generationitaly.quizapp.entity.QuizMultiplo;
 import it.generationitaly.quizapp.repository.QuizMultiploRepository;
 import it.generationitaly.quizapp.repository.impl.QuizMultiploRepositoryImpl;
 
-
+@WebServlet("/quizmultiplo")
 public class QuizMultiploServlet extends HttpServlet {
 
 	private QuizMultiploRepository quizRepository = new QuizMultiploRepositoryImpl(QuizMultiplo.class);
@@ -34,7 +34,7 @@ public class QuizMultiploServlet extends HttpServlet {
 	        boolean isCorretta = quizRepository.scegliScelta(scelta);
 
 	        //invio la risposta all'utente
-	        response.getWriter().write("Larispostaècorretta? " + isCorretta);
+	        response.getWriter().write("isCorretta?" + isCorretta);
 	    }
 
 }
