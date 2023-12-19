@@ -1,10 +1,14 @@
 package it.generationitaly.quizapp.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /*–
@@ -28,6 +32,9 @@ public class Linguaggio {
 
 	@Column(name = "nome", length = 45, nullable = false)
 	private String nome;
+
+	@OneToMany(mappedBy = "linguaggio")
+	private List<Capitolo> capitoli = new ArrayList<Capitolo>();
 
 	public Linguaggio() {
 		super();

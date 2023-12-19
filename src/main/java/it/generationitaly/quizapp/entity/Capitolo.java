@@ -5,6 +5,7 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`capitolo` (
     FOREIGN KEY (`linguaggio_id`)
     REFERENCES `mydb`.`linguaggio` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION)	
 ENGINE = InnoDB;
  */
 
@@ -40,22 +41,17 @@ public class Capitolo {
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "numero_capitolo", nullable = false)
-	private int numeroCapitolo;
-
-	@Column(name = "argomento", length = 500, nullable = false)
-	private String argomento;
-
 	@ManyToOne
 	@JoinColumn(name = "linguaggio_id", unique = true, nullable = false)
-	private Linguaggio liguaggio;
+	private Linguaggio linguaggio;
 	
-	@OneToMany
-	@JoinColumn(name = "quiz_multiplo_id")
+	@Column(name = "nome", nullable = false, length = 45)
+	private String nome;
+	
+	@OneToMany(mappedBy = "capitolo", fetch = FetchType.EAGER)
     private List<QuizMultiplo> quizMultiplo = new ArrayList<QuizMultiplo>();
     
-	@OneToMany
-	@JoinColumn(name = "quiz_vero_falso_id")
+	@OneToMany(mappedBy = "capitolo", fetch = FetchType.EAGER)
 	private List<QuizVeroFalso> quizVeroFalso = new ArrayList<QuizVeroFalso>();
 	
     
@@ -64,12 +60,11 @@ public class Capitolo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Capitolo(int id, int numeroCapitolo, String argomento, Linguaggio liguaggio) {
+	public Capitolo(int id, String nome, Linguaggio liguaggio) {
 		super();
 		this.id = id;
-		this.numeroCapitolo = numeroCapitolo;
-		this.argomento = argomento;
-		this.liguaggio = liguaggio;
+		this.nome = nome;
+		this.linguaggio = liguaggio;
 	}
 
 	public int getId() {
@@ -79,29 +74,31 @@ public class Capitolo {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	
 
-	public int getNumeroCapitolo() {
-		return numeroCapitolo;
+	public Linguaggio getLinguaggio() {
+		return linguaggio;
 	}
 
-	public void setNumeroCapitolo(int numeroCapitolo) {
-		this.numeroCapitolo = numeroCapitolo;
+	public void setLinguaggio(Linguaggio linguaggio) {
+		this.linguaggio = linguaggio;
 	}
 
-	public String getArgomento() {
-		return argomento;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setArgomento(String argomento) {
-		this.argomento = argomento;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Linguaggio getLiguaggio() {
-		return liguaggio;
+		return linguaggio;
 	}
 
 	public void setLiguaggio(Linguaggio liguaggio) {
-		this.liguaggio = liguaggio;
+		this.linguaggio = liguaggio;
 	}
 	
 
@@ -121,10 +118,6 @@ public class Capitolo {
 		this.quizVeroFalso = quizVeroFalso;
 	}
 
-	@Override
-	public String toString() {
-		return "Capitolo [id=" + id + ", numeroCapitolo=" + numeroCapitolo + ", argomento=" + argomento + ", liguaggio="
-				+ liguaggio + "]";
-	}
+
 
 }
