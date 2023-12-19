@@ -1,7 +1,17 @@
 insert into utente values('1','root','admin','email1','nome1','cognome1','2000-10-10',NULL,NULL);
 
 insert into linguaggio values('1','Java');
+insert into linguaggio values('2','MySQL');
+insert into linguaggio values('3','HTML');
+insert into linguaggio values('4','CSS');
+insert into linguaggio values('5','JavaScript');
+insert into linguaggio values('6','Spring');
 insert into capitolo values('1','1','Array');
+insert into capitolo values('2','2','Query');
+insert into capitolo values('3','3','Introduzione');
+insert into capitolo values('4','4','Introduzione');
+insert into capitolo values('5','5','Introduzione');
+insert into capitolo values('6','6','Introduzione');
 select * from capitolo;
 
 
