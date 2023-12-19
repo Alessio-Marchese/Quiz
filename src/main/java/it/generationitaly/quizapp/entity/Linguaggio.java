@@ -5,6 +5,7 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -33,7 +34,7 @@ public class Linguaggio {
 	@Column(name = "nome", length = 45, nullable = false)
 	private String nome;
 
-	@OneToMany(mappedBy = "linguaggio")
+	@OneToMany(mappedBy = "linguaggio", fetch = FetchType.EAGER)
 	private List<Capitolo> capitoli = new ArrayList<Capitolo>();
 
 	public Linguaggio() {
@@ -63,9 +64,14 @@ public class Linguaggio {
 		this.nome = nome;
 	}
 
-	@Override
-	public String toString() {
-		return "Linguaggio [id=" + id + ", nome=" + nome + "]";
+	public List<Capitolo> getCapitoli() {
+		return capitoli;
 	}
+
+	public void setCapitoli(List<Capitolo> capitoli) {
+		this.capitoli = capitoli;
+	}
+
+
 
 }

@@ -18,7 +18,7 @@ import it.generationitaly.quizapp.repository.impl.UtenteRepositoryImpl;
 @WebServlet("/saveIndirizzo")
 public class SaveIndirizzoServlet extends HttpServlet {
 	
-	private UtenteRepository utenteRepository = new UtenteRepositoryImpl(getClass());
+	private UtenteRepository utenteRepository = new UtenteRepositoryImpl();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

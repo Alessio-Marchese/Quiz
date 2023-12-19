@@ -11,8 +11,8 @@ import jakarta.persistence.TypedQuery;
 
 public class LinguaggioRepositoryImpl extends JpaRepositoryImpl<Linguaggio,Integer> implements LinguaggioRepository {
 
-	public LinguaggioRepositoryImpl(Class<Linguaggio> clazz) {
-		super(clazz);
+	public LinguaggioRepositoryImpl() {
+		super(Linguaggio.class);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -38,7 +38,7 @@ public class LinguaggioRepositoryImpl extends JpaRepositoryImpl<Linguaggio,Integ
 			if (em != null)
 				em.close();
 		}
-		return null;
+		return linguaggio;
 	}
 
 }

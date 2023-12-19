@@ -20,7 +20,7 @@ public class UpdateUtenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	// Creo un oggetto utenteRepository
-	private UtenteRepository utenteRepository = new UtenteRepositoryImpl(getClass());
+	private UtenteRepository utenteRepository = new UtenteRepositoryImpl();
 
 	// dichiaro la variabile id che mi servirà nei due metodi DoGet e DoPost
 	int id;

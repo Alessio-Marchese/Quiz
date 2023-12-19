@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,36 +30,45 @@ import java.util.Random;
 @WebServlet("/quizmultiplo")
 public class QuizMultiploServlet extends HttpServlet {
 	
-	private static List<Object> quiz = null;
-	private static List<Object> risposteGiuste = new ArrayList<Object>();
-	private static List<Object> risposteSbagliate = new ArrayList<Object>();
+	
+	
 	
 	private CapitoloRepository capitoloRepo = new CapitoloRepositoryImpl();
-	private QuizVeroFalsoRepository quizVFRepo = new QuizVeroFalsoRepositoryImpl(QuizVeroFalso.class);
-	private QuizMultiploRepository quizMultiploRepo = new QuizMultiploRepositoryImpl(QuizMultiplo.class);
+	private QuizVeroFalsoRepository quizVFRepo = new QuizVeroFalsoRepositoryImpl();
+	private QuizMultiploRepository quizMultiploRepo = new QuizMultiploRepositoryImpl();
+	private LinguaggioRepository linguaggioRepo = new LinguaggioRepositoryImpl();
 	
 	 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 	
 		
-		 		int idCapitolo = 1;
+		 		int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
 		 		Capitolo capitolo = capitoloRepo.findById(idCapitolo);
 		 		System.out.println(capitolo.getId());
 			 	List<QuizMultiplo> quizMultipli = capitolo.getQuizMultiplo();
 			 	List<QuizVeroFalso> quizVF = capitolo.getQuizVeroFalso();
-			 	quiz = new ArrayList<Object>();
+			    List<Object> quiz = new ArrayList<Object>();
+			    List<Object> risposteGiuste = new ArrayList<Object>();
+				List<Object> risposteSbagliate = new ArrayList<Object>();
+			 	request.getSession().setAttribute("quiz", quiz);
+			 	request.getSession().setAttribute("risposteGiuste", risposteGiuste);
+			 	request.getSession().setAttribute("risposteSbagliate", risposteSbagliate);
 			 	quiz.addAll(quizMultipli);
 			 	quiz.addAll(quizVF);
 			 	Random random = new Random();
 			 	int random1 = random.nextInt(quiz.size());
 			 	Object object = quiz.get(random1);
 			 	request.setAttribute("quiz", object);
+			 	request.setAttribute("linguaggi", linguaggioRepo.findAll());
 			 	RequestDispatcher requestDispatcher = request.getRequestDispatcher("quiz.jsp");
 			 	requestDispatcher.forward(request, response);
 			 	
 	    }
 
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	        if(request.getParameter("VF")!= null) {
+	    	List<Object> quiz = (List<Object>) request.getSession().getAttribute("quiz");
+	    	List<Object> risposteGiuste = (List<Object>) request.getSession().getAttribute("risposteGiuste");
+	    	List<Object> risposteSbagliate = (List<Object>) request.getSession().getAttribute("risposteSbagliate");
+	        if(request.getParameter("idVF")!= null) {
 	        	int id = Integer.parseInt(request.getParameter("idVF"));
 	        	QuizVeroFalso vf = quizVFRepo.findById(id);
 	        	String risposta = request.getParameter("verofalso");
@@ -113,12 +124,14 @@ public class QuizMultiploServlet extends HttpServlet {
 	        		 int random1 = random.nextInt(quiz.size());
 	 			 	Object object = quiz.get(random1);
 	 			 	request.setAttribute("quiz", object);
+	 			 	request.setAttribute("linguaggi", linguaggioRepo.findAll());
 	 			 	RequestDispatcher requestDispatcher = request.getRequestDispatcher("quiz.jsp");
 	 			 	requestDispatcher.forward(request, response);
 	        	} else {
 	        		request.setAttribute("risposteGiuste", risposteGiuste);
 		        	request.setAttribute("risposteSbagliate", risposteSbagliate);
-		        	request.getRequestDispatcher("mostrarisultati.jsp").forward(request, response);
+		        	int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
+		        	request.getRequestDispatcher("mostrarisultati.jsp?idCapitolo="+idCapitolo).forward(request, response);
 	        	}
 		       
 	        

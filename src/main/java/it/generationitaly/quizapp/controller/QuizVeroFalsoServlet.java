@@ -18,7 +18,7 @@ import it.generationitaly.quizapp.repository.impl.QuizVeroFalsoRepositoryImpl;
 @WebServlet("/quizVeroFalso")
 public class QuizVeroFalsoServlet extends HttpServlet {
 
-	private QuizVeroFalsoRepository quizVeroFalsoRepository = new QuizVeroFalsoRepositoryImpl(QuizVeroFalso.class);
+	private QuizVeroFalsoRepository quizVeroFalsoRepository = new QuizVeroFalsoRepositoryImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

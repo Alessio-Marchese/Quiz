@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"
-	import="it.generationitaly.quizapp.entity.Utente"%>
+	import="it.generationitaly.quizapp.entity.Utente"
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +13,12 @@
 	rel="stylesheet"
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
+	<link rel="stylesheet" href="style/footer-style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body id="body">
 	<%
 	Utente utente = (Utente) session.getAttribute("utente");
-	%>
-	<%
 	if (utente == null) {
 	%>
 	<%@ include file="header-unlogged.jsp"%>
@@ -28,10 +29,12 @@
 	<%
 	}
 	%>
+	<div id="pagina">
 <div class="hero">
   <h1>Benvenuto su *nome*!</h1>
   <p>Segui le nostre lezioni teoriche e affronta i quiz.</p>
   <a href="register.jsp" class="btn-primary">REGISTRATI</a>
+</div>
 </div>
 	<%@ include file="footer.jsp"%>
 	<script

@@ -11,8 +11,8 @@ public class QuizMultiploRepositoryImpl extends JpaRepositoryImpl<QuizMultiplo, 
 
 	private List<QuizMultiplo> quizList = new ArrayList<>();
 	
-	public QuizMultiploRepositoryImpl(Class<QuizMultiplo> clazz) {
-		super(clazz);
+	public QuizMultiploRepositoryImpl() {
+		super(QuizMultiplo.class);
 	}
 	
 	@Override

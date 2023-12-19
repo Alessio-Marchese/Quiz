@@ -5,8 +5,8 @@ import it.generationitaly.quizapp.repository.QuizVeroFalsoRepository;
 
 public class QuizVeroFalsoRepositoryImpl extends JpaRepositoryImpl<QuizVeroFalso, Integer> implements QuizVeroFalsoRepository{
 
-	public QuizVeroFalsoRepositoryImpl(Class clazz) {
-		super(clazz);
+	public QuizVeroFalsoRepositoryImpl() {
+		super(QuizVeroFalso.class);
 	}
 
 }

@@ -11,8 +11,8 @@ import jakarta.persistence.TypedQuery;
 
 public class UtenteRepositoryImpl extends JpaRepositoryImpl<Utente,Integer> implements UtenteRepository{
 
-	public UtenteRepositoryImpl(Class clazz) {
-		super(clazz);
+	public UtenteRepositoryImpl() {
+		super(Utente.class);
 		// TODO Auto-generated constructor stub
 	}
 

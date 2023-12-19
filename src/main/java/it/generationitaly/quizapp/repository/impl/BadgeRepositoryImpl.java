@@ -5,8 +5,8 @@ import it.generationitaly.quizapp.repository.BadgeRepository;
 
 public class BadgeRepositoryImpl extends JpaRepositoryImpl<Badge, Integer> implements BadgeRepository{
 
-	public BadgeRepositoryImpl(Class<Badge> clazz) {
-		super(clazz);
+	public BadgeRepositoryImpl() {
+		super(Badge.class);
 	}
 	
 }

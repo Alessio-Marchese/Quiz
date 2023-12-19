@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"
+    import="it.generationitaly.quizapp.entity.Linguaggio"
+	import="java.util.List"
+	import="it.generationitaly.quizapp.entity.Capitolo"
+    %>
     
-
+	<% List<Linguaggio> linguaggi = (List<Linguaggio>) request.getAttribute("linguaggi"); %>
     
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
 		  <div class="container-fluid">
-		    <a class="navbar-brand" href="#">IMGLogo</a>
+		    <a class="navbar-brand" href="welcome">IMGLogo</a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
@@ -28,19 +32,17 @@
   			<div class="row justify-content-center mt-3" style="width: 100%; height: 100%;">
   			<div class="col-1"></div>
   			<div class="col-2 mt-1 mb-1" style="border: 3px solid black; border-radius: 10px; background-color: grey;">
-     				 <h1>Java</h1>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				<br><br>					
-     				 <h1>MySQL</h1>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
+     				 <% for(Linguaggio linguaggio : linguaggi) { %>
+     				 <%		if(!linguaggio.getNome().equals("Java") && !linguaggio.getNome().equals("MySQL")) {
+     				 		continue;
+     				 }
+     				 %>
+     				 	<% out.print("ho trovato il linguaggio"); %>
+     				 	<h1><%=linguaggio.getNome() %></h1>
+     				 	<% for(Capitolo capitolo : linguaggio.getCapitoli()) { %>
+     				 	<div><%= capitolo.getNome() %> <a href="#">Teoria</a> <a href="quizmultiplo?idCapitolo=<%= capitolo.getId()%>">Quiz</a> <a href="#">Flashcards</a></div>
+     				 	<% } %>
+     				 <% } %>
     			</div>
     			<div class="col-1"></div>
     			<div class="col-2 mt-1 mb-1" style="border: 3px solid black; border-radius: 10px; background-color: grey;">
@@ -82,15 +84,15 @@
     	
     	function mostraTendinaLinguaggi(event) {
     		var elRow = document.getElementById("row");
-    		var elWelcome = document.getElementById("welcome");
+    		var elPagina = document.getElementById("pagina");
     		var elBody = document.getElementById("body");
     		if(elRow.style.display === "none") {
-    			elWelcome.style.display = 'none';
+    			elPagina.style.display = 'none';
         		elRow.style.display = 'flex';
         		elBody.style.backgroundColor = "grey";
     		} else {
     			elBody.style.backgroundColor = "white";
-    			elWelcome.style.display = 'block';
+    			elPagina.style.display = 'block';
     			elRow.style.display = 'none';
     		}
     		
