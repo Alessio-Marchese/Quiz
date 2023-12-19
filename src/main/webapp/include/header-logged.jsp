@@ -18,7 +18,7 @@
 		        <li class="nav-item">
 		          <button id="linguaggi" class="btn btn-outline-primary">Linguaggi</button>
 		        </li>
-		        <li class="nav-item">
+		        <li class="nav-item ml-3">
 		          <button id="forum" class="btn btn-outline-primary">Forum</button>
 		        </li>
 		      </ul>
@@ -29,8 +29,7 @@
 		          </a>
 		          <form id="myForm" action="" method="post">
 		          <ul class="dropdown-menu">
-		            <li><a class="dropdown-item">Profilo</a></li>
-		            <li><a class="dropdown-item"></a></li>
+		            <li><a class="dropdown-item" data-value="profilo">Profilo</a></li>
 		            <li><a class="dropdown-item" data-value="logout" >Logout</a></li>
 		       	  </ul>
 		          </form>
@@ -40,52 +39,52 @@
 		  </div>
 		</nav>
 		
-		 <div id="row" class="container-fluid" style="display: none; height: 85vh; width: 100vw; box-sizing: border-box; font-size: 14px; color: white;">
-  			<div class="row justify-content-center mt-3" style="width: 100%; height: 100%;">
+		 <div id="row" class="container-fluid" style="display: none; height: 90vh; width: 90vw; box-sizing: border-box; font-size: 14px; color: white;">
+  			<div class="row justify-content-center mt-1 mb-3" style="width: 100%; height: 100%;">
   			<div class="col-1"></div>
-  			<div class="col-2 mt-1 mb-1" style="border: 3px solid black; border-radius: 10px; background-color: grey;">
+  			<div class="col-3 mt-1 mb-3">
      				 <% for(Linguaggio linguaggio : linguaggi) { %>
      				 <%		if(!linguaggio.getNome().equals("Java") && !linguaggio.getNome().equals("MySQL")) {
      				 		continue;
      				 }
      				 %>
+     				 <div style="height: 50%; margin: 5px; border: 3px solid black; border-radius: 10px; background-color: grey;">
      				 	<h1><%=linguaggio.getNome() %></h1>
      				 	<% for(Capitolo capitolo : linguaggio.getCapitoli()) { %>
-     				 	<div><%= capitolo.getNome() %> <a href="#">Teoria</a> <a href="quizmultiplo?idCapitolo=<%= capitolo.getId()%>">Quiz</a> <a href="#">Flashcards</a></div>
+     				 	<div><%= capitolo.getNome() %> <a href="#">Teoria</a> <a href="quiz?idCapitolo=<%= capitolo.getId()%>">Quiz</a> <a href="#">Flashcards</a></div>
+     				 </div>
      				 	<% } %>
      				 <% } %>
     			</div>
-    			<div class="col-1"></div>
-    			<div class="col-2 mt-1 mb-1" style="border: 3px solid black; border-radius: 10px; background-color: grey;">
-      				 <h1>CSS</h1>
-      				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <br><br>
-     				 <h1>Python</h1>
-      				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
+    			
+    			<div class="col-3 mt-1 mb-3">
+      				 <% for(Linguaggio linguaggio : linguaggi) { %>
+     				 <%		if(!linguaggio.getNome().equals("HTML") && !linguaggio.getNome().equals("CSS")) {
+     				 		continue;
+     				 }
+     				 %>
+     				 <div style="height: 50%; margin: 5px; border: 3px solid black; border-radius: 10px; background-color: grey;">
+     				 	<h1><%=linguaggio.getNome() %></h1>
+     				 	<% for(Capitolo capitolo : linguaggio.getCapitoli()) { %>
+     				 	<div><%= capitolo.getNome() %> <a href="#">Teoria</a> <a href="quiz?idCapitolo=<%= capitolo.getId()%>">Quiz</a> <a href="#">Flashcards</a></div>
+     				 </div>
+     				 	<% } %>
+     				 <% } %>
     			</div>
-    			<div class="col-1"></div>
-    			<div class="col-2 mt-1 mb-1" style="border: 3px solid black; border-radius: 10px; background-color: grey;">
-    				<h1>JavaScript</h1>
-      				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <br><br>
-     				 <h1>C++</h1>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
-     				 <div>Capitolo n <a href="#">Teoria</a> <a href="#">Quiz</a> <a href="#">Flashcards</a></div>
+    			
+    			<div class="col-3 mt-1 mb-3">
+    				<% for(Linguaggio linguaggio : linguaggi) { %>
+     				 <%		if(!linguaggio.getNome().equals("JavaScript") && !linguaggio.getNome().equals("Spring")) {
+     				 		continue;
+     				 }
+     				 %>
+     				 <div style="height: 50%; margin: 5px; border: 3px solid black; border-radius: 10px; background-color: grey;">
+     				 	<h1><%=linguaggio.getNome() %></h1>
+     				 	<% for(Capitolo capitolo : linguaggio.getCapitoli()) { %>
+     				 	<div><%= capitolo.getNome() %> <a href="#">Teoria</a> <a href="quiz?idCapitolo=<%= capitolo.getId()%>">Quiz</a> <a href="#">Flashcards</a></div>
+     				 </div>
+     				 	<% } %>
+     				 <% } %>
 				</div>
 				<div class="col-1"></div>
   					</div>

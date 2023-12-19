@@ -19,12 +19,12 @@
 <body id="body">
 <% Utente utente = (Utente) session.getAttribute("utente"); %>
 		<% if(utente == null) { %>
-			<%@ include file="header-unlogged.jsp" %>
+			<%@ include file="include/header-unlogged.jsp" %>
 	    <% } else { %>
-			<%@ include file="header-logged.jsp" %>
+			<%@ include file="include/header-logged.jsp" %>
 		<% } %>
 <div id="pagina">
-<h1>Il tuo profilo</h1>
+<h1>Benvenuto <%=utente.getNome() %></h1>
 <div class="div-1">
 <div class="container emp-profile">
             <form method="post">
@@ -41,7 +41,7 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        GetNome GetCognome
+                                        <%=utente.getNome() %> <%=utente.getCognome() %>
                                     </h5>
                                     <p class="proile-rating">BADGE<span>0/3</span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -69,7 +69,7 @@
                                                 <label>User</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>GetUser</p>
+                                                <p><%= utente.getUsername() %></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -77,7 +77,7 @@
                                                 <label>Nome</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>GetNome</p>
+                                                <p><%= utente.getNome() %></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -85,7 +85,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>GetEmail</p>
+                                                <p><%= utente.getEmail() %></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -93,7 +93,13 @@
                                                 <label>Telefono</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>GetTelefono</p>
+                                                <p>
+                                                <% if(utente.getNumeroTelefono() == null) { %>
+                                                	<button class="btn btn-primary">Aggiungi</button>
+                                                <% } else {%>
+                                                <%= utente.getNumeroTelefono() %>
+                                                <% } %>
+                                                </p>
                                             </div>
                                         </div>
                             </div>
@@ -269,8 +275,8 @@
     </ul>
   </div>
 </div>
+<%@ include file="include/footer.jsp" %>
 </div>
-<%@ include file="footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
