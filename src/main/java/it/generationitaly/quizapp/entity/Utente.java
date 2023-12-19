@@ -67,10 +67,10 @@ public class Utente {
 	@Temporal(TemporalType.DATE)
 	private Date dataNascita;
 	
-	@Column(name = "numero_telefono", nullable = false)
-	private int numeroTelefono;
+	@Column(name = "numero_telefono", nullable = true)
+	private Integer numeroTelefono;
 	
-	@OneToOne(cascade = {  CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToOne(cascade = {  CascadeType.MERGE, CascadeType.REMOVE})
 	@JoinColumn(name = "indirizzo_id", unique = true, nullable = true)
 	private Indirizzo indirizzo;
 

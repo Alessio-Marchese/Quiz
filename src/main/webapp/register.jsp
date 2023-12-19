@@ -9,7 +9,7 @@
 	<body>
 	<div class="login-box">
 	  <h2>Register</h2>
-	  <form id="myForm" action="register-2.jsp" method="post">
+	  <form id="myForm" action="saveUtente" method="post">
 	  	<div id="meta1">
 		    <div class="user-box">
 		      <input id="username" type="text" name="username">

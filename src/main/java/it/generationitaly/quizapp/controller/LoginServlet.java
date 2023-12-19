@@ -27,11 +27,11 @@ public class LoginServlet extends HttpServlet {
 
 		Utente utente = utenteRepository.findByUsername(username);
 
-		if (utente != null && utente.getPassword() == password) {
-
+		if (utente != null && utente.getPassword().equals(password)) {
+			System.out.println("sono nell'if");
 			HttpSession session = request.getSession();
 			session.setAttribute("utente", utente);
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("profile-page.jsp");
 			requestDispatcher.forward(request, response);
 
 		} else {

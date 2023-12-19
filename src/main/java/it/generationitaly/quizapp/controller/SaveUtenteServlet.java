@@ -30,7 +30,6 @@ public class SaveUtenteServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		int numeroTelefono = Integer.parseInt(request.getParameter("numeroTelefono"));
 
 		// Verifica che le due password coincidano
 		if (!password.equals(confirmPassword)) {
@@ -60,13 +59,12 @@ public class SaveUtenteServlet extends HttpServlet {
 		if (dataNascita != null) {
 			utente.setDataNascita(dataNascita);
 		}
-		utente.setNumeroTelefono(numeroTelefono);
 		
 		//Salvare nuovo utente nel database
 		utenteRepository.save(utente);
 		
 		//reinidirzza l'utente sulla welcome page
-		response.sendRedirect("welcomeQuizApp.jsp");
+		response.sendRedirect("profile-page.jsp");
 	}
 
 }
