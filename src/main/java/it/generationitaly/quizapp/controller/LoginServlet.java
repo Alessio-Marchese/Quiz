@@ -10,25 +10,18 @@ import jakarta.servlet.RequestDispatcher;
 
 import java.io.IOException;
 
-import java.util.List;
-
-import it.generationitaly.quizapp.entity.Linguaggio;
 import it.generationitaly.quizapp.entity.Utente;
-import it.generationitaly.quizapp.repository.LinguaggioRepository;
 import it.generationitaly.quizapp.repository.UtenteRepository;
-import it.generationitaly.quizapp.repository.impl.LinguaggioRepositoryImpl;
 import it.generationitaly.quizapp.repository.impl.UtenteRepositoryImpl;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
 	private UtenteRepository utenteRepository = new UtenteRepositoryImpl();
-	private LinguaggioRepository linguaggioRepo = new LinguaggioRepositoryImpl();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		List<Linguaggio> linguaggi = linguaggioRepo.findAll();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
@@ -36,9 +29,8 @@ public class LoginServlet extends HttpServlet {
 
 		if (utente != null && utente.getPassword().equals(password)) {
 			HttpSession session = request.getSession();
-			request.setAttribute("linguaggi", linguaggi);
 			session.setAttribute("utente", utente);
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("profile-page.jsp");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("profilo");
 			requestDispatcher.forward(request, response);
 
 		} else {

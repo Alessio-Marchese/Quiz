@@ -161,13 +161,13 @@ public class Utente {
 
 
 
-	public int getNumeroTelefono() {
+	public Integer getNumeroTelefono() {
 		return numeroTelefono;
 	}
 
 
 
-	public void setNumeroTelefono(int numeroTelefono) {
+	public void setNumeroTelefono(Integer numeroTelefono) {
 		this.numeroTelefono = numeroTelefono;
 	}
 

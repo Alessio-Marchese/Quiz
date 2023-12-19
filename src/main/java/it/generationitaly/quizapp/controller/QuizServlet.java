@@ -27,8 +27,8 @@ import it.generationitaly.quizapp.repository.impl.QuizVeroFalsoRepositoryImpl;
 
 import java.util.Random;
 
-@WebServlet("/quizmultiplo")
-public class QuizMultiploServlet extends HttpServlet {
+@WebServlet("/quiz")
+public class QuizServlet extends HttpServlet {
 	
 	
 	

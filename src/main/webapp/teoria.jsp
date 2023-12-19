@@ -12,9 +12,9 @@
 	<body>
 		<% Utente utente = (Utente) session.getAttribute("utente"); %>
 		<% if(utente == null) { %>
-			<%@ include file="header-unlogged.jsp" %>
+			<%@ include file="include/header-unlogged.jsp" %>
 	    <% } else { %>
-			<%@ include file="header-logged.jsp" %>
+			<%@ include file="include/header-logged.jsp" %>
 		<% } %>
 		<div class="container">
 			<div class="row">
@@ -22,7 +22,7 @@
 				
 				</div>
 				<div class="col-6">
-				
+					
 				</div>
 			</div>
 		</div>

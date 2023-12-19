@@ -30,9 +30,9 @@
 		}
 		Utente utente = (Utente) session.getAttribute("utente"); %>
 		<% if(utente == null) { %>
-			<%@ include file="header-logged.jsp" %>
+			<%@ include file="include/header-logged.jsp" %>
 	    <% } else { %>
-			<%@ include file="header-logged.jsp" %>
+			<%@ include file="include/header-logged.jsp" %>
 		<% } %>
 		<div id="pagina">
 		<div class="container">
@@ -44,7 +44,7 @@
 					<% if(quizVF != null) { %>
 					<h1>Domanda Vero Falso</h1>
 					<p><%= quizVF.getDomanda() %></p>
-					<form action="quizmultiplo" method="post">
+					<form action="quiz" method="post">
 						<input type="hidden" name="idCapitolo" value="<%=quizVF.getCapitolo().getId()%>">
 						<input type="hidden" name="idVF" value="<%= quizVF.getId()%>">
 						<label>
@@ -75,7 +75,7 @@
 						%>
 						<h1>Domanda a risposta multipla</h1>
 						<p><%= quizMultiplo.getDomanda() %></p>
-						<form action="quizmultiplo" method="post">
+						<form action="quiz" method="post">
 							<input type="hidden" name="idCapitolo" value="<%=quizMultiplo.getCapitolo().getId()%>">
 							<input type="hidden" name="idQM" value="<%=quizMultiplo.getId()%>">
 							<label>
@@ -93,7 +93,7 @@
 				</div>
 			</div>
 		</div>
-		<%@ include file="footer.jsp" %>
+		<%@ include file="include/footer.jsp" %>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 	</body>
