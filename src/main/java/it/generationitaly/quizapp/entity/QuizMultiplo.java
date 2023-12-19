@@ -52,32 +52,32 @@ public class QuizMultiplo {
 	private String errore2;
 	
 	@ManyToOne
-	@JoinColumn(name = "linguaggio_id", unique = true, nullable = false)
-	private Linguaggio liguaggio;
+	@JoinColumn(name = "capitolo_id", unique = true, nullable = false)
+	private Capitolo capitolo;
 
 	public QuizMultiplo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public QuizMultiplo(int id, String domanda, String corretta, String errore1, String errore2, Linguaggio liguaggio) {
+	public QuizMultiplo(int id, String domanda, String corretta, String errore1, String errore2, Capitolo capitolo) {
 		super();
 		this.id = id;
 		this.domanda = domanda;
 		this.corretta = corretta;
 		this.errore1 = errore1;
 		this.errore2 = errore2;
-		this.liguaggio = liguaggio;
+		this.capitolo = capitolo;
 	}
 	
 	
-	public QuizMultiplo(String domanda, String corretta, String errore1, String errore2, Linguaggio liguaggio) {
+	public QuizMultiplo(String domanda, String corretta, String errore1, String errore2, Capitolo capitolo) {
 		super();
 		this.domanda = domanda;
 		this.corretta = corretta;
 		this.errore1 = errore1;
 		this.errore2 = errore2;
-		this.liguaggio = liguaggio;
+		this.capitolo = capitolo;
 	}
 	
 
@@ -121,18 +121,20 @@ public class QuizMultiplo {
 		this.errore2 = errore2;
 	}
 
-	public Linguaggio getLiguaggio() {
-		return liguaggio;
+	
+
+	public Capitolo getCapitolo() {
+		return capitolo;
 	}
 
-	public void setLiguaggio(Linguaggio liguaggio) {
-		this.liguaggio = liguaggio;
+	public void setCapitolo(Capitolo capitolo) {
+		this.capitolo = capitolo;
 	}
 
 	@Override
 	public String toString() {
 		return "QuizMultiplo [id=" + id + ", domanda=" + domanda + ", corretta=" + corretta + ", errore1=" + errore1
-				+ ", errore2=" + errore2 + ", liguaggio=" + liguaggio + "]";
+				+ ", errore2=" + errore2 + ", capitolo=" + capitolo + "]";
 	}
 	
 	

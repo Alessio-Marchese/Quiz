@@ -43,20 +43,20 @@ public class QuizVeroFalso {
 	private boolean bool;
 
 	@ManyToOne
-	@JoinColumn(name = "linguaggio_id", unique = true, nullable = false)
-	private Linguaggio liguaggio;
+	@JoinColumn(name = "capitolo_id", unique = true, nullable = false)
+	private Capitolo capitolo;
 
 	public QuizVeroFalso() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public QuizVeroFalso(int id, String domanda, boolean bool, Linguaggio liguaggio) {
+	public QuizVeroFalso(int id, String domanda, boolean bool, Capitolo capitolo) {
 		super();
 		this.id = id;
 		this.domanda = domanda;
 		this.bool = bool;
-		this.liguaggio = liguaggio;
+		this.capitolo = capitolo;
 	}
 
 	public int getId() {
@@ -83,17 +83,19 @@ public class QuizVeroFalso {
 		this.bool = bool;
 	}
 
-	public Linguaggio getLiguaggio() {
-		return liguaggio;
+	
+
+	public Capitolo getCapitolo() {
+		return capitolo;
 	}
 
-	public void setLiguaggio(Linguaggio liguaggio) {
-		this.liguaggio = liguaggio;
+	public void setCapitolo(Capitolo capitolo) {
+		this.capitolo = capitolo;
 	}
 
 	@Override
 	public String toString() {
-		return "QuizVeroFalso [id=" + id + ", domanda=" + domanda + ", bool=" + bool + ", liguaggio=" + liguaggio + "]";
+		return "QuizVeroFalso [id=" + id + ", domanda=" + domanda + ", bool=" + bool + ", capitolo=" + capitolo + "]";
 	}
 
 }

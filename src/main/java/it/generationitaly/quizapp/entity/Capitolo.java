@@ -1,5 +1,8 @@
 package it.generationitaly.quizapp.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /*-
@@ -45,7 +49,16 @@ public class Capitolo {
 	@ManyToOne
 	@JoinColumn(name = "linguaggio_id", unique = true, nullable = false)
 	private Linguaggio liguaggio;
-
+	
+	@OneToMany
+	@JoinColumn(name = "quiz_multiplo_id")
+    private List<QuizMultiplo> quizMultiplo = new ArrayList<QuizMultiplo>();
+    
+	@OneToMany
+	@JoinColumn(name = "quiz_vero_falso_id")
+	private List<QuizVeroFalso> quizVeroFalso = new ArrayList<QuizVeroFalso>();
+	
+    
 	public Capitolo() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -89,6 +102,23 @@ public class Capitolo {
 
 	public void setLiguaggio(Linguaggio liguaggio) {
 		this.liguaggio = liguaggio;
+	}
+	
+
+	public List<QuizMultiplo> getQuizMultiplo() {
+		return quizMultiplo;
+	}
+
+	public void setQuizMultiplo(List<QuizMultiplo> quizMultiplo) {
+		this.quizMultiplo = quizMultiplo;
+	}
+
+	public List<QuizVeroFalso> getQuizVeroFalso() {
+		return quizVeroFalso;
+	}
+
+	public void setQuizVeroFalso(List<QuizVeroFalso> quizVeroFalso) {
+		this.quizVeroFalso = quizVeroFalso;
 	}
 
 	@Override
