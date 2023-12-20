@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+.section {
+	background-color: #24262b;
+	height: 500px;
+	background-size: cover;
+	display: display;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: #fff;
+	padding: 0 20px;
+}
+
+.section h1 {
+	font-size: 3rem;
+	margin-bottom: 20px;
+}
+
+.section p {
+	font-size: 1.5rem;
+	margin-bottom: 30px;
+}
+
+.btn-primary {
+	background-color: #fff;
+	color: #333;
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-decoration: none;
+	font-weight: bold;
+	transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+	background-color: #333;
+	color: #fff;
+}
+
+.section2 {
+	background-color: #969696;
+	height: 500px;
+	background-size: cover;
+	display: display;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	padding: 0 400px;
+}
+
+.section2 h1 {
+	font-size: 5rem;
+	margin-bottom: 10px;
+}
+
+.section2 p {
+	font-size: 1.5rem;
+	margin-bottom: 30px;
+}
+
+.section3 {
+	background-color: #F0F7F4;
+	height: 500px;
+	background-size: cover;
+	display: display;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	padding: 0 400px;
+}
+
+.section3 h1 {
+	font-size: 5rem;
+	margin-bottom: 10px;
+}
+
+.section3 p {
+	font-size: 1.5rem;
+	margin-bottom: 30px;
+}
+
+.section4 {
+	background-color: #FFFFFF;
+	height: 500px;
+	background-size: cover;
+	display: display;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	padding: 0 400px;
+}
+
+.section4 h1 {
+	font-size: 5rem;
+	margin-bottom: 10px;
+}
+
+.section4 p {
+	font-size: 1.5rem;
+	margin-bottom: 30px;
+}
+
+.section5 {
+	background-color: #24262b;
+	height: 500px;
+	background-size: cover;
+	display: display;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: #FFFFFF;
+	padding: 0 400px;
+}
+
+.section5 h1 {
+	font-size: 5rem;
+	margin-bottom: 10px;
+}
+
+.section5 p {
+	font-size: 1.5rem;
+	margin-bottom: 30px;
+}
+
+.img_left {
+	float: left;
+	border: solid #fff;
+}
+
+.img_right {
+	float: right;
+	border: solid #969696;
+}
+
+.div-teoria {
+	background-color: #ffffff;
+	height: auto;
+	display: display;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: left;
+	color: rgb(0,0,0);
+	padding: 0 400px;
+}
+

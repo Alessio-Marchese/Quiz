@@ -13,18 +13,16 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<link rel="stylesheet" href="style/footer-style.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body id="body">
 <% Utente utente = (Utente) session.getAttribute("utente"); %>
 		<% if(utente == null) { %>
-			<%@ include file="include/header-unlogged.jsp" %>
+			<%@ include file="header-unlogged.jsp" %>
 	    <% } else { %>
-			<%@ include file="include/header-logged.jsp" %>
+			<%@ include file="header-logged.jsp" %>
 		<% } %>
-<div id="pagina">
-<h1>Benvenuto <%=utente.getNome() %></h1>
+<div id="welcome">
+<h1>Il tuo profilo</h1>
 <div class="div-1">
 <div class="container emp-profile">
             <form method="post">
@@ -41,7 +39,7 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        <%=utente.getNome() %> <%=utente.getCognome() %>
+                                        GetNome GetCognome
                                     </h5>
                                     <p class="proile-rating">BADGE<span>0/3</span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -69,7 +67,7 @@
                                                 <label>User</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%= utente.getUsername() %></p>
+                                                <p>GetUser</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -77,7 +75,7 @@
                                                 <label>Nome</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%= utente.getNome() %></p>
+                                                <p>GetNome</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -85,7 +83,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%= utente.getEmail() %></p>
+                                                <p>GetEmail</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -93,13 +91,7 @@
                                                 <label>Telefono</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>
-                                                <% if(utente.getNumeroTelefono() == null) { %>
-                                                	<button class="btn btn-primary">Aggiungi</button>
-                                                <% } else {%>
-                                                <%= utente.getNumeroTelefono() %>
-                                                <% } %>
-                                                </p>
+                                                <p>GetTelefono</p>
                                             </div>
                                         </div>
                             </div>
@@ -275,8 +267,8 @@
     </ul>
   </div>
 </div>
-<%@ include file="include/footer.jsp" %>
 </div>
+<%@ include file="footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

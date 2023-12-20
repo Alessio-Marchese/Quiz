@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Register</title>
-	<link href="style/login-style.css" rel="stylesheet" type="text/css">
+	<link href="style/login-style2.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 	<div class="login-box">
