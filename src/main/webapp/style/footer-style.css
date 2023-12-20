@@ -9,7 +9,6 @@ body{
 	padding:0;
 	box-sizing: border-box;
 }
-
 .container{
 	max-width: 1170px;
 	margin:auto;
@@ -24,7 +23,7 @@ ul{
 .footer{
 	background-color: #24262b;
     padding: 70px 0;
-    }
+}
 .footer-col{
    width: 25%;
    padding: 0 15px;
@@ -92,6 +91,10 @@ ul{
   .footer-col{
     width: 100%;
 }
+}
+
+.navbar-colour{
+		background-color: #24262b;
 }
 
 

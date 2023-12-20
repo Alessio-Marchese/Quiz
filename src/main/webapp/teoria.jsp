@@ -16,9 +16,9 @@
 		   List<Contenuto> contenuti = (List<Contenuto>) request.getAttribute("contenuti");
 		%>
 		<% if(utente == null) { %>
-			<%@ include file="include/header-unlogged.jsp" %>
+			<%@ include file="header-unlogged.jsp" %>
 	    <% } else { %>
-			<%@ include file="include/header-logged.jsp" %>
+			<%@ include file="header-logged.jsp" %>
 		<% } %>
 		<div class="container">
 			<div class="row">
@@ -41,7 +41,7 @@
 					 } %>
 				</div>
 				<div class="col-6">
-					
+				
 				</div>
 			</div>
 		</div>
