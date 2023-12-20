@@ -7,7 +7,6 @@ public class ContenutoRepositoryImpl extends JpaRepositoryImpl<Contenuto,Integer
 
 	public ContenutoRepositoryImpl() {
 		super(Contenuto.class);
-		// TODO Auto-generated constructor stub
 	}
 
 }

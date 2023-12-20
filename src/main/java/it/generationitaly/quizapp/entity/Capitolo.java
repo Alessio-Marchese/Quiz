@@ -54,6 +54,10 @@ public class Capitolo {
 	@OneToMany(mappedBy = "capitolo", fetch = FetchType.EAGER)
 	private List<QuizVeroFalso> quizVeroFalso = new ArrayList<QuizVeroFalso>();
 	
+	
+	@OneToMany(mappedBy = "contenuto", fetch = FetchType.EAGER)
+	private List<Contenuto> contenuto = new ArrayList<Contenuto>();
+	
     
 	public Capitolo() {
 		super();
@@ -112,6 +116,16 @@ public class Capitolo {
 
 	public List<QuizVeroFalso> getQuizVeroFalso() {
 		return quizVeroFalso;
+	}
+	
+	
+
+	public List<Contenuto> getContenuto() {
+		return contenuto;
+	}
+
+	public void setContenuto(List<Contenuto> contenuto) {
+		this.contenuto = contenuto;
 	}
 
 	public void setQuizVeroFalso(List<QuizVeroFalso> quizVeroFalso) {
