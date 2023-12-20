@@ -55,7 +55,7 @@ public class Capitolo {
 	private List<QuizVeroFalso> quizVeroFalso = new ArrayList<QuizVeroFalso>();
 	
 	
-	@OneToMany(mappedBy = "contenuto", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "capitolo", fetch = FetchType.EAGER)
 	private List<Contenuto> contenuto = new ArrayList<Contenuto>();
 	
     

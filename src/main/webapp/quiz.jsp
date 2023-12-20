@@ -65,10 +65,10 @@
 						    risposte.add(prima);
 						    risposte.add(seconda);
 						    risposte.add(terza);
-						    int random1 = random.nextInt(risposte.size() - 1);
+						    int random1 = random.nextInt(risposte.size());
 						    String primaRandom = risposte.get(random1);
 						    risposte.remove(random1);
-						    int random2 = random.nextInt(risposte.size() - 1);
+						    int random2 = random.nextInt(risposte.size());
 						    String secondaRandom = risposte.get(random2);
 						    risposte.remove(random2);
 						    

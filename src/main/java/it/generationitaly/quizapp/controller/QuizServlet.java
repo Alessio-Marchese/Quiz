@@ -43,7 +43,6 @@ public class QuizServlet extends HttpServlet {
 		
 		 		int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
 		 		Capitolo capitolo = capitoloRepo.findById(idCapitolo);
-		 		System.out.println(capitolo.getId());
 			 	List<QuizMultiplo> quizMultipli = capitolo.getQuizMultiplo();
 			 	List<QuizVeroFalso> quizVF = capitolo.getQuizVeroFalso();
 			    List<Object> quiz = new ArrayList<Object>();
@@ -118,7 +117,6 @@ public class QuizServlet extends HttpServlet {
 	        	}
 	        }
 	        
-	        	System.out.println(quiz.size());
 	        	Random random = new Random();
 	        	if(!quiz.isEmpty()) {
 	        		 int random1 = random.nextInt(quiz.size());

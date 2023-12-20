@@ -35,12 +35,6 @@ public class Contenuto {
 	@Enumerated(EnumType.STRING)
 	private Tipo tipo;
 	
-	@Column(name = "larghezza")
-	private int larghezza;
-	
-	@Column(name = "contenuto")
-	private String contenuto;
-	
 	@JoinColumn(name = "capitolo_id")
 	@ManyToOne
 	private Capitolo capitolo;
@@ -59,22 +53,6 @@ public class Contenuto {
 
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
-	}
-
-	public int getLarghezza() {
-		return larghezza;
-	}
-
-	public void setLarghezza(int larghezza) {
-		this.larghezza = larghezza;
-	}
-
-	public String getContenuto() {
-		return contenuto;
-	}
-
-	public void setContenuto(String contenuto) {
-		this.contenuto = contenuto;
 	}
 
 	public Capitolo getCapitolo() {
