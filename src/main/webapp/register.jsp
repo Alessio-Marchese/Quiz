@@ -44,7 +44,12 @@
 		    </div>
 	    </div>
 	    <div class="user-box">
-		    	<span style="color: red;" id="messaggio1"></span>
+	    	<% 
+	    	String errore = null;
+	    	if(request.getParameter("errore") != null)
+	    		errore = "Username non disponibile";
+	    		%>
+		    	<span style="color: red;" id="messaggio1"><%= errore == null ? "" : errore %></span>
 		    </div>
 		    <div class="user-box" style="margin-top: 20px;">
 		    	<span style="color: red;" id="messaggio2"></span>

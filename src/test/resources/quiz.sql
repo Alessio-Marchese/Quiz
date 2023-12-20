@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `quiz`.`contenuto` (
   `heigth` INT NOT NULL,
   `contenuto` VARCHAR(255) NOT NULL,
   `capitolo_id` INT NOT NULL,
-  `tipo` VARCHAR(45) NULL,
+  `tipo` VARCHAR(45) NOT NULL  CHECK (stato IN ('spazio', 'paragrafo', 'titolo', 'immagine')),
   PRIMARY KEY (`id`),
   INDEX `fk_contenuto_capitolo1_idx` (`capitolo_id` ASC) VISIBLE,
   CONSTRAINT `fk_contenuto_capitolo1`

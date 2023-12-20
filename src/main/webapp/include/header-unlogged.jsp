@@ -40,7 +40,7 @@
      				 <div style="height: 50%; margin: 5px; border: 3px solid black; border-radius: 10px; background-color: grey;">
      				 	<h1><%=linguaggio.getNome() %></h1>
      				 	<% for(Capitolo capitolo : linguaggio.getCapitoli()) { %>
-     				 	<div><%= capitolo.getNome() %> <a href="#">Teoria</a> <a href="quiz?idCapitolo=<%= capitolo.getId()%>">Quiz</a> <a href="#">Flashcards</a></div>
+     				 	<div><%= capitolo.getNome() %> <a href="teoria?idCapitolo=<%= capitolo.getId()%>">Teoria</a> <a href="quiz?idCapitolo=<%= capitolo.getId()%>">Quiz</a> <a href="#">Flashcards</a></div>
      				 </div>
      				 	<% } %>
      				 <% } %>
@@ -55,7 +55,7 @@
      				 <div style="height: 50%; margin: 5px; border: 3px solid black; border-radius: 10px; background-color: grey;">
      				 	<h1><%=linguaggio.getNome() %></h1>
      				 	<% for(Capitolo capitolo : linguaggio.getCapitoli()) { %>
-     				 	<div><%= capitolo.getNome() %> <a href="#">Teoria</a> <a href="quiz?idCapitolo=<%= capitolo.getId()%>">Quiz</a> <a href="#">Flashcards</a></div>
+     				 	<div><%= capitolo.getNome() %> <a href="teoria?idCapitolo=<%= capitolo.getId()%>">Teoria</a> <a href="quiz?idCapitolo=<%= capitolo.getId()%>">Quiz</a> <a href="#">Flashcards</a></div>
      				 </div>
      				 	<% } %>
      				 <% } %>
@@ -70,7 +70,7 @@
      				 <div style="height: 50%; margin: 5px; border: 3px solid black; border-radius: 10px; background-color: grey;">
      				 	<h1><%=linguaggio.getNome() %></h1>
      				 	<% for(Capitolo capitolo : linguaggio.getCapitoli()) { %>
-     				 	<div><%= capitolo.getNome() %> <a href="#">Teoria</a> <a href="quiz?idCapitolo=<%= capitolo.getId()%>">Quiz</a> <a href="#">Flashcards</a></div>
+     				 	<div><%= capitolo.getNome() %> <a href="teoria?idCapitolo=<%= capitolo.getId()%>">Teoria</a> <a href="quiz?idCapitolo=<%= capitolo.getId()%>">Quiz</a> <a href="#">Flashcards</a></div>
      				 </div>
      				 	<% } %>
      				 <% } %>

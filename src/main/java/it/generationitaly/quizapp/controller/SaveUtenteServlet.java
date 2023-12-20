@@ -26,20 +26,22 @@ public class SaveUtenteServlet extends HttpServlet {
 		// Recupero dei dati dal form di registrazione UTENTE
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		String confirmPassword = request.getParameter("confirm_password");
+		String confirmPassword = request.getParameter("confermaPassword");
 		String email = request.getParameter("email");
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 
+		Utente utenteCheck = utenteRepository.findByUsername(username);
+		
 		// Verifica che le due password coincidano
-		if (!password.equals(confirmPassword)) {
+		if (utenteCheck != null) {
 			response.sendRedirect("register.jsp?errore");
 			return;
 		}
 
 		// Cercare di trasformare la stringa della data di nascita in una data
-		String tmpDataNascita = request.getParameter("dataNascita");
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		String tmpDataNascita = request.getParameter("nascita");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		Date dataNascita = null;
 		try {
 			dataNascita = simpleDateFormat.parse(tmpDataNascita);
@@ -64,7 +66,7 @@ public class SaveUtenteServlet extends HttpServlet {
 		utenteRepository.save(utente);
 		
 		//reinidirzza l'utente sulla welcome page
-		response.sendRedirect("profile-page.jsp");
+		response.sendRedirect("profilo");
 	}
 
 }

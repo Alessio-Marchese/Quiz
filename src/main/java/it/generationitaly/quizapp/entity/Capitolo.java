@@ -78,8 +78,6 @@ public class Capitolo {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
 
 	public Linguaggio getLinguaggio() {
 		return linguaggio;

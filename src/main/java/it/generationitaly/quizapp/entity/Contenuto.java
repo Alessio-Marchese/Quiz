@@ -31,6 +31,9 @@ public class Contenuto {
 	@Column(name = "id")
 	private int id;
 	
+	@Column(name = "contenuto", nullable = false, length = 255)
+	private String contenuto;
+	
 	@Column(name= "tipo")
 	@Enumerated(EnumType.STRING)
 	private Tipo tipo;
@@ -62,6 +65,16 @@ public class Contenuto {
 	public void setCapitolo(Capitolo capitolo) {
 		this.capitolo = capitolo;
 	}
+
+	public String getContenuto() {
+		return contenuto;
+	}
+
+	public void setContenuto(String contenuto) {
+		this.contenuto = contenuto;
+	}
+	
+	
 	
 	
 }
