@@ -12,15 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-/*–
-  Table `mydb`.`linguaggio`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`linguaggio` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
- */
 
 @Entity
 @Table(name = "linguaggio")
@@ -71,7 +62,5 @@ public class Linguaggio {
 	public void setCapitoli(List<Capitolo> capitoli) {
 		this.capitoli = capitoli;
 	}
-
-
 
 }

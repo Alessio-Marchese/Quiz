@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +10,6 @@
 	<% int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
 	%>
 	<h1>complimenti hai finito il quiz</h1>
-	<a href="quizmultiplo?idCapitolo=<%=idCapitolo%>">torna al quiz</a>
+	<a href="quiz?idCapitolo=<%=idCapitolo%>">torna al quiz</a>
 </body>
 </html>

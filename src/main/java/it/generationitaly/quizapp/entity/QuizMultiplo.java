@@ -7,33 +7,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
-
-/*-
-  -----------------------------------------------------
--- Table `mydb`.`quiz_multiplo`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`quiz_multiplo` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `domanda` VARCHAR(100) NOT NULL,
-  `corretta` VARCHAR(100) NOT NULL,
-  `errore1` VARCHAR(100) NOT NULL,
-  `errore2` VARCHAR(100) NOT NULL,
-  `linguaggio_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_quiz_multiplo_linguaggio1_idx` (`linguaggio_id` ASC) VISIBLE,
-  CONSTRAINT `fk_quiz_multiplo_linguaggio1`
-    FOREIGN KEY (`linguaggio_id`)
-    REFERENCES `mydb`.`linguaggio` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-  */
 
 @Entity
 @Table(name = "quiz_multiplo")
 public class QuizMultiplo {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -54,40 +34,6 @@ public class QuizMultiplo {
 	@ManyToOne
 	@JoinColumn(name = "capitolo_id", unique = true, nullable = false)
 	private Capitolo capitolo;
-
-	public QuizMultiplo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public QuizMultiplo(int id, String domanda, String corretta, String errore1, String errore2, Capitolo capitolo) {
-		super();
-		this.id = id;
-		this.domanda = domanda;
-		this.corretta = corretta;
-		this.errore1 = errore1;
-		this.errore2 = errore2;
-		this.capitolo = capitolo;
-	}
-	
-	
-	public QuizMultiplo(String domanda, String corretta, String errore1, String errore2, Capitolo capitolo) {
-		super();
-		this.domanda = domanda;
-		this.corretta = corretta;
-		this.errore1 = errore1;
-		this.errore2 = errore2;
-		this.capitolo = capitolo;
-	}
-	
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getDomanda() {
 		return domanda;
@@ -121,8 +67,6 @@ public class QuizMultiplo {
 		this.errore2 = errore2;
 	}
 
-	
-
 	public Capitolo getCapitolo() {
 		return capitolo;
 	}
@@ -131,10 +75,12 @@ public class QuizMultiplo {
 		this.capitolo = capitolo;
 	}
 
-	@Override
-	public String toString() {
-		return "QuizMultiplo [id=" + id + ", domanda=" + domanda + ", corretta=" + corretta + ", errore1=" + errore1
-				+ ", errore2=" + errore2 + ", capitolo=" + capitolo + "]";
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

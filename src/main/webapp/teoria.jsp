@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="ISO-8859-1"
+    pageEncoding="UTF-8"
     import="it.generationitaly.quizapp.entity.Utente"
     import="it.generationitaly.quizapp.entity.Contenuto"
     import="it.generationitaly.quizapp.entity.Linguaggio"
+    import="it.generationitaly.quizapp.entity.Capitolo"
+    import="java.util.List"
     %>
 <!DOCTYPE html>
 <html>
@@ -14,15 +16,25 @@
 	<body>
 		<% Utente utente = (Utente) session.getAttribute("utente");
 		   List<Contenuto> contenuti = (List<Contenuto>) request.getAttribute("contenuti");
+		   List<Capitolo> capitoli = (List<Capitolo>) request.getAttribute("capitoli");
 		%>
 		<% if(utente == null) { %>
-			<%@ include file="header-unlogged.jsp" %>
+			<%@ include file="include/header-unlogged.jsp" %>
 	    <% } else { %>
-			<%@ include file="header-logged.jsp" %>
+			<%@ include file="include/header-logged.jsp" %>
 		<% } %>
 		<div class="container">
 			<div class="row">
-				<div class="col-6">
+				<div class="col-2">
+					<div style="background-color: grey; border: 2px solid black; border-radius: 15px; height: auto; margin-top: 50px;">
+						<dl>
+						<%for(Capitolo capitolo : capitoli) { %>
+							<dt style="margin: 10px;"><a  style="color: black; "href="teoria?idCapitolo=<%=capitolo.getId()%>"><%= capitolo.getNome() %></a></dt>
+						<% } %>
+						</dl>
+					</div>
+				</div>
+				<div class="col-6" style="margin-top: 50px; margin-left: 50px; background-color: grey; border: 2px solid black; border-radius: 15px; height: auto;">
 					<% for(Contenuto contenuto : contenuti) { %>
 					<% switch(contenuto.getTipo().getValue()) {
 					case "paragrafo": %>
@@ -35,7 +47,7 @@
 						<div style="height: 20px;"></div>
 					<% 	break;
 					case "immagine": %>
-						<img src="<%=contenuto.getContenuto() %>" alt="1" border="0" />
+						<img src="<%=contenuto.getContenuto() %>" alt="1" border="0" style="height: auto;" />
 					<% 	break;
 						}
 					 } %>

@@ -12,16 +12,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 
-
-//create table contenuto (
-//		id int primary key auto_increment,
-//	    tipo enum('titolo','spazio','paragrafo','immagine') not null,
-//	    altezza int not null,
-//	    larghezza int not null,
-//	    contenuto varchar(300),
-//	    capitolo_id int not null references capitolo(id)
-//	);
-
 @Entity
 @Table(name = "contenuto")
 public class Contenuto {

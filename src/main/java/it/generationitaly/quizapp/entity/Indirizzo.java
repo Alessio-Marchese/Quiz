@@ -7,16 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-/*- Table `mydb`.`indirizzo`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`indirizzo` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `paese` VARCHAR(45) NOT NULL,
-  `citta` VARCHAR(45) NOT NULL,
-  `via` VARCHAR(45) NOT NULL,
-  `numero_civico` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;*/
 
 @Entity
 @Table(name = "indirizzo")
@@ -38,20 +28,6 @@ public class Indirizzo {
 
 	@Column(name = "numero_civico", length = 45, nullable = false)
 	private String numeroCivico;
-
-	public Indirizzo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Indirizzo(int id, String paese, String citta, String via, String numeroCivico) {
-		super();
-		this.id = id;
-		this.paese = paese;
-		this.citta = citta;
-		this.via = via;
-		this.numeroCivico = numeroCivico;
-	}
 
 	public int getId() {
 		return id;
@@ -91,12 +67,6 @@ public class Indirizzo {
 
 	public void setNumeroCivico(String numeroCivico) {
 		this.numeroCivico = numeroCivico;
-	}
-
-	@Override
-	public String toString() {
-		return "Indirizzo [id=" + id + ", paese=" + paese + ", citta=" + citta + ", via=" + via + ", numeroCivico="
-				+ numeroCivico + "]";
 	}
 
 }

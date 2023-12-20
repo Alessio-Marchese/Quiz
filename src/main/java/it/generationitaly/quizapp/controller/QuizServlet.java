@@ -43,7 +43,7 @@ public class QuizServlet extends HttpServlet {
 		
 		 		int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
 		 		Capitolo capitolo = capitoloRepo.findById(idCapitolo);
-			 	List<QuizMultiplo> quizMultipli = capitolo.getQuizMultiplo();
+			 	List<QuizMultiplo> quizMultipli = capitolo.getQuizMultipli();
 			 	List<QuizVeroFalso> quizVF = capitolo.getQuizVeroFalso();
 			    List<Object> quiz = new ArrayList<Object>();
 			    List<Object> risposteGiuste = new ArrayList<Object>();
@@ -88,7 +88,7 @@ public class QuizServlet extends HttpServlet {
 	        		rispostaAsBoolean = false;
 	        	}
 	        	
-	        	Boolean checkBool = vf.isBool();
+	        	Boolean checkBool = vf.getBool();
 	        	if(checkBool == rispostaAsBoolean) {
 	        		risposteGiuste.add(vf);
 	        	} else if (checkBool != rispostaAsBoolean) {

@@ -17,9 +17,9 @@
 <body id="body">
 <% Utente utente = (Utente) session.getAttribute("utente"); %>
 		<% if(utente == null) { %>
-			<%@ include file="header-unlogged.jsp" %>
+			<%@ include file="include/header-unlogged.jsp" %>
 	    <% } else { %>
-			<%@ include file="header-logged.jsp" %>
+			<%@ include file="include/header-logged.jsp" %>
 		<% } %>
 <div id="welcome">
 <h1>Il tuo profilo</h1>
@@ -268,7 +268,7 @@
   </div>
 </div>
 </div>
-<%@ include file="footer.jsp" %>
+<%@ include file="include/footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

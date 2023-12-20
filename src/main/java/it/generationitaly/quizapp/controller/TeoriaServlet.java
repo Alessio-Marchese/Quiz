@@ -25,8 +25,10 @@ public class TeoriaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
 		Capitolo capitolo = capitoloRepo.findById(idCapitolo);
-		List<Contenuto> contenuti = capitolo.getContenuto();
+		List<Contenuto> contenuti = capitolo.getContenuti();
 		List<Linguaggio> linguaggi = linguaggioRepo.findAll();
+		List<Capitolo> capitoli = capitoloRepo.findAll();
+		request.setAttribute("capitoli", capitoli);
 		request.setAttribute("contenuti", contenuti);
 		request.setAttribute("linguaggi", linguaggi);
 		request.getRequestDispatcher("teoria.jsp").forward(request, response);

@@ -1,6 +1,8 @@
 package it.generationitaly.quizapp.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -9,35 +11,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-
-/*-Table `mydb`.`utente`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`utente` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(20) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `nome` VARCHAR(45) NOT NULL,
-  `cognome` VARCHAR(45) NOT NULL,
-  `data_nascita` DATE NOT NULL,
-  `numero_telefono` INT NULL,
-  `indirizzo_id` INT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
-  INDEX `fk_utente_indirizzo_idx` (`indirizzo_id` ASC) VISIBLE,
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
-  UNIQUE INDEX `numero_telefono_UNIQUE` (`numero_telefono` ASC) VISIBLE,
-  CONSTRAINT `fk_utente_indirizzo`
-    FOREIGN KEY (`indirizzo_id`)
-    REFERENCES `mydb`.`indirizzo` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-*/
 
 @Entity
 @Table(name = "utente")
@@ -73,27 +52,20 @@ public class Utente {
 	@OneToOne(cascade = {  CascadeType.MERGE, CascadeType.REMOVE})
 	@JoinColumn(name = "indirizzo_id", unique = true, nullable = true)
 	private Indirizzo indirizzo;
-
-	public Utente() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	
-
-	public Utente(int id, String username, String password, String email, String nome, String cognome,
-			int numeroTelefono, Date dataNascita, Indirizzo indirizzo) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.dataNascita = dataNascita;
-		this.numeroTelefono = numeroTelefono;
-		this.indirizzo = indirizzo;
-	}
+	@ManyToMany
+	@JoinTable(
+			name="utente_has_badge",
+			joinColumns = @JoinColumn(name="utente_id"),
+			inverseJoinColumns = @JoinColumn(name = "badge_id"))
+	private List<Badge> badges;
+	
+	@ManyToMany
+	@JoinTable(
+			name="utente_has_quiz",
+			joinColumns = @JoinColumn(name="utente_id"),
+			inverseJoinColumns = @JoinColumn(name = "quiz_id"))
+	private List<Quiz> quiz;
 
 	public int getId() {
 		return id;
@@ -151,6 +123,14 @@ public class Utente {
 		this.dataNascita = dataNascita;
 	}
 
+	public Integer getNumeroTelefono() {
+		return numeroTelefono;
+	}
+
+	public void setNumeroTelefono(Integer numeroTelefono) {
+		this.numeroTelefono = numeroTelefono;
+	}
+
 	public Indirizzo getIndirizzo() {
 		return indirizzo;
 	}
@@ -159,27 +139,20 @@ public class Utente {
 		this.indirizzo = indirizzo;
 	}
 
-
-
-	public Integer getNumeroTelefono() {
-		return numeroTelefono;
+	public List<Badge> getBadges() {
+		return badges;
 	}
 
-
-
-	public void setNumeroTelefono(Integer numeroTelefono) {
-		this.numeroTelefono = numeroTelefono;
+	public void setBadges(List<Badge> badges) {
+		this.badges = badges;
 	}
 
-
-
-	@Override
-	public String toString() {
-		return "Utente [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", nome="
-				+ nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita + ", numeroTelefono=" + numeroTelefono
-				+ ", indirizzo=" + indirizzo + "]";
+	public List<Quiz> getQuiz() {
+		return quiz;
 	}
 
-	
+	public void setQuiz(List<Quiz> quiz) {
+		this.quiz = quiz;
+	}
 
 }
