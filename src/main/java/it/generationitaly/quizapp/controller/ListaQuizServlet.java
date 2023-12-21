@@ -6,7 +6,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
+import it.generationitaly.quizapp.entity.Capitolo;
 import it.generationitaly.quizapp.entity.Linguaggio;
 import it.generationitaly.quizapp.repository.LinguaggioRepository;
 import it.generationitaly.quizapp.repository.impl.LinguaggioRepositoryImpl;
@@ -20,7 +22,9 @@ public class ListaQuizServlet extends HttpServlet {
 			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Linguaggio linguaggio = linguaggioRepo.findById(id);
+		List<Capitolo> capitoli = linguaggio.getCapitoli();
+		request.setAttribute("capitoli", capitoli);
 		request.setAttribute("linguaggio", linguaggio);
-		request.getRequestDispatcher("lista-quiz.jsp").forward(request, response);
+		request.getRequestDispatcher("quiz.jsp").forward(request, response);
 	}
 }

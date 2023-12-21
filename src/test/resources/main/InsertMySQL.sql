@@ -2,6 +2,7 @@ insert into utente values('1','root','admin','email1','nome1','cognome1','2000-1
 
 insert into linguaggio values('1','Java');
 insert into linguaggio values('2','HTML');
+
 INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Introduzione');
 INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Variabili');
 INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Operatori');

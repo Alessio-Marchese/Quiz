@@ -14,15 +14,11 @@
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	</head>
 	<body>
-		<% Utente utente = (Utente) session.getAttribute("utente");
+		<%
 		   List<Contenuto> contenuti = (List<Contenuto>) request.getAttribute("contenuti");
 		   List<Capitolo> capitoli = (List<Capitolo>) request.getAttribute("capitoli");
 		%>
-		<% if(utente == null) { %>
-			<%@ include file="include/header-unlogged.jsp" %>
-	    <% } else { %>
-			<%@ include file="include/header-logged.jsp" %>
-		<% } %>
+	<%@ include file="include/header.jsp" %>
 		<div class="container">
 			<div class="row">
 				<div class="col-2">

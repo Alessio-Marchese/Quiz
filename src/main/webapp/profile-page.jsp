@@ -17,19 +17,14 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body id="body">
-<% Utente utente = (Utente) session.getAttribute("utente"); 
+<% 
 	List<Badge> badges = (List<Badge>) request.getAttribute("badges");
 %>
-		<% if(utente == null) { %>
-			<%@ include file="include/header-unlogged.jsp" %>
-	    <% } else { %>
-			<%@ include file="include/header-logged.jsp" %>
-		<% } %>
+<%@ include file="include/header.jsp" %>
 <div id="welcome">
 <h1>Il tuo profilo</h1>
 <div class="div-1">
 <div class="container emp-profile">
-            <form method="post">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
@@ -58,7 +53,7 @@
                     </div>
                     
                     <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        <input id="edit" type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
                     </div>
                 </div>
                
@@ -69,38 +64,159 @@
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            		<form action="login.js" method="get">
+                            		<h2 style="display: none; margin-left: 300px;" id="titolo">MODIFICA PROFILO</h2>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>User</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div id="username" class="col-md-6">
                                                 <p><%=utente.getUsername() %></p>
+                                            </div>
+                                            <div id="modificaUsername" class="col-md-6" style="display: none; width: auto;">
+                                            	<input name="newUsername" value="<%=utente.getUsername()%>">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Nome</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div id="nome" class="col-md-6">
                                                 <p><%=utente.getNome() %></p>
+                                            </div>
+                                            <div id="modificaNome" class="col-md-6" style="display: none; width: auto;">
+                                            	<input name="newNome" value="<%=utente.getNome()%>">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Cognome</label>
+                                            </div>
+                                            <div id="cognome" class="col-md-6">
+                                                <p><%=utente.getCognome()%></p>
+                                            </div>
+                                            <div id="modificaCognome" class="col-md-6" style="display: none; width: auto;">
+                                            	<input name="newCognome" value="<%=utente.getCognome()%>">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Email</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div id="email" class="col-md-6">
                                                 <p><%=utente.getEmail() %></p>
+                                            </div>
+                                            <div id="modificaEmail" class="col-md-6" style="display: none; width: auto;">
+                                            	<input name="newEmail" value="<%=utente.getEmail()%>">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Telefono</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div id="numeroTelefono" class="col-md-6">
+                                            	<% if(utente.getNumeroTelefono() == null) { %>
+                                            		<button type="button" id="showForm">Aggiungi</button>
+                                            		<div id="divAsForm" style="display: none;">
+                                            			<input id="number" type="number">
+                                            			<button id="submit" type="button" style="margin-left: 10px;">click</button>
+                                            		</div>
+                                            	<% } else {%>
                                                 <p><%=utente.getNumeroTelefono() %></p>
+                                                <% } %>
+                                            </div>
+                                            <div id="modificaNumeroTelefono" class="col-md-6" style="display: none; width: auto;">
+                                            	<input id="myInput2" name="newNumeroTelefono" value="<%=utente.getNumeroTelefono()%>">
                                             </div>
                                         </div>
+                                        <div class="row">
+                                        <div class="col-md-6">
+                                        </div>
+                                        	<div class="col-md-6">
+                                        <button id="submitBtn" type="submit" style="display: none;">CONFERMA</button>
+                                        	</div>
+                                        </div>
+                                       </form>
+                                        <form id="myForm" action="login.jsp" method="get">
+                                        <input id="myInput" type="hidden" value="" name="numeroTelefono">
+                                        </form>
+                                        <script>
+                                        	document.getElementById("showForm").addEventListener('click', mostraForm)
+                                        	document.getElementById("submit").addEventListener('click', mandaForm)
+                                        	
+                                        	var button = document.getElementById("edit");
+											button.addEventListener('click', mostraFormEdit);
+                                        	
+                                        	function mostraFormEdit(event) {
+                                        		var submitBtn = document.getElementById("submitBtn");
+											    var button = document.getElementById("edit");
+											    var titolo = document.getElementById("titolo");
+											    var username = document.getElementById("username");
+											    var modificaUsername = document.getElementById("modificaUsername");
+											    var nome = document.getElementById("nome");
+											    var modificaNome = document.getElementById("modificaNome");
+											    var cognome = document.getElementById("cognome");
+											    var modificaCognome = document.getElementById("modificaCognome");
+											    var email = document.getElementById("email");
+											    var modificaEmail = document.getElementById("modificaEmail");
+											    var numeroTelefono = document.getElementById("numeroTelefono");
+											    var modificaNumeroTelefono = document.getElementById("modificaNumeroTelefono");
+											
+											    if (button.value !== "Annulla") {
+											        titolo.style.display = 'block';
+											        button.value = "Annulla";
+											        username.style.display = 'none';
+											        modificaUsername.style.display = 'block';
+											        nome.style.display = 'none';
+											        modificaNome.style.display = 'block';
+											        cognome.style.display = 'none';
+											        modificaCognome.style.display = 'block';
+											        email.style.display = 'none';
+											        modificaEmail.style.display = 'block';
+											        numeroTelefono.style.display = 'none';
+											        submitBtn.style.display = 'block';
+											        if (myInput2.value !== 'null') {
+											            modificaNumeroTelefono.style.display = 'block';
+											        }
+											
+											    } else {
+											        titolo.style.display = 'none';
+											        button.value = "Edit Profile";
+											        username.style.display = 'block';
+											        modificaUsername.style.display = 'none';
+											        nome.style.display = 'block';
+											        modificaNome.style.display = 'none';
+											        cognome.style.display = 'block';
+											        modificaCognome.style.display = 'none';
+											        email.style.display = 'block';
+											        modificaEmail.style.display = 'none';
+											        numeroTelefono.style.display = 'block';
+											        submitBtn.style.display = 'none';
+											    }
+											}
+											
+											
+
+                                        	
+                                        	function mandaForm(event) {
+                                        		var elNumber = document.getElementById('number');
+                                        		var elMyForm = document.getElementById('myForm');
+                                        		var elMyInput = document.getElementById('myInput');
+                                        		
+                                        		var numero = elNumber.value;
+                                        		myInput.value = numero;
+                                        		myForm.submit();
+                                        		
+                                        	}
+                                        	
+                                        	function mostraForm(event) {
+                                        		var elDiv = document.getElementById('divAsForm');
+                                        		var elButton = document.getElementById('showForm');
+                                        		elDiv.style.display = 'block';
+                                        		elButton.style.display = 'none';
+                                        		
+                                        	}
+                                        </script>
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                         <div class="row">
@@ -151,8 +267,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    </form> 
+                    </div> 
                 </div>       
         </div>
 <h1>Inizia il tuo percorso di studio!</h1>
