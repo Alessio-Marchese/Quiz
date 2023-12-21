@@ -31,6 +31,7 @@
 						<%for(Capitolo capitolo : linguaggio.getCapitoli()) { %>
 							<dt style="margin: 10px;"><a  style="color: black; "href="teoria?idCapitolo=<%=capitolo.getId()%>"><%= capitolo.getNome() %></a></dt>
 						<% } %>
+							
 						</dl>
 					</div>
 				</div>

@@ -8,6 +8,7 @@
     import="it.generationitaly.quizapp.entity.QuizMultiplo"
     import="java.util.ArrayList"
     import="java.util.Random"
+    import="it.generationitaly.quizapp.entity.Capitolo"
     %>
 <!DOCTYPE html>
 <html>
@@ -20,6 +21,7 @@
 	</head>
 	<body id="body">
 		<% 
+		List<Capitolo> capitoli = (List<Capitolo>) request.getAttribute("capitoli");
 		QuizVeroFalso quizVF = null;
 		QuizMultiplo quizMultiplo = null;
 		Object object = request.getAttribute("quiz");
@@ -33,8 +35,14 @@
 		<div id="pagina">
 		<div class="container">
 			<div class="row">
-				<div class="col-3">
-					
+				<div class="col-2">
+					<div style="background-color: grey; border: 2px solid black; border-radius: 15px; height: auto; margin-top: 50px;">
+						<dl>
+						<%for(Capitolo capitolo : capitoli) { %>
+							<dt style="margin: 10px;"><a  style="color: black; "href="quiz?idCapitolo=<%=capitolo.getId()%>"><%= capitolo.getNome() %></a></dt>
+						<% } %>
+						</dl>
+					</div>
 				</div>
 				<div class="col-6">
 					<% if(quizVF != null) { %>

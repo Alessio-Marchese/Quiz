@@ -50,7 +50,9 @@ public class QuizServlet extends HttpServlet {
 		int random1 = random.nextInt(quiz.size());
 		Object object = quiz.get(random1);
 		request.setAttribute("quiz", object);
+		List<Capitolo> capitoli = capitolo.getLinguaggio().getCapitoli();
 		request.setAttribute("linguaggi", linguaggioRepo.findAll());
+		request.setAttribute("capitoli", capitoli);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("quiz.jsp");
 		requestDispatcher.forward(request, response);
 
@@ -61,9 +63,11 @@ public class QuizServlet extends HttpServlet {
 		List<Object> quiz = (List<Object>) request.getSession().getAttribute("quiz");
 		List<Object> risposteGiuste = (List<Object>) request.getSession().getAttribute("risposteGiuste");
 		List<Object> risposteSbagliate = (List<Object>) request.getSession().getAttribute("risposteSbagliate");
+		List<Capitolo> capitoli = null;
 		if (request.getParameter("idVF") != null) {
 			int id = Integer.parseInt(request.getParameter("idVF"));
 			QuizVeroFalso vf = quizVFRepo.findById(id);
+			capitoli = vf.getCapitolo().getLinguaggio().getCapitoli();
 			String risposta = request.getParameter("verofalso");
 			Boolean rispostaAsBoolean = null;
 			Object objToRemove = null;
@@ -92,6 +96,7 @@ public class QuizServlet extends HttpServlet {
 		} else {
 			int id = Integer.parseInt(request.getParameter("idQM"));
 			QuizMultiplo qm = quizMultiploRepo.findById(id);
+			capitoli = qm.getCapitolo().getLinguaggio().getCapitoli();
 			String risposta = request.getParameter("risposta");
 			String check = qm.getCorretta();
 			Object objToRemove = null;
@@ -115,8 +120,10 @@ public class QuizServlet extends HttpServlet {
 		if (!quiz.isEmpty()) {
 			int random1 = random.nextInt(quiz.size());
 			Object object = quiz.get(random1);
+			
 			request.setAttribute("quiz", object);
 			request.setAttribute("linguaggi", linguaggioRepo.findAll());
+			request.setAttribute("capitoli", capitoli);
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("quiz.jsp");
 			requestDispatcher.forward(request, response);
 		} else {
