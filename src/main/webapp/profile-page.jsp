@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="it.generationitaly.quizapp.entity.Utente"
+    import="it.generationitaly.quizapp.entity.Badge"
+    import="java.util.List"
     %>
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body id="body">
-<% Utente utente = (Utente) session.getAttribute("utente"); %>
+<% Utente utente = (Utente) session.getAttribute("utente"); 
+	List<Badge> badges = (List<Badge>) request.getAttribute("badges");
+%>
 		<% if(utente == null) { %>
 			<%@ include file="include/header-unlogged.jsp" %>
 	    <% } else { %>
@@ -39,9 +43,12 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        GetNome GetCognome
+                                        <%= utente.getNome() %> <%= utente.getCognome() %>
                                     </h5>
-                                    <p class="proile-rating">BADGE<span>0/3</span></p>
+                                    <%  %>
+                                    <% int badgeOttenuti = utente.getBadges().size(); %>
+                                    <% int badgeTotali = badges.size(); %>
+                                    <p class="proile-rating">BADGE<span><%=badgeOttenuti %>/<%=badgeTotali %></span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Info</a>
@@ -67,7 +74,7 @@
                                                 <label>User</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>GetUser</p>
+                                                <p><%=utente.getUsername() %></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -75,7 +82,7 @@
                                                 <label>Nome</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>GetNome</p>
+                                                <p><%=utente.getNome() %></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -83,7 +90,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>GetEmail</p>
+                                                <p><%=utente.getEmail() %></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -91,7 +98,7 @@
                                                 <label>Telefono</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>GetTelefono</p>
+                                                <p><%=utente.getNumeroTelefono() %></p>
                                             </div>
                                         </div>
                             </div>
