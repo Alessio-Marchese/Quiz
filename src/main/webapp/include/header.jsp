@@ -44,8 +44,8 @@
           <%if (utente != null) { %>
           
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="profile-page.jsp">Pagina profilo</a></li>
-            <li><a class="dropdown-item" href="#">Log Out</a></li>
+            <li><a class="dropdown-item" href="profilo">Pagina profilo</a></li>
+            <li><a class="dropdown-item" href="logout">Log Out</a></li>
           </ul>
         </li>
       </ul>
