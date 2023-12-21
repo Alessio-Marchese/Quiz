@@ -1,18 +1,28 @@
 insert into utente values('1','root','admin','email1','nome1','cognome1','2000-10-10',NULL,NULL);
 
 insert into linguaggio values('1','Java');
-insert into linguaggio values('2','MySQL');
-insert into linguaggio values('3','HTML');
-insert into linguaggio values('4','CSS');
-insert into linguaggio values('5','JavaScript');
-insert into linguaggio values('6','Spring');
-insert into capitolo values('1','1','Array');
-insert into capitolo values('2','2','Query');
-insert into capitolo values('3','3','Introduzione');
-insert into capitolo values('4','4','Introduzione');
-insert into capitolo values('5','5','Introduzione');
-insert into capitolo values('6','6','Introduzione');
-select * from capitolo;
+insert into linguaggio values('2','HTML');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Introduzione');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Variabili');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Operatori');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Strutture di controllo');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Array');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Stringhe');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Funzioni');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Oggetti e Classi');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Ereditarietà');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Polimorfismo');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Gestione delle eccezioni');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'File I/O');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Thread');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Collezioni');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Interfacce');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Lambda Expressions');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'JavaFX');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Servlet');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'JDBC');
+INSERT INTO capitolo (linguaggio_id, nome) VALUES ('1', 'Design Patterns');
+
 
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id)
@@ -21,7 +31,7 @@ VALUES
 "B) Una collezione di variabili dello stesso tipo", 
 "A) Una collezione di oggetti di diversi tipi", 
 "C) Un tipo di controllo del flusso", 
-1);
+5);
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id)
 VALUES 
@@ -29,7 +39,7 @@ VALUES
 "C) int[] array = new int[5];", 
 "A) int array = new int[5];", 
 "B) int array[5];", 
-1);
+5);
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id)
 VALUES 
@@ -37,7 +47,7 @@ VALUES
 "A) 0", 
 "B) 1", 
 "C) -1", 
-1);
+5);
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id)
 VALUES 
@@ -45,7 +55,7 @@ VALUES
 "A) arr[2]", 
 "B) arr[3]", 
 "C) arr.get(2)", 
-1);
+5);
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id)
 VALUES 
@@ -53,7 +63,7 @@ VALUES
 "B) 10", 
 "A) 9", 
 "C) 11",  
-1);
+5);
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id)
 VALUES 
@@ -61,7 +71,7 @@ VALUES
 "C) Viene generata un'eccezione ArrayIndexOutOfBoundsException", 
 "A) Nulla", 
 "B) Viene restituito -1", 
-1);
+5);
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id)
 VALUES 
@@ -69,7 +79,7 @@ VALUES
 "C) Tutte le risposte sopra sono corrette", 
 "A) String[] arr = new String[]{\"a\", \"b\", \"c\"};", 
 "B) String[] arr = {\"a\", \"b\", \"c\"};", 
-1);
+5);
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id)
 VALUES 
@@ -77,7 +87,7 @@ VALUES
 "C) La dimensione dell'array", 
 "A) La capacità massima dell'array", 
 "B) Il numero di elementi effettivamente presenti nell'array", 
-1);
+5);
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id)
 VALUES 
@@ -85,7 +95,7 @@ VALUES
 "C) B e C sono entrambe corrette", 
 "A) arr2 = arr1;", 
 "B) arr2 = new int[arr1.length]; System.arraycopy(arr1, 0, arr2, 0, arr1.length);", 
-1);
+5);
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id)
 VALUES 
@@ -93,8 +103,27 @@ VALUES
 "A) Un array di array", 
 "B) Un array con due elementi", 
 "C) Un array che può essere acceso tramite due indici", 
-1);
+5);
 
 INSERT INTO quiz_vero_falso (domanda,bool,capitolo_id)
 VALUES
 ('Gli array devono avere una misura definita alla loro creazione?',TRUE,'1');
+
+select * from quiz_multiplo;
+select * from quiz_vero_falso;
+select * from linguaggio;
+  
+  insert into contenuto(contenuto, tipo, capitolo_id) values('Gli Array','titolo','5');
+   insert into contenuto(contenuto, tipo, capitolo_id) values('','spazio','5');
+    insert into contenuto(contenuto, tipo, capitolo_id) values
+    ('In Java, un array è una struttura dati che contiene una sequenza di elementi dello stesso tipo, 
+    accessibili mediante un indice numerico. Gli array iniziano con indice zero e consentono di 
+    memorizzare e manipolare dati in modo efficiente.','paragrafo','5');
+     insert into contenuto(contenuto, tipo, capitolo_id) values('img/array.png','immagine','5');
+      insert into contenuto(contenuto, tipo, capitolo_id) values('Sopra un esempio di array','paragrafo','5');
+  
+select * from capitolo;
+select * from linguaggio;
+select * from quiz_multiplo;
+
+
