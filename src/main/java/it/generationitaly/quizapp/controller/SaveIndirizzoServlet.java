@@ -1,19 +1,17 @@
 package it.generationitaly.quizapp.controller;
 
+import java.io.IOException;
+
+import it.generationitaly.quizapp.entity.Indirizzo;
+import it.generationitaly.quizapp.entity.Utente;
+import it.generationitaly.quizapp.repository.UtenteRepository;
+import it.generationitaly.quizapp.repository.impl.UtenteRepositoryImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-import java.io.IOException;
-import java.net.http.HttpClient.Redirect;
-
-import it.generationitaly.quizapp.entity.Indirizzo;
-import it.generationitaly.quizapp.entity.Utente;
-import it.generationitaly.quizapp.repository.UtenteRepository;
-import it.generationitaly.quizapp.repository.impl.UtenteRepositoryImpl;
 
 @WebServlet("/saveIndirizzo")
 public class SaveIndirizzoServlet extends HttpServlet {

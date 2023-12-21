@@ -22,14 +22,11 @@ public class UpdateUtenteServlet extends HttpServlet {
 	// Creo un oggetto utenteRepository
 	private UtenteRepository utenteRepository = new UtenteRepositoryImpl();
 
-	// dichiaro la variabile id che mi servirà nei due metodi DoGet e DoPost
-	int id;
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		// prendo l'id dalla mia classe Utente (entity)
-		id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("id"));
 
 		// cerco nella UtenteRepository l'entità dell'utente associata all'ID
 		// specificato e restituisce quell'istanza dell'oggetto Utente
@@ -48,11 +45,12 @@ public class UpdateUtenteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("id"));
 
 		Utente utente = utenteRepository.findById(id);
 
-		// Prendo tutti i miei attributi dalla mia classe entity per poter procedere alla 
+		// Prendo tutti i miei attributi dalla mia classe entity per poter procedere
+		// alla
 		// modifica
 		if (utente != null) {
 			utente.setUsername(request.getParameter("username"));
@@ -86,10 +84,10 @@ public class UpdateUtenteServlet extends HttpServlet {
 
 		}
 
-		//eseguo l'operazione di aggiornamento sull'oggetto utente 
+		// eseguo l'operazione di aggiornamento sull'oggetto utente
 		utenteRepository.update(utente);
 
-		// l'utente viene reindirizzato a un'altra pagina o risorsa chiamata "utenti" 
+		// l'utente viene reindirizzato a un'altra pagina o risorsa chiamata "utenti"
 		// mediante il metodo sendRedirect
 		response.sendRedirect("utenti");
 

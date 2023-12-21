@@ -23,7 +23,7 @@ public class Badge {
 	private String nome;
 
 	@ManyToMany(mappedBy = "badges")
-    private List<Utente> utenti;
+	private List<Utente> utenti;
 
 	public int getId() {
 		return id;
@@ -49,5 +49,4 @@ public class Badge {
 		this.utenti = utenti;
 	}
 
-	
 }

@@ -12,7 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-
 @Entity
 @Table(name = "linguaggio")
 public class Linguaggio {
@@ -27,17 +26,6 @@ public class Linguaggio {
 
 	@OneToMany(mappedBy = "linguaggio", fetch = FetchType.EAGER)
 	private List<Capitolo> capitoli = new ArrayList<Capitolo>();
-
-	public Linguaggio() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Linguaggio(int id, String nome) {
-		super();
-		this.id = id;
-		this.nome = nome;
-	}
 
 	public int getId() {
 		return id;

@@ -11,8 +11,8 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "quiz_vero_falso")
-public class QuizVeroFalso{
-	
+public class QuizVeroFalso {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -23,10 +23,18 @@ public class QuizVeroFalso{
 
 	@Column(name = "bool", nullable = false)
 	private Boolean bool;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "capitolo_id", unique = true, nullable = false)
 	private Capitolo capitolo;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getDomanda() {
 		return domanda;
@@ -44,14 +52,6 @@ public class QuizVeroFalso{
 		this.bool = bool;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public Capitolo getCapitolo() {
 		return capitolo;
 	}
@@ -60,5 +60,4 @@ public class QuizVeroFalso{
 		this.capitolo = capitolo;
 	}
 
-	
 }

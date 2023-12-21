@@ -1,6 +1,5 @@
 package it.generationitaly.quizapp.entity;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,42 +28,36 @@ public class Utente {
 
 	@Column(name = "username", length = 20, nullable = false)
 	private String username;
-	
+
 	@Column(name = "password", length = 20, nullable = false)
 	private String password;
-	
+
 	@Column(name = "email", length = 45, nullable = false)
 	private String email;
-	
+
 	@Column(name = "nome", length = 45, nullable = false)
 	private String nome;
-	
+
 	@Column(name = "cognome", length = 45, nullable = false)
 	private String cognome;
-	
+
 	@Column(name = "data_nascita")
 	@Temporal(TemporalType.DATE)
 	private Date dataNascita;
-	
+
 	@Column(name = "numero_telefono", nullable = true)
 	private Integer numeroTelefono;
-	
-	@OneToOne(cascade = {  CascadeType.MERGE, CascadeType.REMOVE})
+
+	@OneToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
 	@JoinColumn(name = "indirizzo_id", unique = true, nullable = true)
 	private Indirizzo indirizzo;
-	
+
 	@ManyToMany
-	@JoinTable(
-			name="utente_has_badge",
-			joinColumns = @JoinColumn(name="utente_id"),
-			inverseJoinColumns = @JoinColumn(name = "badge_id"))
+	@JoinTable(name = "utente_has_badge", joinColumns = @JoinColumn(name = "utente_id"), inverseJoinColumns = @JoinColumn(name = "badge_id"))
 	private List<Badge> badges;
-	
+
 	@ManyToMany
-	@JoinTable(
-			name="utente_has_quiz",
-			joinColumns = @JoinColumn(name="utente_id"),
-			inverseJoinColumns = @JoinColumn(name = "quiz_id"))
+	@JoinTable(name = "utente_has_quiz", joinColumns = @JoinColumn(name = "utente_id"), inverseJoinColumns = @JoinColumn(name = "quiz_id"))
 	private List<Quiz> quiz;
 
 	public int getId() {

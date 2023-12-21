@@ -14,9 +14,10 @@ import it.generationitaly.quizapp.repository.impl.LinguaggioRepositoryImpl;
 @WebServlet("/listaQuiz")
 public class ListaQuizServlet extends HttpServlet {
 
-	LinguaggioRepository linguaggioRepo = new LinguaggioRepositoryImpl();
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private LinguaggioRepository linguaggioRepo = new LinguaggioRepositoryImpl();
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Linguaggio linguaggio = linguaggioRepo.findById(id);
 		request.setAttribute("linguaggio", linguaggio);

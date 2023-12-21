@@ -1,19 +1,18 @@
 package it.generationitaly.quizapp.controller;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import it.generationitaly.quizapp.entity.Indirizzo;
 import it.generationitaly.quizapp.entity.Utente;
 import it.generationitaly.quizapp.repository.UtenteRepository;
 import it.generationitaly.quizapp.repository.impl.UtenteRepositoryImpl;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/saveUtente")
 public class SaveUtenteServlet extends HttpServlet {

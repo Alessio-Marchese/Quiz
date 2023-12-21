@@ -1,5 +1,14 @@
 package it.generationitaly.quizapp.controller;
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import it.generationitaly.quizapp.entity.Indirizzo;
+import it.generationitaly.quizapp.entity.Utente;
+import it.generationitaly.quizapp.repository.UtenteRepository;
+import it.generationitaly.quizapp.repository.impl.UtenteRepositoryImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,27 +16,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.hibernate.Session;
-
-import it.generationitaly.quizapp.entity.Indirizzo;
-import it.generationitaly.quizapp.entity.Utente;
-import it.generationitaly.quizapp.repository.UtenteRepository;
-import it.generationitaly.quizapp.repository.impl.UtenteRepositoryImpl;
-
 @WebServlet("/updateUtenteIndirizzo")
 public class UpdateUtenteIndirizzoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	// Creo un oggetto utenteRepository
 	private UtenteRepository utenteRepository = new UtenteRepositoryImpl();
-
-	// dichiaro la variabile id che mi servirà nei due metodi DoGet e DoPost
-	int id;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

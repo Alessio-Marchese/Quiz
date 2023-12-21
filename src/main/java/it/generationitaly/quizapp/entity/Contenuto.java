@@ -11,7 +11,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-
 @Entity
 @Table(name = "contenuto")
 public class Contenuto {
@@ -20,14 +19,14 @@ public class Contenuto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	
+
 	@Column(name = "contenuto", nullable = false, length = 255)
 	private String contenuto;
-	
-	@Column(name= "tipo")
+
+	@Column(name = "tipo")
 	@Enumerated(EnumType.STRING)
 	private Tipo tipo;
-	
+
 	@JoinColumn(name = "capitolo_id")
 	@ManyToOne
 	private Capitolo capitolo;
@@ -38,6 +37,14 @@ public class Contenuto {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getContenuto() {
+		return contenuto;
+	}
+
+	public void setContenuto(String contenuto) {
+		this.contenuto = contenuto;
 	}
 
 	public Tipo getTipo() {
@@ -56,15 +63,4 @@ public class Contenuto {
 		this.capitolo = capitolo;
 	}
 
-	public String getContenuto() {
-		return contenuto;
-	}
-
-	public void setContenuto(String contenuto) {
-		this.contenuto = contenuto;
-	}
-	
-	
-	
-	
 }

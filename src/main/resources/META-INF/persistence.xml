@@ -15,7 +15,7 @@
 		<class>it.generationitaly.quizapp.entity.Utente</class>
 		<class>it.generationitaly.quizapp.entity.QuizVeroFalso</class>
 		<class>it.generationitaly.quizapp.entity.QuizMultiplo</class>
-		<class>it.generationitaly.quizapp.entity.UtenteHasBadge</class>
+		<class>it.generationitaly.quizapp.entity.Quiz</class>
 		<class>it.generationitaly.quizapp.entity.Contenuto</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
@@ -25,7 +25,7 @@
 				value="jdbc:mysql://localhost:3306/quiz" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password"
-				value="admin" />
+				value="Italie01," />
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL8Dialect" />
 			<property name="hibernate.hbm2ddl.auto" value="none" />
