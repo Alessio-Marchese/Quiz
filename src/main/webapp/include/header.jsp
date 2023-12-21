@@ -41,7 +41,7 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Utente
           </a>
-          <%if (utente == null) { %>
+          <%if (utente != null) { %>
           
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="profile-page.jsp">Pagina profilo</a></li>
