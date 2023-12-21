@@ -2,25 +2,26 @@
 
 .section {
 	background-color: #24262b;
-	height: 500px;
+	height: 400px;
 	background-size: cover;
 	display: display;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	color: #fff;
-	padding: 0 20px;
+	padding: 0 400px;
 }
 
 .section h1 {
-	font-size: 3rem;
-	margin-bottom: 20px;
+	font-size: 4rem;
+	margin-bottom: 5px;
+		color: #e91e63;
 }
 
 .section p {
 	font-size: 1.5rem;
-	margin-bottom: 30px;
+	margin-bottom: 5px;
+		color: #fff;
 }
 
 .btn-primary {
@@ -152,3 +153,7 @@
 	padding: 0 400px;
 }
 
+.frame-1 {
+	float: right;
+	height: 100%;
+}
