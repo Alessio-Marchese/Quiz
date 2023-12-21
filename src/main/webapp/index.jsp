@@ -15,20 +15,7 @@
 	crossorigin="anonymous">
 </head>
 <body id="body">
-	<%
-	Utente utente = (Utente) session.getAttribute("utente");
-	%>
-	<%
-	if (utente == null) {
-	%>
-	<%@ include file="include/header-unlogged.jsp"%>
-	<%
-	} else {
-	%>
-	<%@ include file="include/header-logged.jsp"%>
-	<%
-	}
-	%>
+	<%@ include file="include/header.jsp" %>
 	<div class="section">
 	</div>
 	<div class="section2">

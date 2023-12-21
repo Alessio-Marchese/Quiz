@@ -17,14 +17,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body id="body">
-<% Utente utente = (Utente) session.getAttribute("utente"); 
+<% 
 	List<Badge> badges = (List<Badge>) request.getAttribute("badges");
 %>
-		<% if(utente == null) { %>
-			<%@ include file="include/header-unlogged.jsp" %>
-	    <% } else { %>
-			<%@ include file="include/header-logged.jsp" %>
-		<% } %>
+<%@ include file="include/header.jsp" %>
 <div id="welcome">
 <h1>Il tuo profilo</h1>
 <div class="div-1">

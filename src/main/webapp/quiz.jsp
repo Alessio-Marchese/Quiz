@@ -28,12 +28,8 @@
 		} else {
 			quizMultiplo = (QuizMultiplo) object;
 		}
-		Utente utente = (Utente) session.getAttribute("utente"); %>
-		<% if(utente == null) { %>
-			<%@ include file="include/header-logged.jsp" %>
-	    <% } else { %>
-			<%@ include file="include/header-logged.jsp" %>
-		<% } %>
+		%>
+	<%@ include file="include/header.jsp" %>
 		<div id="pagina">
 		<div class="container">
 			<div class="row">

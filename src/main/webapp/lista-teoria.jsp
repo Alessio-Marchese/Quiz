@@ -21,19 +21,8 @@
 	<body>
 		<%
 	Linguaggio linguaggio = (Linguaggio) request.getAttribute("linguaggio");
-	Utente utente = (Utente) session.getAttribute("utente");
 	%>
-	<%
-	if (utente == null) {
-	%>
-	<%@ include file="include/header-unlogged.jsp"%>
-	<%
-	} else {
-	%>
-	<%@ include file="include/header-logged.jsp"%>
-	<%
-	}
-	%>
+<%@ include file="include/header.jsp" %>
 		<div class="container">
 			<div class="row">
 				<div class="col-2">

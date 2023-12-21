@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="it.generationitaly.quizapp.entity.Utente"
+    %>
+    <%
+	Utente utente = (Utente) session.getAttribute("utente");
+	%>
 		 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.jsp">ICONA DA METTERE</a>
@@ -36,12 +41,22 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Utente
           </a>
+          <%if (utente == null) { %>
+          
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="profile-page.jsp">Pagina profilo</a></li>
             <li><a class="dropdown-item" href="#">Log Out</a></li>
           </ul>
         </li>
       </ul>
+      <% } else {%>
+      	<ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="register.jsp">Registrati</a></li>
+            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+          </ul>
+        </li>
+      </ul>
+      <% } %>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Cerca</button>
