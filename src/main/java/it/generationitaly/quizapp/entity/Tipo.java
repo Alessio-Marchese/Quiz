@@ -2,7 +2,7 @@ package it.generationitaly.quizapp.entity;
 
 public enum Tipo {
 
-	SPAZIO("spazio"), PARAGRAFO("paragrafo"), TITOLO("titolo"), IMMAGINE("immagine");
+	spazio("spazio"), paragrafo("paragrafo"), titolo("titolo"), immagine("immagine");
 
 	private String value;
 
