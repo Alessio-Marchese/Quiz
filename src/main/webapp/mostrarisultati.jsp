@@ -24,6 +24,12 @@
         #emptyContainer {
             min-height: 280px;
         }
+        
+        .scroll{
+  			width:500px;
+  			height:400px;
+  			overflow:scroll;
+		}
     </style>
 </head>
 <body>
@@ -45,7 +51,7 @@
             <button onclick="showDetails()">Controlla le tue risposte</button>
 
             <div id="answerDetails">
-                <div class="answer-column">
+                <div class="answer-column scroll">
                     <h2>Risposte Corrette:</h2>
                     <% 
                     for(Object oggetto : risposteGiuste) {
@@ -71,7 +77,7 @@
                     }
                     %>
                 </div>
-                <div class="answer-column">
+                <div class="answer-column scroll">
                     <h2>Risposte Errate:</h2>
                     <% 
                     for(Object oggetto : risposteSbagliate) {
@@ -101,8 +107,6 @@
 
             <!-- Contenitore vuoto -->
             <div id="emptyContainer"></div>
-
-            <a href="quiz?idCapitolo=<%= idCapitolo %>">Torna al quiz</a>
         </div>
     </div>
 
