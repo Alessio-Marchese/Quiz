@@ -57,18 +57,20 @@
 					<%
 					if (prevCapitoloId > 0) {
 					%>
-					<a href="teoria?idCapitolo=<%=prevCapitoloId%>">
+					<a href="teoria?idCapitolo=<%=prevCapitoloId%>&idLinguaggio=<%=linguaggio.getId()%>">
 						<button type="button" class="btn btn-danger"> &lt; Prev</button> 
+					</a>
  
  <% } else { %>
 	 <a href="index.jsp">
-	<button type="button" class="btn btn-danger"> &lt; Home</button> 
+	<button type="button" class="btn btn-danger"> &lt; Home</button>
+	</a> 
  <%
 					}
 					%>
-<% if (nextCapitoloId < 40) {
+<% if (nextCapitoloId < capitoli.size()-1) {
  %>
-					</a> <a href="teoria?idCapitolo=<%=nextCapitoloId%>">
+					</a> <a href="teoria?idCapitolo=<%=nextCapitoloId%>&idLinguaggio=<%=linguaggio.getId()%>">
 						<button type="button" class="btn btn-danger">Next &gt;</button>
 					</a>
 					<%

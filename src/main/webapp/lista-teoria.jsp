@@ -26,10 +26,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-2">
-						<dl>
 						<h2 class="titolo-ling"><%=linguaggio.getNome()%></h2>
+						<dl>
 						<%for(Capitolo capitolo : linguaggio.getCapitoli()) { %>
-							<dt style="margin: 10px;"><a  style="color: black; "href="teoria?idCapitolo=<%=capitolo.getId()%>"><%= capitolo.getNome() %></a></dt>
+							<dt style="margin: 10px;"><a style="color: black;" href="teoria?idCapitolo=<%=capitolo.getId()%>&idLinguaggio=<%=linguaggio.getId()%>"><%=capitolo.getNome()%></a></dt>
 						<% } %>
 							
 						</dl>
