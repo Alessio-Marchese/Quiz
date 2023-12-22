@@ -24,14 +24,14 @@ public class TeoriaServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int idLinguaggio = Integer.parseInt(request.getParameter("idLinguaggio"));
 		int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
 		Capitolo capitolo = capitoloRepo.findById(idCapitolo);
 		List<Contenuto> contenuti = capitolo.getContenuti();
-		List<Linguaggio> linguaggi = linguaggioRepo.findAll();
-		List<Capitolo> capitoli = capitoloRepo.findAll();
+		Linguaggio linguaggio = linguaggioRepo.findById(idLinguaggio);
+		List<Capitolo> capitoli = linguaggio.getCapitoli();
 		request.setAttribute("capitoli", capitoli);
 		request.setAttribute("contenuti", contenuti);
-		request.setAttribute("linguaggi", linguaggi);
 		request.getRequestDispatcher("teoria.jsp").forward(request, response);
 
 	}
