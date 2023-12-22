@@ -42,7 +42,7 @@
 					<div style="background-color: grey; border: 2px solid black; border-radius: 15px; height: auto; margin-top: 50px;">
 						<dl>
 						<%for(Capitolo capitolo : capitoli) { %>
-							<dt style="margin: 10px;"><a  style="color: black; "href="quiz?idCapitolo=<%=capitolo.getId()%>"><%= capitolo.getNome() %></a></dt>
+							<dt style="margin: 10px;"><a  style="color: black; "href="quiz?idCapitolo=<%=capitolo.getId()%>&idLinguaggio=<%=linguaggio.getId()%>"><%= capitolo.getNome() %></a></dt>
 						<% } %>
 							<dt style="margin: 10px;"><a  style="color: black; "href="quizFinale?idLinguaggio=<%=linguaggio.getId()%>"><%= linguaggio.getNome() %> esame finale</a></dt>
 						</dl>
@@ -85,6 +85,7 @@
 						<p><%= quizMultiplo.getDomanda() %></p>
 						<form action="quiz" method="post">
 							<input type="hidden" name="idCapitolo" value="<%=quizMultiplo.getCapitolo().getId()%>">
+							<input type="hidden" name="idLinguaggio" value=<%=linguaggio.getId() %>>
 							<input type="hidden" name="idQM" value="<%=quizMultiplo.getId()%>">
 							<label>
             					<input type="radio" name="risposta" value="<%= primaRandom %>"> <%= primaRandom %>

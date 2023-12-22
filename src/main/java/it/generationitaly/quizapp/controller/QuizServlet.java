@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import it.generationitaly.quizapp.entity.Capitolo;
+import it.generationitaly.quizapp.entity.Linguaggio;
 import it.generationitaly.quizapp.entity.QuizMultiplo;
 import it.generationitaly.quizapp.entity.QuizVeroFalso;
 import it.generationitaly.quizapp.repository.CapitoloRepository;
@@ -36,6 +37,8 @@ public class QuizServlet extends HttpServlet {
 
 		int contatoreDomande = 0;
 		int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
+		int idLinguaggio = Integer.parseInt(request.getParameter("idLinguaggio"));
+		Linguaggio linguaggio = linguaggioRepo.findById(idLinguaggio);
 		Capitolo capitolo = capitoloRepo.findById(idCapitolo);
 		List<QuizMultiplo> quizMultipli = capitolo.getQuizMultipli();
 		List<QuizVeroFalso> quizVF = capitolo.getQuizVeroFalso();
@@ -55,6 +58,7 @@ public class QuizServlet extends HttpServlet {
 		List<Capitolo> capitoli = capitolo.getLinguaggio().getCapitoli();
 		request.setAttribute("linguaggi", linguaggioRepo.findAll());
 		request.setAttribute("capitoli", capitoli);
+		request.setAttribute("linguaggio", linguaggio);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("quiz.jsp");
 		requestDispatcher.forward(request, response);
 
@@ -62,6 +66,9 @@ public class QuizServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int idLinguaggio = Integer.parseInt(request.getParameter("idLinguaggio"));
+		Linguaggio linguaggio = linguaggioRepo.findById(idLinguaggio);
+		request.setAttribute("linguaggio", linguaggio);
 		List<Object> quiz = (List<Object>) request.getSession().getAttribute("quiz");
 		List<Object> risposteGiuste = (List<Object>) request.getSession().getAttribute("risposteGiuste");
 		List<Object> risposteSbagliate = (List<Object>) request.getSession().getAttribute("risposteSbagliate");
