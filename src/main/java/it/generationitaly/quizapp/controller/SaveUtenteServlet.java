@@ -5,6 +5,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+import org.hibernate.type.descriptor.java.LocalDateJavaType;
+
 import it.generationitaly.quizapp.entity.Utente;
 import it.generationitaly.quizapp.repository.UtenteRepository;
 import it.generationitaly.quizapp.repository.impl.UtenteRepositoryImpl;
@@ -25,30 +28,30 @@ public class SaveUtenteServlet extends HttpServlet {
 		// Recupero dei dati dal form di registrazione UTENTE
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		String confirmPassword = request.getParameter("confermaPassword");
 		String email = request.getParameter("email");
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
+		int telefono = Integer.parseInt(request.getParameter("telefono"));
 
 		Utente utenteCheck = utenteRepository.findByUsername(username);
-		
-		// Verifica che le due password coincidano
+
+		// Verifica che l'username non sia già stato preso
 		if (utenteCheck != null) {
-			response.sendRedirect("register.jsp?errore");
+			response.sendRedirect("register.jsp?erroreUtente");
 			return;
 		}
 
 		// Cercare di trasformare la stringa della data di nascita in una data
 		String tmpDataNascita = request.getParameter("nascita");
+		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		Date dataNascita = null;
 		try {
 			dataNascita = simpleDateFormat.parse(tmpDataNascita);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
 		// Creazione oggetto utente e settaggio parametri
 		Utente utente = new Utente();
 
@@ -57,15 +60,14 @@ public class SaveUtenteServlet extends HttpServlet {
 		utente.setEmail(email);
 		utente.setNome(nome);
 		utente.setCognome(cognome);
-		if (dataNascita != null) {
-			utente.setDataNascita(dataNascita);
-		}
-		
-		//Salvare nuovo utente nel database
+		utente.setDataNascita(dataNascita);
+		utente.setNumeroTelefono(telefono);
+
+		// Salvare nuovo utente nel database
 		utenteRepository.save(utente);
-		
-		//reinidirzza l'utente sulla welcome page
-		response.sendRedirect("profilo");
+
+		// reinidirzza l'utente sulla welcome page
+		response.sendRedirect("login.jsp");
 	}
 
 }
