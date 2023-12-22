@@ -31,10 +31,6 @@ public class TeoriaServlet extends HttpServlet {
 		List<Contenuto> contenuti = capitolo.getContenuti();
 		Linguaggio linguaggio = linguaggioRepo.findById(idLinguaggio);
 		List<Capitolo> capitoli = linguaggio.getCapitoli();
-		System.out.println(linguaggio);
-		System.out.println(capitoli);
-		System.out.println(contenuti);
-		System.out.println(linguaggio);
 		request.setAttribute("capitoli", capitoli);
 		request.setAttribute("contenuti", contenuti);
 		request.setAttribute("capitolo", capitolo);
