@@ -37,7 +37,6 @@
     <div class="quiz-body">
         <div class="quiz-content">
             <% 
-            int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
             List<Object> risposteGiuste = (List<Object>) request.getSession().getAttribute("risposteGiuste");
             List<Object> risposteSbagliate = (List<Object>) request.getSession().getAttribute("risposteSbagliate");
             int totalQuestions = risposteGiuste.size() + risposteSbagliate.size();
