@@ -34,6 +34,7 @@ public class QuizServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		int contatoreDomande = 0;
 		int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
 		Capitolo capitolo = capitoloRepo.findById(idCapitolo);
 		List<QuizMultiplo> quizMultipli = capitolo.getQuizMultipli();
@@ -41,6 +42,7 @@ public class QuizServlet extends HttpServlet {
 		List<Object> quiz = new ArrayList<Object>();
 		List<Object> risposteGiuste = new ArrayList<Object>();
 		List<Object> risposteSbagliate = new ArrayList<Object>();
+		request.getSession().setAttribute("contatoreDomande", contatoreDomande);
 		request.getSession().setAttribute("quiz", quiz);
 		request.getSession().setAttribute("risposteGiuste", risposteGiuste);
 		request.getSession().setAttribute("risposteSbagliate", risposteSbagliate);
@@ -64,6 +66,9 @@ public class QuizServlet extends HttpServlet {
 		List<Object> risposteGiuste = (List<Object>) request.getSession().getAttribute("risposteGiuste");
 		List<Object> risposteSbagliate = (List<Object>) request.getSession().getAttribute("risposteSbagliate");
 		List<Capitolo> capitoli = null;
+		int contatoreDomande = (Integer) request.getSession().getAttribute("contatoreDomande");
+		contatoreDomande++;
+		request.getSession().setAttribute("contatoreDomande", contatoreDomande);
 		if (request.getParameter("idVF") != null) {
 			int id = Integer.parseInt(request.getParameter("idVF"));
 			QuizVeroFalso vf = quizVFRepo.findById(id);
@@ -117,7 +122,7 @@ public class QuizServlet extends HttpServlet {
 		}
 
 		Random random = new Random();
-		if (!quiz.isEmpty()) {
+		if (contatoreDomande < 10) {
 			int random1 = random.nextInt(quiz.size());
 			Object object = quiz.get(random1);
 			

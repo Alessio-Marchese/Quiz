@@ -6,6 +6,7 @@
     import="it.generationitaly.quizapp.entity.QuizVeroFalso"
     import="it.generationitaly.quizapp.entity.Utente"
     import="it.generationitaly.quizapp.entity.QuizMultiplo"
+    import="it.generationitaly.quizapp.entity.Linguaggio"
     import="java.util.ArrayList"
     import="java.util.Random"
     import="it.generationitaly.quizapp.entity.Capitolo"
@@ -21,6 +22,8 @@
 	</head>
 	<body id="body">
 		<% 
+		Linguaggio linguaggio = (Linguaggio) request.getAttribute("linguaggio");
+		
 		List<Capitolo> capitoli = (List<Capitolo>) request.getAttribute("capitoli");
 		QuizVeroFalso quizVF = null;
 		QuizMultiplo quizMultiplo = null;
@@ -41,6 +44,7 @@
 						<%for(Capitolo capitolo : capitoli) { %>
 							<dt style="margin: 10px;"><a  style="color: black; "href="quiz?idCapitolo=<%=capitolo.getId()%>"><%= capitolo.getNome() %></a></dt>
 						<% } %>
+							<dt style="margin: 10px;"><a  style="color: black; "href="quizFinale?idLinguaggio=<%=linguaggio.getId()%>"><%= linguaggio.getNome() %> esame finale</a></dt>
 						</dl>
 					</div>
 				</div>

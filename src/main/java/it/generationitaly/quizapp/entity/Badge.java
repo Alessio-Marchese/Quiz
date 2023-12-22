@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,7 +23,7 @@ public class Badge {
 	@Column(name = "nome", length = 45, nullable = false)
 	private String nome;
 
-	@ManyToMany(mappedBy = "badges")
+	@ManyToMany(mappedBy = "badges", fetch = FetchType.EAGER)
 	private List<Utente> utenti;
 
 	public int getId() {
