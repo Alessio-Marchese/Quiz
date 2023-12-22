@@ -19,10 +19,10 @@
           </a>
          <form>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="listaTeoria?id=1">JAVA</a></li>
-            <li><a class="dropdown-item" href="listaTeoria?id=2">HTML</a></li>
-            <li><a class="dropdown-item" href="listaTeoria?id=3">CSS</a></li>
-            <li><a class="dropdown-item" href="listaTeoria?id=4">JAVASCRIPT</a></li>
+            <li><a class="dropdown-item" href="teoria?idCapitolo=1&idLinguaggio=1">JAVA</a></li>
+            <li><a class="dropdown-item" href="teoria?idCapitolo=1&idLinguaggio=2">HTML</a></li>
+            <li><a class="dropdown-item" href="teoria?idCapitolo=1&idLinguaggio=3">CSS</a></li>
+            <li><a class="dropdown-item" href="teoria?idCapitolo=1&idLinguaggio=4">JAVASCRIPT</a></li>
           </ul>
          </form>
         </li>

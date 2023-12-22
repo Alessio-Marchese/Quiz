@@ -8,23 +8,28 @@
     <meta charset="ISO-8859-1">
     <title>Risultati Quiz</title>
     <link rel="stylesheet" href="style/footer-style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+          crossorigin="anonymous">
     <link href="style/StileMostraRisultati.css" rel="stylesheet" type="text/css">
     <style>
         #answerDetails {
             display: none;
+         
+            justify-content: space-between;
         }
-        .quiz-body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
+        .answer-column {
+            width: 48%;
         }
-        .quiz-content {
-            width: 50%;  /* Adatta questa larghezza secondo le tue preferenze */
-            max-width: 960px; /* Adatta questa massima larghezza secondo le tue preferenze */
-            margin: 0 auto; /* Centra il contenuto orizzontalmente */
+        #emptyContainer {
+            min-height: 280px;
         }
+        
+        .scroll{
+  			width:500px;
+  			height:400px;
+  			overflow:scroll;
+		}
     </style>
 </head>
 <body>
@@ -46,72 +51,90 @@
             <button onclick="showDetails()">Controlla le tue risposte</button>
 
             <div id="answerDetails">
-                <h2>Risposte Corrette:</h2>
-                <% 
-                for(Object oggetto : risposteGiuste) {
-                    if(oggetto instanceof QuizMultiplo) {
-                        QuizMultiplo quiz = (QuizMultiplo) oggetto;
-                        %>
-                            <div>
-                                <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
-                                <p><strong>Risposta Corretta:</strong> <%= quiz.getCorretta() %></p>
-                                <p>Risposta dell'utente: Corretta</p>
-                            </div>
-                        <%
-                    } else if (oggetto instanceof QuizVeroFalso) {
-                        QuizVeroFalso quiz = (QuizVeroFalso) oggetto;
-                        %>
-                            <div>
-                                <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
-                                <p><strong>Risposta Corretta:</strong> <%= quiz.getBool() ? "Vero" : "Falso" %></p>
-                                <p>Risposta dell'utente: Corretta</p>
-                            </div>
-                        <%
+                <div class="answer-column scroll">
+                    <h2>Risposte Corrette:</h2>
+                    <% 
+                    for(Object oggetto : risposteGiuste) {
+                        if(oggetto instanceof QuizMultiplo) {
+                            QuizMultiplo quiz = (QuizMultiplo) oggetto;
+                            %>
+                                <div>
+                                    <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
+                                    <p><strong>Risposta Corretta:</strong> <%= quiz.getCorretta() %></p>
+                                    <p>Risposta dell'utente: Corretta</p>
+                                </div>
+                            <%
+                        } else if (oggetto instanceof QuizVeroFalso) {
+                            QuizVeroFalso quiz = (QuizVeroFalso) oggetto;
+                            %>
+                                <div>
+                                    <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
+                                    <p><strong>Risposta Corretta:</strong> <%= quiz.getBool() ? "Vero" : "Falso" %></p>
+                                    <p>Risposta dell'utente: Corretta</p>
+                                </div>
+                            <%
+                        }
                     }
-                }
-                %>
-
-                <h2>Risposte Errate:</h2>
-                <% 
-                for(Object oggetto : risposteSbagliate) {
-                    if(oggetto instanceof QuizMultiplo) {
-                        QuizMultiplo quiz = (QuizMultiplo) oggetto;
-                        %>
-                            <div>
-                                <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
-                                <p><strong>Risposta Corretta:</strong> <%= quiz.getCorretta() %></p>
-                                <p>Risposta dell'utente: Errata</p>
-                            </div>
-                        <%
-                    } else if (oggetto instanceof QuizVeroFalso) {
-                        QuizVeroFalso quiz = (QuizVeroFalso) oggetto;
-                        %>
-                            <div>
-                                <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
-                                <p><strong>Risposta Corretta:</strong> <%= quiz.getBool() ? "Vero" : "Falso" %></p>
-                                <p>Risposta dell'utente: Errata</p>
-                            </div>
-                        <%
+                    %>
+                </div>
+                <div class="answer-column scroll">
+                    <h2>Risposte Errate:</h2>
+                    <% 
+                    for(Object oggetto : risposteSbagliate) {
+                        if(oggetto instanceof QuizMultiplo) {
+                            QuizMultiplo quiz = (QuizMultiplo) oggetto;
+                            %>
+                                <div>
+                                    <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
+                                    <p><strong>Risposta Corretta:</strong> <%= quiz.getCorretta() %></p>
+                                    <p>Risposta dell'utente: Errata</p>
+                                </div>
+                            <%
+                        } else if (oggetto instanceof QuizVeroFalso) {
+                            QuizVeroFalso quiz = (QuizVeroFalso) oggetto;
+                            %>
+                                <div>
+                                    <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
+                                    <p><strong>Risposta Corretta:</strong> <%= quiz.getBool() ? "Vero" : "Falso" %></p>
+                                    <p>Risposta dell'utente: Errata</p>
+                                </div>
+                            <%
+                        }
                     }
-                }
-                %>
-
-                <a href="quiz?idCapitolo=<%= idCapitolo %>">Torna al quiz</a>
+                    %>
+                </div>
             </div>
+
+            <!-- Contenitore vuoto -->
+            <div id="emptyContainer"></div>
         </div>
     </div>
 
     <%@ include file="include/footer.jsp"%>
+    
 
-    <script>
-        function showDetails() {
-            var detailsDiv = document.getElementById("answerDetails");
-            detailsDiv.style.display = detailsDiv.style.display === "block" ? "none" : "block";
+<script>
+    function showDetails() {
+        var detailsDiv = document.getElementById("answerDetails");
+        var emptyContainer = document.getElementById("emptyContainer");
+
+        if (detailsDiv.style.display === "flex") {
+            detailsDiv.style.display = "none";
+            emptyContainer.style.display = "block";
+        } else {
+            detailsDiv.style.display = "flex";
+            emptyContainer.style.display = "none";
         }
-    </script>
+    }
+</script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
             crossorigin="anonymous"></script>
 </body>
 </html>
+
