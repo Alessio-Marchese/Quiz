@@ -11,7 +11,7 @@
 		<meta charset="ISO-8859-1">
 		<title>Insert title here</title>
 		<link href="style/index-style2.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="style/footer-style.css">
+		<link rel="stylesheet" href="style/teoria.css">
 		<link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -26,15 +26,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-2">
-					<div style="background-color: grey; border: 2px solid black; border-radius: 15px; height: auto; margin-top: 50px;">
 						<dl>
+						<h2 class="titolo-ling"><%=linguaggio.getNome()%></h2>
 						<%for(Capitolo capitolo : linguaggio.getCapitoli()) { %>
-							<dt style="margin: 10px;"><a style="color: black;" href="teoria?idCapitolo=<%=capitolo.getId()%>&idLinguaggio=<%=linguaggio.getId()%>"><%=capitolo.getNome()%></a></dt>
-
+							<dt style="margin: 10px;"><a  style="color: black; "href="teoria?idCapitolo=<%=capitolo.getId()%>"><%= capitolo.getNome() %></a></dt>
 						<% } %>
 							
 						</dl>
-					</div>
 				</div>
 			</div>
 		</div>
