@@ -1,0 +1,71 @@
+/* Stili Base per la Pagina dei Risultati del Quiz */
+.quiz-body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.quiz-content {
+    width: 90%;  /* o la larghezza che preferisci */
+    max-width: 900px; /* o la massima larghezza che preferisci */
+    margin: 0 auto; /* Centra il contenuto orizzontalmente */
+}
+
+.quiz-body h1 {
+    font-size: 2.0em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.quiz-body h2 {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    color: #333;
+}
+
+.quiz-body button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+}
+
+.quiz-body button:hover {
+    background-color: #0056b3;
+}
+
+.quiz-body a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.quiz-body a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.quiz-body #answerDetails div {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.quiz-body #answerDetails .corretta {
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+}
+
+.quiz-body #answerDetails .errata {
+    background-color: #f8d7da;
+    border-left: 5px solid #dc3545;
+}
+
+
