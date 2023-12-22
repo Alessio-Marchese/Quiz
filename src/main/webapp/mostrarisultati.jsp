@@ -15,7 +15,6 @@
     <style>
         #answerDetails {
             display: none;
-         
             justify-content: space-between;
         }
         .answer-column {
@@ -24,13 +23,13 @@
         #emptyContainer {
             min-height: 280px;
         }
-        
         .scroll{
-  			width:500px;
-  			height:400px;
-  			overflow:scroll;
-		}
+            width:500px;
+            height:400px;
+            overflow:scroll;
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
     <%@ include file="include/header.jsp" %>
@@ -55,10 +54,11 @@
                     <h2>Risposte Corrette:</h2>
                     <% 
                     for(Object oggetto : risposteGiuste) {
+                        String style = "background-color: #d4edda !important; border-left: 5px solid #28a745 !important;";
                         if(oggetto instanceof QuizMultiplo) {
                             QuizMultiplo quiz = (QuizMultiplo) oggetto;
                             %>
-                                <div>
+                                <div style="<%=style%>">
                                     <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
                                     <p><strong>Risposta Corretta:</strong> <%= quiz.getCorretta() %></p>
                                     <p>Risposta dell'utente: Corretta</p>
@@ -67,7 +67,7 @@
                         } else if (oggetto instanceof QuizVeroFalso) {
                             QuizVeroFalso quiz = (QuizVeroFalso) oggetto;
                             %>
-                                <div>
+                                <div style="<%=style%>">
                                     <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
                                     <p><strong>Risposta Corretta:</strong> <%= quiz.getBool() ? "Vero" : "Falso" %></p>
                                     <p>Risposta dell'utente: Corretta</p>
@@ -80,11 +80,12 @@
                 <div class="answer-column scroll">
                     <h2>Risposte Errate:</h2>
                     <% 
+                    String style = "background-color: #f8d7da !important; border-left: 5px solid #dc3545 !important;";
                     for(Object oggetto : risposteSbagliate) {
                         if(oggetto instanceof QuizMultiplo) {
                             QuizMultiplo quiz = (QuizMultiplo) oggetto;
                             %>
-                                <div>
+                                <div style="<%=style%>">
                                     <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
                                     <p><strong>Risposta Corretta:</strong> <%= quiz.getCorretta() %></p>
                                     <p>Risposta dell'utente: Errata</p>
@@ -93,7 +94,7 @@
                         } else if (oggetto instanceof QuizVeroFalso) {
                             QuizVeroFalso quiz = (QuizVeroFalso) oggetto;
                             %>
-                                <div>
+                                <div style="<%=style%>">
                                     <p><strong>Domanda:</strong> <%= quiz.getDomanda() %></p>
                                     <p><strong>Risposta Corretta:</strong> <%= quiz.getBool() ? "Vero" : "Falso" %></p>
                                     <p>Risposta dell'utente: Errata</p>
@@ -111,26 +112,21 @@
     </div>
 
     <%@ include file="include/footer.jsp"%>
-    
 
-<script>
-    function showDetails() {
-        var detailsDiv = document.getElementById("answerDetails");
-        var emptyContainer = document.getElementById("emptyContainer");
+    <script>
+        function showDetails() {
+            var detailsDiv = document.getElementById("answerDetails");
+            var emptyContainer = document.getElementById("emptyContainer");
 
-        if (detailsDiv.style.display === "flex") {
-            detailsDiv.style.display = "none";
-            emptyContainer.style.display = "block";
-        } else {
-            detailsDiv.style.display = "flex";
-            emptyContainer.style.display = "none";
+            if (detailsDiv.style.display === "flex") {
+                detailsDiv.style.display = "none";
+                emptyContainer.style.display = "block";
+            } else {
+                detailsDiv.style.display = "flex";
+                emptyContainer.style.display = "none";
+            }
         }
-    }
-</script>
-
-
-
-
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
