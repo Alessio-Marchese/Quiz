@@ -29,7 +29,8 @@
 					<div style="background-color: grey; border: 2px solid black; border-radius: 15px; height: auto; margin-top: 50px;">
 						<dl>
 						<%for(Capitolo capitolo : linguaggio.getCapitoli()) { %>
-							<dt style="margin: 10px;"><a  style="color: black; "href="teoria?idCapitolo=<%=capitolo.getId()%>"><%= capitolo.getNome() %></a></dt>
+							<dt style="margin: 10px;"><a style="color: black;" href="teoria?idCapitolo=<%=capitolo.getId()%>&idLinguaggio=<%=linguaggio.getId()%>"><%=capitolo.getNome()%></a></dt>
+
 						<% } %>
 							
 						</dl>
