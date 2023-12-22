@@ -36,7 +36,7 @@
 					%>
 					<dt style="margin: 10px;">
 						<a style="color: black;"
-							href="teoria?idCapitolo=<%=capitolo.getId()%>"><%=capitolo.getNome()%></a>
+							href="teoria?idCapitolo=<%=capitolo.getId()%>&idLinguaggio=<%=linguaggio.getId()%>"><%=capitolo.getNome()%></a>
 					</dt>
 					<%
 					}
