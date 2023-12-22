@@ -2,12 +2,27 @@
 
 
 .col-2 dl {
-    background-color: #f0f0f0;
-    border: 2px solid black;
+	 width: 800px;
+     height: 700px;
+     overflow: scroll;
+	
+    background-color: #24262b;
+    border: 2px solid rgb(254, 24, 0);
     border-radius: 15px;
     padding: 10px;
     margin-top: 50px;
     font-family: 'Playfair Display', serif;
+    
+    color: rgb(255, 61, 66);
+    text-shadow: 2px 2px 4px rgb(254, 24, 0);
+}
+
+.col-2 titolo-ling {
+	font-size: 35px;
+	display: flex;
+    justify-content:center;
+    font-family: 'Playfair Display', serif;
+    
 }
 
 .col-2 dl a {
@@ -21,7 +36,7 @@
 
 .col-6 {
     background-color: #f0f0f0; 
-    border: 2px solid black;
+    border: 2px solid rgb(254, 24, 0);
     border-radius: 15px;
     padding: 20px; 
    
@@ -71,11 +86,9 @@
     border-radius: 10px;
 }
 
-.titolo-ling{
-	font-size: 35px;
-	display: flex;
-    justify-content:center;
-    font-family: 'Playfair Display', serif;
-    color: rgb(255, 61, 66);
-  text-shadow: 2px 2px 4px rgb(254, 24, 0);
+.titolo-cap{
+	color: #24262b;
+    text-shadow: 2px 2px 4px rgb(254, 24, 0);
 }
+
+

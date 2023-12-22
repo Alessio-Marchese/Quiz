@@ -31,11 +31,12 @@
 			<div class="col-2">
 
 				<dl>
+				<h2 class="titolo-ling"><%=linguaggio.getNome()%></h2>
 					<%
 					for (Capitolo capitolo : capitoli) {
 					%>
 					<dt style="margin: 10px;">
-						<a style="color: black;"
+						<a style="color: white;"
 							href="teoria?idCapitolo=<%=capitolo.getId()%>&idLinguaggio=<%=linguaggio.getId()%>"><%=capitolo.getNome()%></a>
 					</dt>
 					<%
@@ -116,4 +117,5 @@
 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 		crossorigin="anonymous"></script>
 </body>
+<%@ include file="include/footer.jsp" %>
 </html>
