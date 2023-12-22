@@ -51,6 +51,7 @@
     text-decoration: underline;
 }
 
+/* Stili per i dettagli delle risposte */
 .quiz-body #answerDetails div {
     margin-bottom: 15px;
     padding: 15px;
@@ -68,4 +69,23 @@
     border-left: 5px solid #dc3545;
 }
 
+/* Stili per disporre le risposte corrette e errate affiancate */
+#answerDetails {
+    display: none; /* Nasconde inizialmente il contenitore */
+     /* Permette agli elementi di andare a capo su schermi più piccoli */
+    justify-content: space-between;
+     /* Spazio sopra il contenitore delle risposte */
+}
+
+
+ 
+/* Contenitore per risposte corrette e errate */
+.answer-column {
+    width: 48%; /* Regola la larghezza secondo le tue preferenze */
+}
+
+/* Stili per il contenitore vuoto */
+#emptyContainer {
+    min-height: 400px; /* Regola l'altezza minima secondo le tue preferenze */
+}
 
