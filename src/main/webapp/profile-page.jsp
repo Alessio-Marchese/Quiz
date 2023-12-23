@@ -115,39 +115,54 @@
                                                 <label>Telefono</label>
                                             </div>
                                             <div id="numeroTelefono" class="col-md-6">
-                                            	<% if(utente.getNumeroTelefono() == null) { %>
-                                            		<button type="button" id="showForm">Aggiungi</button>
-                                            		<div id="divAsForm" style="display: none;">
-                                            			<input id="number" type="number">
-                                            			<button id="submit" type="button" style="margin-left: 10px;">click</button>
-                                            		</div>
-                                            	<% } else {%>
-                                                <p><%=utente.getNumeroTelefono() %></p>
-                                                <% } %>
+                                            	<p><%=utente.getNumeroTelefono() %></p>
                                             </div>
                                             <div id="modificaNumeroTelefono" class="col-md-6" style="display: none; width: auto;">
                                             	<input id="myInput2" name="newNumeroTelefono" value="<%=utente.getNumeroTelefono()%>">
                                             </div>
                                         </div>
                                         <div class="row">
+                                            <div class="col-md-1">
+                                                <label>Indirizzo</label>
+                                            </div>
+                                            <div id="aggInd" class="col-md-4" style="margin-left: 350px;">
+                                            <% if(utente.getIndirizzo() == null) { %>
+                                            		<button type="button" id="showForm">Aggiungi</button>
+                                            		<div id="divAsForm" style="display: none;">
+                                            			<input id="paese" name="paese" placeholder="Paese"><button type="button" id="annulla" style="margin-left: 10px;">Annulla</button><input id="citta" name="citta" placeholder="Città"><input id="via" name="via" placeholder="Via"><input id="numeroCivico" name="numeroCivico" placeholder="Numero Civico">
+                                            			<button id="submit" type="button" style="margin-left: 10px;">click</button>
+                                            		</div>
+                                            	<% } else {%>
+                                                <div id="modificaIndirizzo" class="col-md-6" style="display: none; width: auto;">
+                                            	<input name="newPaese" value="<%=utente.getIndirizzo().getPaese()%>"><br><input name="newCitta" value="<%=utente.getIndirizzo().getCitta()%>"><br><input name="newVia" value="<%=utente.getIndirizzo().getVia()%>"><br><input name="newNumeroCivico" value="<%=utente.getIndirizzo().getNumeroCivico()%>">
+                                            	</div>
+                                                <% } %>
+                                                </div>
+                                            
+                                        </div>
+                                        <div class="row">
                                         <div class="col-md-6">
                                         </div>
                                         	<div class="col-md-6">
-                                        <button id="submitBtn" type="submit" style="display: none;">CONFERMA</button>
+                                        		<button id="submitBtn" type="submit" style="display: none;">CONFERMA</button>
                                         	</div>
                                         </div>
                                        </form>
                                         <form id="myForm" action="login.jsp" method="get">
-                                        <input id="myInput" type="hidden" value="" name="numeroTelefono">
-                                        </form>
+                                        <input id="myInput1" type="hidden" value="" name="paese">
+                                        <input id="myInput2" type="hidden" value="" name="citta">
+                                        <input id="myInput3" type="hidden" value="" name="via">
+                                        <input id="myInput4" type="hidden" value="" name="numeroCivico">
+                                        </form>	
                                         <script>
                                         	document.getElementById("showForm").addEventListener('click', mostraForm)
                                         	document.getElementById("submit").addEventListener('click', mandaForm)
-                                        	
+                                        	document.getElementById("annulla").addEventListener('click', nascondiForm);
                                         	var button = document.getElementById("edit");
-											button.addEventListener('click', mostraFormEdit);
+                                        	button.addEventListener('click', mostraFormEdit)
                                         	
                                         	function mostraFormEdit(event) {
+                                        		var aggInd = document.getElementById("aggInd");
                                         		var submitBtn = document.getElementById("submitBtn");
 											    var button = document.getElementById("edit");
 											    var titolo = document.getElementById("titolo");
@@ -161,6 +176,9 @@
 											    var modificaEmail = document.getElementById("modificaEmail");
 											    var numeroTelefono = document.getElementById("numeroTelefono");
 											    var modificaNumeroTelefono = document.getElementById("modificaNumeroTelefono");
+											    var indirizzo = document.getElementById("divAsForm");
+											    var modificaIndirizzo = document.getElementById("modificaIndirizzo");
+											    
 											
 											    if (button.value !== "Annulla") {
 											        titolo.style.display = 'block';
@@ -174,11 +192,13 @@
 											        email.style.display = 'none';
 											        modificaEmail.style.display = 'block';
 											        numeroTelefono.style.display = 'none';
-											        submitBtn.style.display = 'block';
-											        if (myInput2.value !== 'null') {
-											            modificaNumeroTelefono.style.display = 'block';
+											        modificaNumeroTelefono.style.display = 'block';
+											        if(modificaIndirizzo !== null) {
+											        modificaIndirizzo.style.display = 'block';
 											        }
-											
+											        indirizzo.style.display = 'none';
+											        submitBtn.style.display = 'block';
+											        aggInd.style.display = 'none';
 											    } else {
 											        titolo.style.display = 'none';
 											        button.value = "Edit Profile";
@@ -191,7 +211,13 @@
 											        email.style.display = 'block';
 											        modificaEmail.style.display = 'none';
 											        numeroTelefono.style.display = 'block';
+											        modificaNumeroTelefono.style.display = 'none';
+											        if(modificaIndirizzo !== null) {
+											        modificaIndirizzo.style.display = 'none';
+											        }
+											        aggInd.style.display = 'block';
 											        submitBtn.style.display = 'none';
+											        
 											    }
 											}
 											
@@ -199,12 +225,25 @@
 
                                         	
                                         	function mandaForm(event) {
-                                        		var elNumber = document.getElementById('number');
+                                        		var elPaese = document.getElementById("paese");
+                                        		var elCitta = document.getElementById("citta");
+                                        		var elVia = document.getElementById("via");
+                                        		var elNumeroCivico = document.getElementById("numeroCivico")
                                         		var elMyForm = document.getElementById('myForm');
-                                        		var elMyInput = document.getElementById('myInput');
+                                        		var elMyInput1 = document.getElementById('myInput1');
+                                        		var elMyInput2 = document.getElementById('myInput2');
+                                        		var elMyInput3 = document.getElementById('myInput3');
+                                        		var elMyInput4 = document.getElementById('myInput4');
+                                        	
                                         		
-                                        		var numero = elNumber.value;
-                                        		myInput.value = numero;
+                                        		var paese = elPaese.value;
+                                        		var citta = elCitta.value;
+                                        		var via = elVia.value;
+                                        		var numeroCivico = elNumeroCivico.value;
+                                        		elMyInput1.value = paese;
+                                        		elMyInput2.value = citta;
+                                        		elMyInput3.value = via;
+                                        		elMyInput4.value = numeroCivico;
                                         		myForm.submit();
                                         		
                                         	}
@@ -212,9 +251,13 @@
                                         	function mostraForm(event) {
                                         		var elDiv = document.getElementById('divAsForm');
                                         		var elButton = document.getElementById('showForm');
-                                        		elDiv.style.display = 'block';
-                                        		elButton.style.display = 'none';
-                                        		
+                                        			elDiv.style.display = 'block';
+                                            		elButton.style.display = 'none'; 		
+                                        	}
+                                        	
+                                        	function nascondiForm(event) {
+                                       			document.getElementById("divAsForm").style.display = 'none';
+                                       			document.getElementById("showForm").style.display = 'block';
                                         	}
                                         </script>
                             </div>
