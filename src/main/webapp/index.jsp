@@ -31,7 +31,7 @@
 			src="https://i.ibb.co/26L4rVv/eclipseconfermato.png" />
 		<h1>Java</h1>
 		<p>Linguaggio orientato agli oggetti</p>
-		<a href="listaTeoria?id=1"><button type="button"
+		<a href="teoria?idCapitolo=1&idLinguaggio=1"><button type="button"
 				class="btn btn-warning">Impara Java</button></a> <a
 			href="https://www.youtube.com/watch?v=hfl3n1RqLQE&list=PLP5MAKLy8lP9wbmTi6c4-tmqzyOtLglGP"><button
 				type="button" class="btn btn-danger">Video tutorial</button></a> <br>
@@ -45,7 +45,7 @@
 			src="https://i.ibb.co/y4csDDY/htmlprova.png" />
 		<h1>HTML</h1>
 		<p>Il linguaggio per creare website</p>
-		<a href="htmlteoria.jsp"><button type="button"
+		<a href="teoria?idCapitolo=2&idLinguaggio=2"><button type="button"
 				class="btn btn-warning">Impara HTML</button></a> <a
 			href="https://www.youtube.com/watch?v=1C-ZbhVZ3sI&list=PLP5MAKLy8lP8U-yYn6J4hGfcee4Tirieg"><button
 				type="button" class="btn btn-danger">Video tutorial</button></a> <br>
@@ -59,7 +59,7 @@
 			src="https://i.ibb.co/CmzbpHt/cssscreen.png" />
 		<h1>CSS</h1>
 		<p>Il linguaggio per stilizzare il tuo sito</p>
-		<a href="cssteoria.jsp"><button type="button"
+		<a href="teoria?idCapitolo=3&idLinguaggio=3"><button type="button"
 				class="btn btn-warning">Impara CSS</button></a> <a
 			href="https://www.youtube.com/watch?v=HwkD5lRe0jw&list=PLP5MAKLy8lP-a0MG-MFHKCISmj2Wg4vT6"><button
 				type="button" class="btn btn-danger">Video tutorial</button></a> <br>
@@ -73,7 +73,7 @@
 			src="https://i.ibb.co/mB3Y8gK/javascripticona.png" />
 		<h1>Javascript</h1>
 		<p>Il linguaggio per rendere interattivo il sito</p>
-		<a href="javascriptteoria.jsp"><button type="button"
+		<a href="teoria?idCapitolo=4&idLinguaggio=4"><button type="button"
 				class="btn btn-warning">Impara Javascript</button></a> <a
 			href="https://www.youtube.com/watch?v=84TYC44ezIU&list=PLP5MAKLy8lP9FUx06-avV66mS8LXz7_Bb"><button
 				type="button" class="btn btn-danger">Video tutorial</button></a> <br>

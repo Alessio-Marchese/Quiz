@@ -5,7 +5,7 @@
     <%
 	Utente utente = (Utente) session.getAttribute("utente");
 	%>
-		 <nav class="navbar navbar-expand-lg bg-body-tertiary">
+		 <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.jsp"><img src="https://i.ibb.co/1fCPvSh/QUIZ5.png"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">

@@ -11,7 +11,7 @@
   <h2>Login</h2>
   <form action="login" method="post">
     <div class="user-box">
-      <input type="text" name="username" required="">
+      <input id="input" type="text" name="username" required="">
       <label>Username</label>
     </div>
     <div class="user-box">
@@ -35,4 +35,7 @@
   </form>
 </div>
 </body>
+<script>
+	document.getElementById("input").focus();
+</script>
 </html>

@@ -44,7 +44,7 @@ public class SaveUtenteServlet extends HttpServlet {
 		// Cercare di trasformare la stringa della data di nascita in una data
 		String tmpDataNascita = request.getParameter("nascita");
 		
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date dataNascita = null;
 		try {
 			dataNascita = simpleDateFormat.parse(tmpDataNascita);
