@@ -10,12 +10,8 @@
 }
 
 .col-2 dl a {
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
-}
-
-.col-2 dl a:hover {
-    color: rgb(100, 100, 100);
 }
 
 .col-6 {
