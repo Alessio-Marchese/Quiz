@@ -10,17 +10,35 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="style/index-style2.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="style/teoria.css">
+
 <link rel="stylesheet" href="style/footer-style.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
+	<link rel="stylesheet" href="style/teoria.css">
+<style>
+	.custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
 
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+</style>
 
 </head>
-<body>
+<body style="background-color: #24262b;">
 	<%
 	List<Contenuto> contenuti = (List<Contenuto>) request.getAttribute("contenuti");
 	List<Capitolo> capitoli = (List<Capitolo>) request.getAttribute("capitoli");
@@ -29,10 +47,22 @@
 	<%@ include file="include/header.jsp"%>
 	<div class="container">
 		<div class="row">
-			<div class="col-2">
+			<div class="col-2 custom-scrollbar" style="	 width: 200px;
+     height: 700px;
+     overflow: scroll;
+     overflow-x: hidden;
+    background-color: #242625;
+    border: 5px solid rgb(100, 100, 100);
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 50px;
+    margin-left: 50px;
+    font-family: 'Playfair Display', serif;
+    color: rgb(255, 61, 66);
+			">
 
 				<dl>
-				<h2 class="titolo-ling"><%=linguaggio.getNome()%></h2>
+				<h2><%=linguaggio.getNome()%></h2>
 					<%
 					for (Capitolo capitolo : capitoli) {
 					%>
@@ -45,8 +75,8 @@
 					%>
 				</dl>
 			</div>
-			<div class="col-6"
-				style="margin-top: 50px; margin-left: 50px; width: 800px; height: 700px; background: white; overflow: scroll;">
+			<div class="col-6 custom-scrollbar"
+				style="margin-top: 50px; margin-left: 50px; color: white; width: 800px; height: 700px; background-color: #242625; overflow: scroll;">
 
 
 				<div class="nextprev">
@@ -109,7 +139,30 @@
 				}
 				}
 				%>
-
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
+			<h1>1</h1>
 			</div>
 		</div>
 	</div>

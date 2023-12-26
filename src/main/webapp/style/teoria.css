@@ -1,22 +1,6 @@
 @charset "UTF-8";
 
 
-.col-2 dl {
-	 width: 800px;
-     height: 700px;
-     overflow: scroll;
-	
-    background-color: #24262b;
-    border: 2px solid rgb(254, 24, 0);
-    border-radius: 15px;
-    padding: 10px;
-    margin-top: 50px;
-    font-family: 'Playfair Display', serif;
-    
-    color: rgb(255, 61, 66);
-    text-shadow: 2px 2px 4px rgb(254, 24, 0);
-}
-
 .col-2 titolo-ling {
 	font-size: 35px;
 	display: flex;
@@ -31,12 +15,12 @@
 }
 
 .col-2 dl a:hover {
-    color: red;
+    color: rgb(100, 100, 100);
 }
 
 .col-6 {
     background-color: #f0f0f0; 
-    border: 2px solid rgb(254, 24, 0);
+    border: 5px solid rgb(100, 100, 100);
     border-radius: 15px;
     padding: 20px; 
    
@@ -82,13 +66,11 @@
 }
 
 .col-2 dl dt:hover {
-    background-color: rgb(217, 92, 85);
+    background-color: rgb(72, 72, 72);
     border-radius: 10px;
 }
 
 .titolo-cap{
-	color: #24262b;
-    text-shadow: 2px 2px 4px rgb(254, 24, 0);
+	color: white;
 }
-
 
