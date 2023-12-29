@@ -24,10 +24,19 @@ public class TeoriaServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		Capitolo capitolo = null;
+		int idCapitolo = -1;
 		int idLinguaggio = Integer.parseInt(request.getParameter("idLinguaggio"));
+		if(request.getParameter("idCapitolo") != null) {
+			idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
+		}
+		
 		Linguaggio linguaggio = linguaggioRepo.findById(idLinguaggio);
-		Capitolo capitolo = linguaggio.getCapitoli().get(0);
+		if(idCapitolo > 0) {
+			capitolo = capitoloRepo.findById(idCapitolo);
+		} else {
+			capitolo = linguaggio.getCapitoli().get(0);
+		}
 		List<Contenuto> contenuti = capitolo.getContenuti();
 		List<Capitolo> capitoli = linguaggio.getCapitoli();
 		request.setAttribute("capitoli", capitoli);
