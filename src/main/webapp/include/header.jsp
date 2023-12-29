@@ -19,10 +19,10 @@
           </a>
          <form>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="teoria?idCapitolo=1&idLinguaggio=1">JAVA</a></li>
-            <li><a class="dropdown-item" href="teoria?idCapitolo=1&idLinguaggio=2">HTML</a></li>
-            <li><a class="dropdown-item" href="teoria?idCapitolo=1&idLinguaggio=3">CSS</a></li>
-            <li><a class="dropdown-item" href="teoria?idCapitolo=1&idLinguaggio=4">JAVASCRIPT</a></li>
+            <li><a class="dropdown-item" href="teoria?idLinguaggio=1">JAVA</a></li>
+            <li><a class="dropdown-item" href="teoria?idLinguaggio=2">HTML</a></li>
+            <li><a class="dropdown-item" href="teoria?idLinguaggio=3">CSS</a></li>
+            <li><a class="dropdown-item" href="teoria?idLinguaggio=4">JAVASCRIPT</a></li>
           </ul>
          </form>
         </li>
@@ -54,8 +54,6 @@
             <li><a class="dropdown-item" href="register.jsp">Registrati</a></li>
             <li><a class="dropdown-item" href="login.jsp">Login</a></li>
           </ul>
-        </li>
-      </ul>
       <% } %>
     </div>
   </div>

@@ -100,7 +100,7 @@
  <%
 					}
 					%>
-<% if (nextCapitoloId < capitoli.size()-1) {
+<% if (nextCapitoloId <= capitoli.get(capitoli.size()-1).getId()) {
  %>
 					</a> <a href="teoria?idCapitolo=<%=nextCapitoloId%>&idLinguaggio=<%=linguaggio.getId()%>">
 						<button type="button" class="btn btn-danger">Next &gt;</button>

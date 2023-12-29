@@ -64,7 +64,7 @@
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            		<form action="login.js" method="get">
+                            		<form action="loginsfe.jsp" method="get">
                             		<h2 style="display: none; margin-left: 300px;" id="titolo">MODIFICA PROFILO</h2>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -125,20 +125,24 @@
                                             <div class="col-md-1">
                                                 <label>Indirizzo</label>
                                             </div>
-                                            <div id="aggInd" class="col-md-5" style="margin-left: 300px;">
+                                            
                                             <% if(utente.getIndirizzo() == null) { %>
+                                            <div id="aggInd" class="col-md-5" style="margin-left: 300px;">
                                             		<button type="button" id="showForm">Aggiungi</button>
                                             		<div id="divAsForm" style="display: none;">
                                             			<input id="paese" name="paese" placeholder="Paese"><button type="button" id="annulla" style="margin-left: 10px;">Annulla</button><input id="citta" name="citta" placeholder="Città"><input id="via" name="via" placeholder="Via"><input id="numeroCivico" name="numeroCivico" placeholder="Numero Civico">
                                             			<button id="submit" type="button" style="margin-left: 10px;">click</button>
                                             		</div>
+                                            	</div>
                                             	<% } else {%>
-                                                <div id="modificaIndirizzo" class="col-md-6" style="display: none; width: auto;">
+                                            	<div id="indirizzo" class="col" style="border: 2px solid red; margin-left: 315px;">
+                                            	<p><%=utente.getIndirizzo().getPaese() %>  <%=utente.getIndirizzo().getCitta() %>  <%=utente.getIndirizzo().getVia() %>  <%=utente.getIndirizzo().getNumeroCivico() %></p>
+                                            	</div>
+                                                <div id="modificaIndirizzo" class="col-md-6" style="display: none; width: auto; margin-left: 315px;">
                                             	<input name="newPaese" value="<%=utente.getIndirizzo().getPaese()%>"><br><input name="newCitta" value="<%=utente.getIndirizzo().getCitta()%>"><br><input name="newVia" value="<%=utente.getIndirizzo().getVia()%>"><br><input name="newNumeroCivico" value="<%=utente.getIndirizzo().getNumeroCivico()%>">
                                             	</div>
+                                            	
                                                 <% } %>
-                                                </div>
-                                            
                                         </div>
                                         <div class="row">
                                         <div class="col-md-6">
@@ -148,16 +152,22 @@
                                         	</div>
                                         </div>
                                        </form>
-                                        <form id="myForm" action="login.jsp" method="get">
+                                        <form id="myForm" action="saveIndirizzo" method="post">
                                         <input id="myInput1" type="hidden" value="" name="paese">
                                         <input id="myInput2" type="hidden" value="" name="citta">
                                         <input id="myInput3" type="hidden" value="" name="via">
                                         <input id="myInput4" type="hidden" value="" name="numeroCivico">
                                         </form>	
                                         <script>
-                                        	document.getElementById("showForm").addEventListener('click', mostraForm)
-                                        	document.getElementById("submit").addEventListener('click', mandaForm)
-                                        	document.getElementById("annulla").addEventListener('click', nascondiForm);
+                                        	if(document.getElementById("showForm") !== null) {
+                                        		document.getElementById("showForm").addEventListener('click', mostraForm)
+                                        	}
+                                        	if (document.getElementById("submit") !== null) {	
+                                            document.getElementById("submit").addEventListener('click', mandaForm)
+                                            }
+                                        	if(document.getElementById("annulla") !== null) {
+                                            document.getElementById("annulla").addEventListener('click', nascondiForm);                                        		
+                                        	}
                                         	var button = document.getElementById("edit");
                                         	button.addEventListener('click', mostraFormEdit)
                                         	
@@ -176,7 +186,7 @@
 											    var modificaEmail = document.getElementById("modificaEmail");
 											    var numeroTelefono = document.getElementById("numeroTelefono");
 											    var modificaNumeroTelefono = document.getElementById("modificaNumeroTelefono");
-											    var indirizzo = document.getElementById("divAsForm");
+											    var indirizzo = document.getElementById("indirizzo");
 											    var modificaIndirizzo = document.getElementById("modificaIndirizzo");
 											    
 											
@@ -193,12 +203,11 @@
 											        modificaEmail.style.display = 'block';
 											        numeroTelefono.style.display = 'none';
 											        modificaNumeroTelefono.style.display = 'block';
+											        indirizzo.style.display = 'none';											        
 											        if(modificaIndirizzo !== null) {
 											        modificaIndirizzo.style.display = 'block';
 											        }
-											        indirizzo.style.display = 'none';
 											        submitBtn.style.display = 'block';
-											        aggInd.style.display = 'none';
 											    } else {
 											        titolo.style.display = 'none';
 											        button.value = "Edit Profile";
@@ -215,7 +224,7 @@
 											        if(modificaIndirizzo !== null) {
 											        modificaIndirizzo.style.display = 'none';
 											        }
-											        aggInd.style.display = 'block';
+													indirizzo.style.display = 'block';
 											        submitBtn.style.display = 'none';
 											        
 											    }

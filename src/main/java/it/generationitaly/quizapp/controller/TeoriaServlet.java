@@ -26,10 +26,9 @@ public class TeoriaServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		int idLinguaggio = Integer.parseInt(request.getParameter("idLinguaggio"));
-		int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
-		Capitolo capitolo = capitoloRepo.findById(idCapitolo);
-		List<Contenuto> contenuti = capitolo.getContenuti();
 		Linguaggio linguaggio = linguaggioRepo.findById(idLinguaggio);
+		Capitolo capitolo = linguaggio.getCapitoli().get(0);
+		List<Contenuto> contenuti = capitolo.getContenuti();
 		List<Capitolo> capitoli = linguaggio.getCapitoli();
 		request.setAttribute("capitoli", capitoli);
 		request.setAttribute("contenuti", contenuti);

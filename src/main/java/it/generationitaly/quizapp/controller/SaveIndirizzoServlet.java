@@ -20,10 +20,11 @@ public class SaveIndirizzoServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("Sono nella servlet");
 		
 		// Controllo se l'utente è loggato
 		HttpSession session = request.getSession();
-		if(session.getAttribute("username").equals(null)) {
+		if(session.getAttribute("utente") == null) {
 			response.sendRedirect("login.jsp");
 			return;
 		}
@@ -53,7 +54,7 @@ public class SaveIndirizzoServlet extends HttpServlet {
 		utenteRepository.update(utente);
 
 		// reinidirzza l'utente sulla welcome page
-		response.sendRedirect("PaginaProfilo.jsp");
+		response.sendRedirect("profilo");
 
 	}
 
