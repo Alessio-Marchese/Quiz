@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `quiz`.`utente` (
   `nome` VARCHAR(45) NOT NULL,
   `cognome` VARCHAR(45) NOT NULL,
   `data_nascita` DATE NOT NULL,
-  `numero_telefono` INT NULL,
+  `numero_telefono` INT NOT NULL,
   `indirizzo_id` INT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
@@ -52,8 +52,8 @@ CREATE TABLE IF NOT EXISTS `quiz`.`utente` (
   CONSTRAINT `fk_utente_indirizzo1`
     FOREIGN KEY (`indirizzo_id`)
     REFERENCES `quiz`.`indirizzo` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -160,7 +160,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `quiz`.`contenuto` (
   `id` INT AUTO_INCREMENT,
-  `contenuto` VARCHAR(255) NOT NULL,
+  `contenuto` VARCHAR(1000) NOT NULL,
   `capitolo_id` INT NOT NULL,
   `tipo` VARCHAR(45) NOT NULL  CHECK (tipo IN ('spazio', 'paragrafo', 'titolo', 'immagine')),
   PRIMARY KEY (`id`),
@@ -193,18 +193,8 @@ CREATE TABLE IF NOT EXISTS `quiz`.`utente_has_quiz` (
   `data_conseguimento` DATE NULL,
   PRIMARY KEY (`utente_id`, `quiz_id`),
   INDEX `fk_utente_has_quiz_quiz1_idx` (`quiz_id` ASC) VISIBLE,
-  INDEX `fk_utente_has_quiz_utente1_idx` (`utente_id` ASC) VISIBLE,
-  CONSTRAINT `fk_utente_has_quiz_utente1`
-    FOREIGN KEY (`utente_id`)
-    REFERENCES `quiz`.`utente` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_utente_has_quiz_quiz1`
-    FOREIGN KEY (`quiz_id`)
-    REFERENCES `quiz`.`quiz` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  INDEX `fk_utente_has_quiz_utente1_idx` (`utente_id` ASC) VISIBLE
+) ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

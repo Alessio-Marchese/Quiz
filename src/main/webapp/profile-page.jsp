@@ -3,6 +3,7 @@
     import="it.generationitaly.quizapp.entity.Utente"
     import="it.generationitaly.quizapp.entity.Badge"
     import="java.util.List"
+    import="java.text.SimpleDateFormat"
     %>
 <!DOCTYPE html>
 <html>
@@ -64,7 +65,7 @@
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            		<form action="loginsfe.jsp" method="get">
+                            	<form action="updateUtente" method="post">
                             		<h2 style="display: none; margin-left: 300px;" id="titolo">MODIFICA PROFILO</h2>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -74,7 +75,7 @@
                                                 <p><%=utente.getUsername() %></p>
                                             </div>
                                             <div id="modificaUsername" class="col-md-6" style="display: none; width: auto;">
-                                            	<input name="newUsername" value="<%=utente.getUsername()%>">
+                                            	<input name="newUsername" value="<%=utente.getUsername()%>" placeholder="Username">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -85,7 +86,7 @@
                                                 <p><%=utente.getNome() %></p>
                                             </div>
                                             <div id="modificaNome" class="col-md-6" style="display: none; width: auto;">
-                                            	<input name="newNome" value="<%=utente.getNome()%>">
+                                            	<input name="newNome" value="<%=utente.getNome()%>" placeholder="Nome">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -96,7 +97,18 @@
                                                 <p><%=utente.getCognome()%></p>
                                             </div>
                                             <div id="modificaCognome" class="col-md-6" style="display: none; width: auto;">
-                                            	<input name="newCognome" value="<%=utente.getCognome()%>">
+                                            	<input name="newCognome" value="<%=utente.getCognome()%>" placeholder="Cognome">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Data Nascita</label>
+                                            </div>
+                                            <div id="dataNascita" class="col-md-6">
+                                                <p><%=new SimpleDateFormat("yyyy-MM-dd").format(utente.getDataNascita())%></p>
+                                            </div>
+                                            <div id="modificaDataNascita" class="col-md-6" style="display: none; width: auto;">
+                                            	<input type="date" name="newDataNascita" value="<%=new SimpleDateFormat("yyyy-MM-dd").format(utente.getDataNascita())%>" placeholder="Email">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -107,7 +119,7 @@
                                                 <p><%=utente.getEmail() %></p>
                                             </div>
                                             <div id="modificaEmail" class="col-md-6" style="display: none; width: auto;">
-                                            	<input name="newEmail" value="<%=utente.getEmail()%>">
+                                            	<input name="newEmail" value="<%=utente.getEmail()%>" placeholder="Email">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -118,7 +130,7 @@
                                             	<p><%=utente.getNumeroTelefono() %></p>
                                             </div>
                                             <div id="modificaNumeroTelefono" class="col-md-6" style="display: none; width: auto;">
-                                            	<input id="myInput2" name="newNumeroTelefono" value="<%=utente.getNumeroTelefono()%>">
+                                            	<input name="newNumeroTelefono" value="<%=utente.getNumeroTelefono()%>" placeholder="Numero telefono">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -127,19 +139,22 @@
                                             </div>
                                             
                                             <% if(utente.getIndirizzo() == null) { %>
-                                            <div id="aggInd" class="col-md-5" style="margin-left: 300px;">
+                                            <div id="aggInd" class="col-md-5" style="margin-left: 315px;">
                                             		<button type="button" id="showForm">Aggiungi</button>
                                             		<div id="divAsForm" style="display: none;">
-                                            			<input id="paese" name="paese" placeholder="Paese"><button type="button" id="annulla" style="margin-left: 10px;">Annulla</button><input id="citta" name="citta" placeholder="Città"><input id="via" name="via" placeholder="Via"><input id="numeroCivico" name="numeroCivico" placeholder="Numero Civico">
+                                            			<input id="paese" placeholder="Paese"><button type="button" id="annulla" style="margin-left: 10px;">Annulla</button><input id="citta" placeholder="Città"><input id="via" placeholder="Via"><input id="numeroCivico" placeholder="Numero Civico">
                                             			<button id="submit" type="button" style="margin-left: 10px;">click</button>
                                             		</div>
                                             	</div>
                                             	<% } else {%>
-                                            	<div id="indirizzo" class="col" style="border: 2px solid red; margin-left: 315px;">
-                                            	<p><%=utente.getIndirizzo().getPaese() %>  <%=utente.getIndirizzo().getCitta() %>  <%=utente.getIndirizzo().getVia() %>  <%=utente.getIndirizzo().getNumeroCivico() %></p>
+                                            	<div id="indirizzo" class="col" style="margin-left: 315px; height: auto;">
+                                            	<p>Paese: <%=utente.getIndirizzo().getPaese()%></p>
+                                            	<p>Città: <%=utente.getIndirizzo().getCitta()%></p>
+                                            	<p>Via: <%=utente.getIndirizzo().getVia()%></p>
+                                            	<p>Numero civico: <%=utente.getIndirizzo().getNumeroCivico()%></p>
                                             	</div>
                                                 <div id="modificaIndirizzo" class="col-md-6" style="display: none; width: auto; margin-left: 315px;">
-                                            	<input name="newPaese" value="<%=utente.getIndirizzo().getPaese()%>"><br><input name="newCitta" value="<%=utente.getIndirizzo().getCitta()%>"><br><input name="newVia" value="<%=utente.getIndirizzo().getVia()%>"><br><input name="newNumeroCivico" value="<%=utente.getIndirizzo().getNumeroCivico()%>">
+                                            	<input name="newPaese" value="<%=utente.getIndirizzo().getPaese()%>" placeholder="Paese"><br><input name="newCitta" value="<%=utente.getIndirizzo().getCitta()%>" placeholder="Città"><br><input name="newVia" value="<%=utente.getIndirizzo().getVia()%>" placeholder="Via"><br><input name="newNumeroCivico" value="<%=utente.getIndirizzo().getNumeroCivico()%>" placeholder="Numero civico">
                                             	</div>
                                             	
                                                 <% } %>
@@ -188,9 +203,12 @@
 											    var modificaNumeroTelefono = document.getElementById("modificaNumeroTelefono");
 											    var indirizzo = document.getElementById("indirizzo");
 											    var modificaIndirizzo = document.getElementById("modificaIndirizzo");
+											    var dataNascita = document.getElementById("dataNascita");
+											    var modificaDataNascita = document.getElementById("modificaDataNascita");
 											    
 											
 											    if (button.value !== "Annulla") {
+											    	submitBtn.style.display = 'block';
 											        titolo.style.display = 'block';
 											        button.value = "Annulla";
 											        username.style.display = 'none';
@@ -203,12 +221,14 @@
 											        modificaEmail.style.display = 'block';
 											        numeroTelefono.style.display = 'none';
 											        modificaNumeroTelefono.style.display = 'block';
+											        dataNascita.style.display = 'none';
+											        modificaDataNascita.style.display = 'block';
 											        indirizzo.style.display = 'none';											        
 											        if(modificaIndirizzo !== null) {
 											        modificaIndirizzo.style.display = 'block';
-											        }
-											        submitBtn.style.display = 'block';
+											        }											        
 											    } else {
+											    	submitBtn.style.display = 'none';
 											        titolo.style.display = 'none';
 											        button.value = "Edit Profile";
 											        username.style.display = 'block';
@@ -221,12 +241,12 @@
 											        modificaEmail.style.display = 'none';
 											        numeroTelefono.style.display = 'block';
 											        modificaNumeroTelefono.style.display = 'none';
+											        dataNascita.style.display = 'block';
+											        modificaDataNascita.style.display = 'none';	
+											        indirizzo.style.display = 'block';
 											        if(modificaIndirizzo !== null) {
 											        modificaIndirizzo.style.display = 'none';
-											        }
-													indirizzo.style.display = 'block';
-											        submitBtn.style.display = 'none';
-											        
+											        }										        
 											    }
 											}
 											

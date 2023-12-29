@@ -43,7 +43,7 @@ public class Utente {
 	@Column(name = "cognome", length = 45, nullable = false)
 	private String cognome;
 	
-	@Column(name = "data_nascita")
+	@Column(name = "data_nascita",nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date dataNascita;
 	

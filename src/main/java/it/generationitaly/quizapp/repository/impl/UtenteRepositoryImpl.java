@@ -41,4 +41,54 @@ public class UtenteRepositoryImpl extends JpaRepositoryImpl<Utente,Integer> impl
 		return utente;
 	}
 
+	@Override
+	public Utente findByEmail(String email) {
+		Utente utente = null;
+		EntityManager em = null;
+		EntityTransaction tx = null;
+		try {
+			em = emf.createEntityManager();
+			tx = em.getTransaction();
+			tx.begin();
+			TypedQuery<Utente> q = em.createQuery("select u from Utente u where u.email=:email", Utente.class);
+			q.setParameter("email", email);
+			List<Utente> utenti = q.getResultList();
+			utente = utenti.isEmpty() ? null : utenti.get(0);
+			tx.commit();
+		} catch (PersistenceException e) {
+			System.err.println(e.getMessage());
+			if (tx != null && tx.isActive())
+				tx.rollback();
+		} finally {
+			if (em != null)
+				em.close();
+		}
+		return utente;
+	}
+
+	@Override
+	public Utente findByNumeroTelefono(int numero) {
+		Utente utente = null;
+		EntityManager em = null;
+		EntityTransaction tx = null;
+		try {
+			em = emf.createEntityManager();
+			tx = em.getTransaction();
+			tx.begin();
+			TypedQuery<Utente> q = em.createQuery("select u from Utente u where u.numeroTelefono=:numeroTelefono", Utente.class);
+			q.setParameter("numeroTelefono", numero);
+			List<Utente> utenti = q.getResultList();
+			utente = utenti.isEmpty() ? null : utenti.get(0);
+			tx.commit();
+		} catch (PersistenceException e) {
+			System.err.println(e.getMessage());
+			if (tx != null && tx.isActive())
+				tx.rollback();
+		} finally {
+			if (em != null)
+				em.close();
+		}
+		return utente;
+	}
+
 }
