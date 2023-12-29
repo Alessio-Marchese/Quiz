@@ -125,7 +125,7 @@
                                             <div class="col-md-1">
                                                 <label>Indirizzo</label>
                                             </div>
-                                            <div id="aggInd" class="col-md-4" style="margin-left: 350px;">
+                                            <div id="aggInd" class="col-md-5" style="margin-left: 300px;">
                                             <% if(utente.getIndirizzo() == null) { %>
                                             		<button type="button" id="showForm">Aggiungi</button>
                                             		<div id="divAsForm" style="display: none;">
