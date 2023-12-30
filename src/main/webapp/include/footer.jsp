@@ -8,7 +8,8 @@
   	 		<div class="col footer-col">
   	 			<h4>Info</h4>
   	 			<ul>
-  	 				<li><a href="#">Chi siamo</a></li>
+  	 				<li><a href="<%=request.getContextPath()%>/chi-siamo.jsp">Chi siamo</a>
+</li>
   	 				<li><a href="#">Contatti</a></li>
   	 				<li><a href="#">Forum</a></li>
   	 			</ul>
