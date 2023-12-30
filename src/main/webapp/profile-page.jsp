@@ -20,11 +20,12 @@
 		Long numeroQuiz = (Long)request.getAttribute("numeroQuiz");
 		%>
 		<%@ include file="include/header.jsp" %>
+		<form action="updateUtente" method="post">
 		<div class="container">
 			<div class="row">
 				<div class="col-6">
-					<h1 style="justify-content: center; margin-top: 50px; margin-bottom: 50px;">Ciao <%=utente.getUsername() %>!</h1>
-					<div class="card" style="border: 5px solid white; border-radius: 5px;"">
+					<h1 style="justify-content: center; margin-top: 51px; margin-bottom: 50px;">Ciao <%=utente.getNome() %>!</h1>
+					<div class="card" style="border: 5px solid white; border-radius: 5px;">
   						<div class="card-header">
     					Riprendi da dove hai lasciato!
   						</div>
@@ -50,6 +51,7 @@
   						</div>
 					</div>
 				</div>
+			
 				<div class="col-6" style="margin-top: 150px;">
 					<div class="card" style="border: 5px solid white; border-radius: 5px;">
   						<div class="card-header">
@@ -66,14 +68,13 @@
                                     </div>
   								</div>
   								<div class="col-2"></div>
-  								<div class="col-2"><input id="edit" type="submit" class="btn btn-warning" value="Modifica" style="margin-top: 10px; margin-left: 20px;"></div>
+  								<div class="col-2"><input id="edit" type="button" class="btn btn-warning" value="Modifica" style="margin-top: 10px; margin-left: 20px;"></div>
   								<div class="col-1"></div>
   							</div>
   						</div>
     					
   						</div>
   						<div class="card-body w-auto" style="border: 3px solid black; border-radius: 10px;">
-  						<form action="updateUtente" method="post">
     						<div class="container">
     							<div class="row">
     								<div class="col-6">
@@ -100,7 +101,7 @@
     									<% } %>
     								</div>
     								<div class="col-6">
-    									<p id="dataNascita"><%=new SimpleDateFormat("yyyy-MM-dd").format(utente.getDataNascita()) %></p>
+    									<p id="dataNascita"><%=new SimpleDateFormat("dd-MM-yyyy").format(utente.getDataNascita()) %></p>
 											<div id="modificaDataNascita" class="col-md-6" style="display: none; width: auto;">
                                             	<input type="date" name="newDataNascita" value="<%=new SimpleDateFormat("yyyy-MM-dd").format(utente.getDataNascita())%>" placeholder="Email">
                                             </div>    
@@ -131,12 +132,12 @@
     							</div>
     						</div>
     						 <button class="btn btn-danger" id="submitBtn" type="submit" style="display: none; margin-left: auto; margin-right: auto;">CONFERMA</button>
-    						 </form>
   						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		</form>
         <form id="myForm" action="saveIndirizzo" method="post">
         	<input id="myInput1" type="hidden" value="" name="paese">
         	<input id="myInput2" type="hidden" value="" name="citta">
