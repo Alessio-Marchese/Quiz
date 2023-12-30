@@ -4,4 +4,5 @@ import it.generationitaly.quizapp.entity.QuizVeroFalso;
 
 public interface QuizVeroFalsoRepository extends JpaRepository<QuizVeroFalso, Integer>{
 
+	Long countQuiz();
 }
