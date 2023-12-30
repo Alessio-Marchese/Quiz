@@ -24,7 +24,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-6">
-					<h1 style="justify-content: center; margin-top: 51px; margin-bottom: 50px;">Ciao <%=utente.getNome() %>!</h1>
+					<h1 style="justify-content: center; margin-top: 52px; margin-bottom: 50px;">Ciao <%=utente.getNome() %>!</h1>
 					<div class="card" style="border: 5px solid white; border-radius: 5px;">
   						<div class="card-header">
     					Riprendi da dove hai lasciato!

@@ -30,6 +30,10 @@ public class ProfiloServlet extends HttpServlet {
 	QuizMultiploRepository quizMultiploRepo = new QuizMultiploRepositoryImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(request.getSession().getAttribute("utente") == null) {
+			response.sendRedirect("welcome");
+			return;
+		}
 		Long quiz = 0L;
 		quiz += quizVeroFalsoRepo.countQuiz();
 		quiz += quizMultiploRepo.countQuiz();
@@ -43,6 +47,10 @@ public class ProfiloServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(request.getSession().getAttribute("utente") == null) {
+			response.sendRedirect("welcome");
+			return;
+		}
 		Long quiz = 0L;
 		quiz += quizVeroFalsoRepo.countQuiz();
 		quiz += quizMultiploRepo.countQuiz();

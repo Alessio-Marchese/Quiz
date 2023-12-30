@@ -23,7 +23,10 @@ public class UpdateUtenteServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		if(request.getSession().getAttribute("utente") == null) {
+			response.sendRedirect("welcome");
+			return;
+		}
 		Utente utente = (Utente) request.getSession().getAttribute("utente");
 		int tel = Integer.parseInt(request.getParameter("newNumeroTelefono"));
 		 if (!request.getParameter("newEmail").equals(utente.getEmail())
@@ -35,7 +38,6 @@ public class UpdateUtenteServlet extends HttpServlet {
 			return;
 		}
 
-		utente.setUsername(request.getParameter("newUsername"));
 		utente.setEmail(request.getParameter("newEmail"));
 		utente.setNome(request.getParameter("newNome"));
 		utente.setCognome(request.getParameter("newCognome"));
@@ -69,6 +71,7 @@ public class UpdateUtenteServlet extends HttpServlet {
 		// eseguo l'operazione di aggiornamento sull'oggetto utente
 		utenteRepository.update(utente);
 
+		System.out.println("Username: "+utente.getUsername()+"password: "+utente.getPassword()+"email: " +utente.getEmail()+"dataNascita: "+ utente.getDataNascita()+"telefono: " +utente.getNumeroTelefono()+"Paese: "+utente.getIndirizzo().getPaese()+"citta: "+utente.getIndirizzo().getCitta()+"via: "+utente.getIndirizzo().getVia()+"numero civico: "+utente.getIndirizzo().getNumeroCivico());
 		// l'utente viene reindirizzato a un'altra pagina o risorsa chiamata "utenti"
 		// mediante il metodo sendRedirect
 		response.sendRedirect("profilo");
