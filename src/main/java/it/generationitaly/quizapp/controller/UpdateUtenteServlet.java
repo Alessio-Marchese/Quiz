@@ -70,8 +70,6 @@ public class UpdateUtenteServlet extends HttpServlet {
 
 		// eseguo l'operazione di aggiornamento sull'oggetto utente
 		utenteRepository.update(utente);
-
-		System.out.println("Username: "+utente.getUsername()+"password: "+utente.getPassword()+"email: " +utente.getEmail()+"dataNascita: "+ utente.getDataNascita()+"telefono: " +utente.getNumeroTelefono()+"Paese: "+utente.getIndirizzo().getPaese()+"citta: "+utente.getIndirizzo().getCitta()+"via: "+utente.getIndirizzo().getVia()+"numero civico: "+utente.getIndirizzo().getNumeroCivico());
 		// l'utente viene reindirizzato a un'altra pagina o risorsa chiamata "utenti"
 		// mediante il metodo sendRedirect
 		response.sendRedirect("profilo");
