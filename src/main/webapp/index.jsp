@@ -21,19 +21,18 @@
 <body id="body" style="background-color:  #24262b">
 	<%@ include file="include/header.jsp"%>
 	
-	<div class="main">
 
-	<div class="container text-center container-fluid">
+	<div class=" container-fluid text-center">
 
 		<div class="row section1">
 			
-			<div class="col-8">
+			<div class="col-9">
 			<p>Impara a programmare con</p>
 					<h1><span class="quiz">QUIZ <br></span> <span class="master">MASTER</span></h1>
 					
 					</div>
 					
-					<div class="col-4">
+					<div class="col-3">
 				
 					<iframe class="frame-1"
 						src="https://giphy.com/embed/xT9IgzoKnwFNmISR8I"></iframe>
@@ -41,7 +40,7 @@
 			
 		</div>
 
-		<div class="row section2">
+		<div class="row section2 border border-2">
 		<div class="col-4">
 			<img class="img_left"
 						src="https://i.ibb.co/26L4rVv/eclipseconfermato.png" />
@@ -58,7 +57,7 @@
 			    </div>
 			</div>
 
-		<div class="row section3">
+		<div class="row section3 border border-2">
 			<div class="col-8">
 
 					<h1>HTML</h1>
@@ -77,7 +76,7 @@
 			</div>
 		</div>
 
-		<div class="row section4">
+		<div class="row section4 border border-2">
 		<div class="col-4">
 			<br> <br> <br> <img class="img_left"
 						src="https://i.ibb.co/CmzbpHt/cssscreen.png" />
@@ -97,7 +96,7 @@
 		</div>
 
 
-		<div class="row section5">
+		<div class="row section5 border border-2">
 			<div class="col-8">
 					<h1>Javascript</h1>
 					<p>Il linguaggio per rendere interattivo il sito</p>
@@ -121,7 +120,6 @@
 
 	</div>
 	
-	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
