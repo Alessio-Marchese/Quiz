@@ -1,26 +1,37 @@
 @charset "UTF-8";
 
-.section {
+.section1 {
 	background-color: #24262b;
 	height: 400px;
 	background-size: cover;
-	display: display;
+	display: diplay;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	padding: 0 400px;
+	padding: 100px;
+	width: 100%;
 }
 
-.section h1 {
-	font-size: 4rem;
-	margin-bottom: 5px;
-		color: #e91e63;
+.section1 h1 {
+	font-size: 48px;
+	margin-bottom: 20px;
 }
 
-.section p {
-	font-size: 1.5rem;
-	margin-bottom: 5px;
+.quiz{
+	
+	color: rgb(254, 24, 0);
+}
+
+.master{
+	color: black;
+}
+
+
+
+.section1 p {
+	font-size: 24px;
+    margin-bottom: 20px;
 		color: #fff;
 }
 
@@ -43,117 +54,127 @@
 	background-color: #969696;
 	height: 500px;
 	background-size: cover;
-	display: display;
-	flex-direction: column;
-	justify-content: center;
+	display: diplay;
+	justify-content: end;
 	align-items: center;
 	text-align: center;
 	color: rgb(0, 0, 0);
-	padding: 0 400px;
+	padding: 50px;
 }
 
 .section2 h1 {
-	font-size: 5rem;
-	margin-bottom: 10px;
+	 font-size: 48px;
+    margin-bottom: 20px;
 }
 
 .section2 p {
-	font-size: 1.5rem;
-	margin-bottom: 30px;
+	font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .section3 {
 	background-color: #F0F7F4;
 	height: 500px;
 	background-size: cover;
-	display: display;
+	display: diplay;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	color: rgb(0, 0, 0);
-	padding: 0 400px;
+	padding: 50px;
+	grid-area: html;
 }
 
 .section3 h1 {
-	font-size: 5rem;
-	margin-bottom: 10px;
+	 font-size: 48px;
+    margin-bottom: 20px;
 }
 
 .section3 p {
-	font-size: 1.5rem;
-	margin-bottom: 30px;
+	font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .section4 {
 	background-color: #FFFFFF;
 	height: 500px;
 	background-size: cover;
-	display: display;
-	flex-direction: column;
+	display: diplay;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	color: rgb(0, 0, 0);
-	padding: 0 400px;
+	padding: 50px;
+	grid-area: css;
 }
 
 .section4 h1 {
-	font-size: 5rem;
-	margin-bottom: 10px;
+	 font-size: 48px;
+    margin-bottom: 20px;
 }
 
 .section4 p {
-	font-size: 1.5rem;
-	margin-bottom: 30px;
+	font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .section5 {
 	background-color: #24262b;
 	height: 500px;
 	background-size: cover;
-	display: display;
+	display: diplay;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	color: #FFFFFF;
-	padding: 0 400px;
+	padding: 50px;
+	grid-area: javascript;
 }
 
 .section5 h1 {
-	font-size: 5rem;
-	margin-bottom: 10px;
+	 font-size: 48px;
+    margin-bottom: 20px;
 }
 
 .section5 p {
-	font-size: 1.5rem;
-	margin-bottom: 30px;
+	font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .img_left {
 	float: left;
 	border: solid #fff;
+	width: 100%;
+    max-width: 300px;
+    min-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 .img_right {
 	float: right;
 	border: solid #969696;
+	width: 100%;
+    max-width: 300px;
+     min-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 .div-teoria {
 	background-color: #ffffff;
 	height: auto;
-	display: display;
+	display: diplay;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: left;
 	color: rgb(0,0,0);
-	padding: 0 400px;
+	padding: 50px;
 }
 
-.frame-1 {
-	float: right;
-	height: 100%;
+ .frame-1 {
+    height: 500px;
 }
