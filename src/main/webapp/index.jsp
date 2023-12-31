@@ -26,15 +26,15 @@
 
 		<div class="row section1">
 			
-			<div class="col-9">
+			<div class="col-8">
 			<p>Impara a programmare con</p>
 					<h1><span class="quiz">QUIZ <br></span> <span class="master">MASTER</span></h1>
 					
 					</div>
 					
-					<div class="col-3">
+					<div class="col-4">
 				
-					<iframe class="frame-1"
+					<iframe class="frame-1 "
 						src="https://giphy.com/embed/xT9IgzoKnwFNmISR8I"></iframe>
 			</div>
 			
@@ -45,7 +45,7 @@
 			<img class="img_left"
 						src="https://i.ibb.co/26L4rVv/eclipseconfermato.png" />
 						</div>
-			<div class="col-8 center">
+			<div class="col-8">
 					<h1>Java</h1>
 					<p>Linguaggio orientato agli oggetti</p>
 					<a href="teoria?idCapitolo=1&idLinguaggio=1"><button
