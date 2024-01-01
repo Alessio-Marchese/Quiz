@@ -42,9 +42,18 @@ public class QuizFinaleServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		if(request.getSession().getAttribute("utente") == null) {
+			response.sendRedirect("welcome");
+			return;
+		}
+		Utente utente = (Utente) request.getSession().getAttribute("utente"); 
 
 		int contatoreDomande = 0;
 		Integer idLinguaggio = idLinguaggio = Integer.parseInt(request.getParameter("idLinguaggio"));
+		if(utente.getBadges().get(--idLinguaggio) != null) {
+			response.sendRedirect("welcome");
+			return;
+		}
 		List<Object> quiz = new ArrayList<Object>();
 		List<Capitolo> capitoli = new ArrayList<Capitolo>();
 
@@ -61,6 +70,7 @@ public class QuizFinaleServlet extends HttpServlet {
 
 		List<Object> risposteGiuste = new ArrayList<Object>();
 		List<Object> risposteSbagliate = new ArrayList<Object>();
+		request.setAttribute("capitoli", capitoli);
 		request.getSession().setAttribute("contatoreDomande", contatoreDomande);
 		request.getSession().setAttribute("quiz", quiz);
 		request.getSession().setAttribute("risposteGiuste", risposteGiuste);
@@ -77,6 +87,10 @@ public class QuizFinaleServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		if(request.getSession().getAttribute("utente") == null) {
+			response.sendRedirect("welcome");
+			return;
+		}
 		List<Object> quiz = (List<Object>) request.getSession().getAttribute("quiz");
 		List<Object> risposteGiuste = (List<Object>) request.getSession().getAttribute("risposteGiuste");
 		List<Object> risposteSbagliate = (List<Object>) request.getSession().getAttribute("risposteSbagliate");
@@ -146,9 +160,11 @@ public class QuizFinaleServlet extends HttpServlet {
 
 		} else {
 			int idLinguaggio = (Integer) (request.getSession().getAttribute("idLinguaggio"));
+			Linguaggio linguaggio = linguaggioRepo.findById(idLinguaggio);
+			request.setAttribute("capitoli", linguaggio.getCapitoli());
 			request.setAttribute("risposteGiuste", risposteGiuste);
 			request.setAttribute("risposteSbagliate", risposteSbagliate);
-			if (risposteGiuste.size() >= 2) {
+			if (risposteGiuste.size() >= 0) {
 				Badge badge = badgeRepo.findById(idLinguaggio);
 				Utente utente = (Utente) request.getSession().getAttribute("utente");
 				utente.getBadges().add(badge);

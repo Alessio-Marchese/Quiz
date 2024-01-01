@@ -89,7 +89,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `quiz`.`quiz_vero_falso` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `domanda` VARCHAR(100) NOT NULL,
+  `domanda` VARCHAR(1000) NOT NULL,
   `bool` TINYINT NOT NULL,
   `capitolo_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -107,10 +107,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `quiz`.`quiz_multiplo` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `domanda` VARCHAR(100) NOT NULL,
-  `corretta` VARCHAR(100) NOT NULL,
-  `errore1` VARCHAR(100) NOT NULL,
-  `errore2` VARCHAR(100) NOT NULL,
+  `domanda` VARCHAR(1000) NOT NULL,
+  `corretta` VARCHAR(500) NOT NULL,
+  `errore1` VARCHAR(500) NOT NULL,
+  `errore2` VARCHAR(500) NOT NULL,
   `capitolo_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_quiz_multiplo_capitolo1_idx` (`capitolo_id` ASC) VISIBLE,
@@ -200,3 +200,6 @@ CREATE TABLE IF NOT EXISTS `quiz`.`utente_has_quiz` (
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+      
+	

@@ -75,5 +75,4 @@ public class UpdateUtenteServlet extends HttpServlet {
 		response.sendRedirect("profilo");
 
 	}
-
 }

@@ -86,6 +86,7 @@
 					<h1>Domanda Vero Falso</h1>
 					<p><%= quizVF.getDomanda() %></p>
 					<form action="quiz" method="post">
+						<input type="hidden" name="idLinguaggio" value=<%=linguaggio.getId() %>>
 						<input type="hidden" name="idCapitolo" value="<%=quizVF.getCapitolo().getId()%>">
 						<input type="hidden" name="idVF" value="<%= quizVF.getId()%>">
 						<label>
@@ -94,7 +95,7 @@
         				<label>
             				<input type="radio" name="verofalso" value="falso"> Falso
         				</label>
-        				<button type="submit">Prossima</button>
+        				<button class="btn btn-danger" type="submit">Prossima</button>
 					</form>
 					<% } else if (quizMultiplo != null){ %>
 						<% 
@@ -121,15 +122,15 @@
 							<input type="hidden" name="idCapitolo" value="<%=quizMultiplo.getCapitolo().getId()%>">
 							<input type="hidden" name="idLinguaggio" value=<%=linguaggio.getId() %>>
 							<input type="hidden" name="idQM" value="<%=quizMultiplo.getId()%>">
-							<label>
+							<label>A)
             					<input type="radio" name="risposta" value="<%= primaRandom %>"> <%= primaRandom %>
         					</label>
         					<br><br>
-        					<label>
+        					<label>B)
             					<input type="radio" name="risposta" value="<%= secondaRandom %>"> <%= secondaRandom %>
         					</label>
         					<br><br>
-        					<label>
+        					<label>C)
             					<input type="radio" name="risposta" value="<%= risposte.get(0) %>"> <%= risposte.get(0) %>
         					</label>
         					<br><br>
