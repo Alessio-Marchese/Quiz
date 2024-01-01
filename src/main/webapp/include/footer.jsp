@@ -10,8 +10,7 @@
   	 			<ul>
   	 				<li><a href="<%=request.getContextPath()%>/chi-siamo.jsp">Chi siamo</a>
 </li>
-  	 				<li><a href="#">Contatti</a></li>
-  	 				<li><a href="#">Forum</a></li>
+  	 				<li><a href="contatti.jsp">Contatti</a></li>
   	 			</ul>
   	 		</div>
   	 		<div class="col footer-col">

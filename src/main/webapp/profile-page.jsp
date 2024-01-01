@@ -32,8 +32,8 @@
   						<div class="card-body" style="border: 3px solid black; border-radius: 10px;">
     						<p class="card-text text-wrap">Questo è il tuo hub personale, da qui puoi recuperare gli ultimi argomenti studiati o riprendere gli esercizi dall'ultimo quiz svolto</p>
     						<div class="d-flex justify-content-between">
-    							<a href="#" class="btn btn-secondary">Teoria (Nome Teoria)</a>
-    							<a href="#" class="btn btn-secondary">Quiz (Nome Quiz)</a>
+    							<a href="#" class="btn btn-danger">Teoria (Nome Teoria)</a>
+    							<a href="#" class="btn btn-danger">Quiz (Nome Quiz)</a>
   							</div>
   						</div>
 					</div>
@@ -95,7 +95,7 @@
     									<p>Numero civico</p>
     									<% } else { %>
     									<div id="aggInd">
-                                            		<button class="btn btn-secondary" type="button" id="showForm">Aggiungi</button>
+                                            		<button class="btn btn-primary" type="button" id="showForm">Aggiungi</button>
                                             			<div id="divAsForm" style="display: none;">
                                                     		<input id="paese" placeholder="Paese"><input id="citta" placeholder="Città"><input id="via" placeholder="Via"><input id="numeroCivico" placeholder="Numero Civico">                                    					
 														<div class="d-flex justify-content-between">

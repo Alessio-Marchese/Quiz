@@ -14,11 +14,14 @@
 	rel="stylesheet"
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap">
 
 
 
 </head>
-<body id="body" style="background-color:  #24262b">
+<body style="background-color: #24262b;
+ 			 font-family: 'Roboto Mono', monospace;
+ 			 color: white;">
 	<%@ include file="include/header.jsp"%>
 	
 
@@ -53,7 +56,7 @@
 						href="https://www.youtube.com/watch?v=hfl3n1RqLQE&list=PLP5MAKLy8lP9wbmTi6c4-tmqzyOtLglGP"><button
 							type="button" class="btn btn-danger">Video tutorial</button></a> <br>
 					<br>
-					<button type="button" class="btn btn-dark">Affronta i quiz</button>
+					<a class="btn btn-dark" href="listaQuiz?id=1">Affronta i quiz</a>
 			    </div>
 			</div>
 
@@ -67,7 +70,7 @@
 						href="https://www.youtube.com/watch?v=1C-ZbhVZ3sI&list=PLP5MAKLy8lP8U-yYn6J4hGfcee4Tirieg"><button
 							type="button" class="btn btn-danger">Video tutorial</button></a> <br>
 					<br>
-					<button type="button" class="btn btn-dark">Affronta i quiz</button>
+					<a class="btn btn-dark" href="listaQuiz?id=2">Affronta i quiz</a>
 			</div>
 			
 			<div class="col-4">
@@ -90,7 +93,7 @@
 						href="https://www.youtube.com/watch?v=HwkD5lRe0jw&list=PLP5MAKLy8lP-a0MG-MFHKCISmj2Wg4vT6"><button
 							type="button" class="btn btn-danger">Video tutorial</button></a> <br>
 					<br>
-					<button type="button" class="btn btn-dark">Affronta i quiz</button>
+					<a class="btn btn-dark" href="listaQuiz?id=3">Affronta i quiz</a>
 			</div>
 			
 		</div>
@@ -106,8 +109,7 @@
 						href="https://www.youtube.com/watch?v=84TYC44ezIU&list=PLP5MAKLy8lP9FUx06-avV66mS8LXz7_Bb"><button
 							type="button" class="btn btn-danger">Video tutorial</button></a> <br>
 					<br>
-					<button type="button" class="btn btn-light">Affronta i
-						quiz</button>
+					<a class="btn btn-dark" href="listaQuiz?id=4">Affronta i quiz</a>
 			</div>
 			
 			<div class="col-4">
