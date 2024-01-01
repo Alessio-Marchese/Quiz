@@ -4,4 +4,5 @@ import it.generationitaly.quizapp.entity.Capitolo;
 
 public interface CapitoloRepository extends JpaRepository<Capitolo,Integer> {
 
+	Long countCapitoli();
 }

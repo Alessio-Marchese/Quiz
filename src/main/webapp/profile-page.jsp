@@ -23,7 +23,7 @@
 		<form action="updateUtente" method="post">
 		<div class="container">
 			<div class="row">
-				<div class="col-6">
+				<div class="col-md-6 col-sm-12">
 					<h1 style="justify-content: center; margin-top: 52px; margin-bottom: 50px;">Ciao <%=utente.getNome() %>!</h1>
 					<div class="card" style="border: 5px solid white; border-radius: 5px;">
   						<div class="card-header">
@@ -43,7 +43,13 @@
   						</div>
   						<div class="card-body" style="border: 3px solid black; border-radius: 10px;">
     						<div class="d-flex justify-content-between">
-    							<% int badgeOttenuti = utente.getBadges().size(); %>
+    						<% int badgeOttenuti = 0; %>
+    							<% for(Badge badge : utente.getBadges()) { 
+    								if(badge != null) {
+    									badgeOttenuti++;
+    								}
+    							}
+    							%>	
                                 <% int badgeTotali = badges.size(); %>
     							<p>Quiz completati 0/<%= numeroQuiz%></p>
     							<p>Badge ottenuti <%=badgeOttenuti %>/<%=badgeTotali %></p>
@@ -52,12 +58,12 @@
 					</div>
 				</div>
 			
-				<div class="col-6" style="margin-top: 150px;">
+				<div class="col-md-6 col-sm-12" style="margin-top: 150px;">
 					<div class="card" style="border: 5px solid white; border-radius: 5px;">
   						<div class="card-header">
   						<div class="container">
   							<div class="row">
-  								<div class="col-7">
+  								<div class="col-5">
   									Le tue informazioni
     								<h5 id="nomeCognome" style="display: block;"><%=utente.getNome() %> <%=utente.getCognome() %></h5>
     								<div id="modificaNome" class="col-md-6" style="display: none; width: auto;">
@@ -67,8 +73,8 @@
                                       	<input name="newCognome" value="<%=utente.getCognome()%>" placeholder="Cognome">
                                     </div>
   								</div>
-  								<div class="col-2"></div>
-  								<div class="col-2"><input id="edit" type="button" class="btn btn-warning" value="Modifica" style="margin-top: 10px; margin-left: 20px;"></div>
+  								<div class="col-4"></div>
+  								<div class="col-2"><input id="edit" type="button" class="btn btn-warning" value="Modifica" style="margin-top: 10px;"></div>
   								<div class="col-1"></div>
   							</div>
   						</div>

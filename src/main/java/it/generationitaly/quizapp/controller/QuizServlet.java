@@ -81,55 +81,58 @@ public class QuizServlet extends HttpServlet {
 			QuizVeroFalso vf = quizVFRepo.findById(id);
 			capitoli = vf.getCapitolo().getLinguaggio().getCapitoli();
 			String risposta = request.getParameter("verofalso");
-			Boolean rispostaAsBoolean = null;
-			Object objToRemove = null;
-			for (Object o : quiz) {
-				if (o instanceof QuizVeroFalso) {
-					QuizVeroFalso objAsVF = (QuizVeroFalso) o;
-					if (objAsVF.getId() == vf.getId()) {
-						objToRemove = o;
+			if(risposta != null) {
+				Boolean rispostaAsBoolean = null;
+				Object objToRemove = null;
+				for (Object o : quiz) {
+					if (o instanceof QuizVeroFalso) {
+						QuizVeroFalso objAsVF = (QuizVeroFalso) o;
+						if (objAsVF.getId() == vf.getId()) {
+							objToRemove = o;
+						}
 					}
 				}
-			}
-			quiz.remove(objToRemove);
-			if (risposta.equals("vero")) {
-				rispostaAsBoolean = true;
-			} else if (risposta.equals("falso")) {
-				rispostaAsBoolean = false;
-			}
+				quiz.remove(objToRemove);
+				if (risposta.equals("vero")) {
+					rispostaAsBoolean = true;
+				} else if (risposta.equals("falso")) {
+					rispostaAsBoolean = false;
+				}
 
-			Boolean checkBool = vf.getBool();
-			if (checkBool == rispostaAsBoolean) {
-				risposteGiuste.add(vf);
-			} else if (checkBool != rispostaAsBoolean) {
-				risposteSbagliate.add(vf);
+				Boolean checkBool = vf.getBool();
+				if (checkBool == rispostaAsBoolean) {
+					risposteGiuste.add(vf);
+				} else if (checkBool != rispostaAsBoolean) {
+					risposteSbagliate.add(vf);
+				}
 			}
-
 		} else {
 			int id = Integer.parseInt(request.getParameter("idQM"));
 			QuizMultiplo qm = quizMultiploRepo.findById(id);
 			capitoli = qm.getCapitolo().getLinguaggio().getCapitoli();
 			String risposta = request.getParameter("risposta");
-			String check = qm.getCorretta();
-			Object objToRemove = null;
-			for (Object o : quiz) {
-				if (o instanceof QuizMultiplo) {
-					QuizMultiplo objAsQM = (QuizMultiplo) o;
-					if (objAsQM.getId() == qm.getId()) {
-						objToRemove = o;
+			if(risposta != null) {
+				String check = qm.getCorretta();
+				Object objToRemove = null;
+				for (Object o : quiz) {
+					if (o instanceof QuizMultiplo) {
+						QuizMultiplo objAsQM = (QuizMultiplo) o;
+						if (objAsQM.getId() == qm.getId()) {
+							objToRemove = o;
+						}
 					}
 				}
-			}
-			quiz.remove(objToRemove);
-			if (check.equals(risposta)) {
-				risposteGiuste.add(qm);
-			} else if (!check.equals(risposta)) {
-				risposteSbagliate.add(qm);
+				quiz.remove(objToRemove);
+				if (check.equals(risposta)) {
+					risposteGiuste.add(qm);
+				} else if (!check.equals(risposta)) {
+					risposteSbagliate.add(qm);
+				}
 			}
 		}
 
 		Random random = new Random();
-		if (contatoreDomande < 10) {
+		if (quiz.size() > 0) {
 			int random1 = random.nextInt(quiz.size());
 			Object object = quiz.get(random1);
 			

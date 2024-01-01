@@ -26,8 +26,7 @@ public class ProfiloServlet extends HttpServlet {
 	
 	LinguaggioRepository linguaggioRepo = new LinguaggioRepositoryImpl();
 	BadgeRepository badgeRepo = new BadgeRepositoryImpl();
-	QuizVeroFalsoRepository quizVeroFalsoRepo = new QuizVeroFalsoRepositoryImpl();
-	QuizMultiploRepository quizMultiploRepo = new QuizMultiploRepositoryImpl();
+	CapitoloRepository capitoloRepo = new CapitoloRepositoryImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getSession().getAttribute("utente") == null) {
@@ -35,8 +34,7 @@ public class ProfiloServlet extends HttpServlet {
 			return;
 		}
 		Long quiz = 0L;
-		quiz += quizVeroFalsoRepo.countQuiz();
-		quiz += quizMultiploRepo.countQuiz();
+		quiz += capitoloRepo.countCapitoli();
 		List<Linguaggio> linguaggi = linguaggioRepo.findAll();
 		List<Badge> badges = badgeRepo.findAll();
 		request.setAttribute("numeroQuiz", quiz);
@@ -52,8 +50,7 @@ public class ProfiloServlet extends HttpServlet {
 			return;
 		}
 		Long quiz = 0L;
-		quiz += quizVeroFalsoRepo.countQuiz();
-		quiz += quizMultiploRepo.countQuiz();
+		quiz += capitoloRepo.countCapitoli();
 		List<Linguaggio> linguaggi = linguaggioRepo.findAll();
 		List<Badge> badges = badgeRepo.findAll();
 		request.setAttribute("numeroQuiz", quiz);
