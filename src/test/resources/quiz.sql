@@ -196,6 +196,15 @@ CREATE TABLE IF NOT EXISTS `quiz`.`utente_has_quiz` (
   INDEX `fk_utente_has_quiz_utente1_idx` (`utente_id` ASC) VISIBLE
 ) ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS contatti (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    telefono VARCHAR(15) NOT NULL,
+    oggetto VARCHAR(50) NOT NULL,
+    messaggio TEXT NOT NULL,
+    ore_invio TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

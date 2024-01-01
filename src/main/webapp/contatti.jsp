@@ -11,7 +11,7 @@
   <h2>Contattaci</h2>
   <form action="contattaci" method="post">
     <div class="user-box">
-      <input id="inputName" type="text" name="name" required="">
+      <input id="inputName" type="text" name="nome" required="">
       <label>Nome</label>
     </div>
     <div class="user-box">
@@ -19,11 +19,11 @@
       <label>Email</label>
     </div>
     <div class="user-box">
-      <input id="inputPhone" type="tel" name="phone" required="">
+      <input id="inputPhone" type="tel" name="telefono" required="">
       <label>Telefono</label>
     </div>
     <div class="user-box">
-      <select id="selectSubject" name="subject" required="">
+      <select id="selectSubject" name="oggetto" required="">
         <option value="" disabled selected>Scegli un oggetto</option>
         <option value="supporto">Supporto tecnico</option>
         <option value="informazioni">Informazioni generali</option>
@@ -31,7 +31,7 @@
       </select>
     </div>
     <div class="user-box">
-      <textarea id="inputMessage" name="message" required=""></textarea>
+      <textarea id="inputMessage" name="messaggio" required=""></textarea>
       <label>Messaggio</label>
     </div>
     <button type="submit" class="contact-button">
