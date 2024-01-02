@@ -31,7 +31,7 @@ public class SaveUtenteServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		int telefono = Integer.parseInt(request.getParameter("telefono"));
+		Long telefono = Long.parseLong(request.getParameter("telefono"));
 
 		Utente utenteCheck = utenteRepository.findByUsername(username);
 

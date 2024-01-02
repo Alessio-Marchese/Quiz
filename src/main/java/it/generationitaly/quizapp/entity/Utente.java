@@ -48,7 +48,7 @@ public class Utente {
 	private Date dataNascita;
 	
 	@Column(name = "numero_telefono", nullable = true)
-	private Integer numeroTelefono;
+	private Long numeroTelefono;
 	
 	@OneToOne(cascade = {  CascadeType.MERGE, CascadeType.REMOVE} )
 	@JoinColumn(name = "indirizzo_id", unique = true, nullable = true)
@@ -124,11 +124,11 @@ public class Utente {
 		this.dataNascita = dataNascita;
 	}
 
-	public Integer getNumeroTelefono() {
+	public Long getNumeroTelefono() {
 		return numeroTelefono;
 	}
 
-	public void setNumeroTelefono(Integer numeroTelefono) {
+	public void setNumeroTelefono(Long numeroTelefono) {
 		this.numeroTelefono = numeroTelefono;
 	}
 

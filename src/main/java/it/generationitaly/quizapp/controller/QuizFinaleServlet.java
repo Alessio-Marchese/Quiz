@@ -50,7 +50,7 @@ public class QuizFinaleServlet extends HttpServlet {
 
 		int contatoreDomande = 0;
 		Integer idLinguaggio = idLinguaggio = Integer.parseInt(request.getParameter("idLinguaggio"));
-		if(utente.getBadges().get(--idLinguaggio) != null) {
+		if(utente.getBadges().size() > 0 && utente.getBadges().get(--idLinguaggio) != null) {
 			response.sendRedirect("welcome");
 			return;
 		}
