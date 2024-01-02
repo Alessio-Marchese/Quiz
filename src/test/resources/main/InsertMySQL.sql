@@ -132,7 +132,7 @@ INSERT INTO quiz (nome) VALUES ('ES6+ Features');
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id) VALUES 
 ("Qual è lo scopo principale di Java?", "Sviluppare applicazioni cross-platform", "Creare siti web interattivi", "Analizzare dati statistici", 1),
 ("Cos'è la JVM in Java?", "Java Virtual Machine", "Java Visual Model", "Java Virtual Memory", 1),
-("Cosa significa il termine 'write once, run anywhere' in Java?", "Il codice Java può essere eseguito su diverse piattaforme senza ricompilazione", "Scrivere il codice una sola volta e farlo girare ovunque", "Scrivere codice una sola volta e farlo girare solo su Windows", 1),
+("Cosa significa il termine 'write once, run anywhere' in Java?", "Il codice Java può essere eseguito su diverse piattaforme senza ricompilazione", "Scrivere il codice una sola volta", "Scrivere codice una sola volta e farlo girare solo su Windows", 1),
 ("Java è un linguaggio di programmazione adatto per la creazione di?", "Applicazioni distribuite e piattaforme mobili", "Siti web statici", "Applicazioni di grafica avanzata", 1),
 ("Quale dei seguenti non è un tipo di dato primitivo in Java?", "String", "int", "boolean", 1);
 
@@ -169,7 +169,7 @@ INSERT INTO quiz_vero_falso (domanda, bool, capitolo_id) VALUES
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id) VALUES 
 ("Qual è l'operatore corretto per confrontare l'uguaglianza in Java?", '==', '=', '!=', 3),
 ("Cosa restituisce l'operatore logico AND (&&) quando entrambe le condizioni sono vere?", 'true', 'false', 'null', 3),
-("Quale operatore viene utilizzato per incrementare il valore di una variabile in Java?", '++', '--', '+=', 3),
+("Quale operatore viene utilizzato per incrementare di 1 il valore di una variabile in Java?", '++', '--', '+=', 3),
 ("In una dichiarazione if, quale operatore viene utilizzato per verificare se una condizione è falsa?", '!', '||', '&&', 3),
 ("Qual è l'output di 5 % 2 in Java?", '1', '2', '2.5', 3);
 
@@ -178,7 +178,7 @@ INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id) VAL
 INSERT INTO quiz_vero_falso (domanda, bool, capitolo_id) VALUES 
 ("In Java, l'operatore di confronto '==' confronta anche il tipo di dati?", TRUE, 3),
 ("L'operatore di concatenazione di stringhe in Java è '+='?", FALSE, 3),
-("L'operatore di incremento '--' decrementa il valore di una variabile di 1 in Java?", TRUE, 3),
+("L'operatore di decremento '--' decrementa il valore di una variabile di 1 in Java?", TRUE, 3),
 ("L'operatore di divisione in Java ('/') restituisce sempre un valore intero?", FALSE, 3),
 ("L'operatore logico '||' restituisce TRUE se almeno una delle condizioni è vera?", TRUE, 3);
 
@@ -350,7 +350,7 @@ INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id) VAL
 -- Quiz Vero/Falso sul capitolo "Interfacce" in Java (Capitolo ID: 13)
 
 INSERT INTO quiz_vero_falso (domanda, bool, capitolo_id) VALUES 
-("In Java, una classe può estendere più di una classe ma implementare una sola interfaccia?", TRUE, 13),
+("In Java, una classe può estendere più di una classe ma implementare una sola interfaccia?", FALSE, 13),
 ("In un'interfaccia in Java, tutti i metodi sono implicitamente 'public' e 'abstract'?", TRUE, 13),
 ("La parola chiave 'implements' in Java è utilizzata per estendere un'interfaccia?", FALSE, 13),
 ("In Java, un'interfaccia può contenere variabili di istanza?", FALSE, 13),
