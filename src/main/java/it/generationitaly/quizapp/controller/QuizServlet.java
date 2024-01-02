@@ -7,15 +7,19 @@ import java.util.Random;
 
 import it.generationitaly.quizapp.entity.Capitolo;
 import it.generationitaly.quizapp.entity.Linguaggio;
+import it.generationitaly.quizapp.entity.Quiz;
 import it.generationitaly.quizapp.entity.QuizMultiplo;
 import it.generationitaly.quizapp.entity.QuizVeroFalso;
+import it.generationitaly.quizapp.entity.Utente;
 import it.generationitaly.quizapp.repository.CapitoloRepository;
 import it.generationitaly.quizapp.repository.LinguaggioRepository;
 import it.generationitaly.quizapp.repository.QuizMultiploRepository;
+import it.generationitaly.quizapp.repository.QuizRepository;
 import it.generationitaly.quizapp.repository.QuizVeroFalsoRepository;
 import it.generationitaly.quizapp.repository.impl.CapitoloRepositoryImpl;
 import it.generationitaly.quizapp.repository.impl.LinguaggioRepositoryImpl;
 import it.generationitaly.quizapp.repository.impl.QuizMultiploRepositoryImpl;
+import it.generationitaly.quizapp.repository.impl.QuizRepositoryImpl;
 import it.generationitaly.quizapp.repository.impl.QuizVeroFalsoRepositoryImpl;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -31,6 +35,7 @@ public class QuizServlet extends HttpServlet {
 	private QuizVeroFalsoRepository quizVFRepo = new QuizVeroFalsoRepositoryImpl();
 	private QuizMultiploRepository quizMultiploRepo = new QuizMultiploRepositoryImpl();
 	private LinguaggioRepository linguaggioRepo = new LinguaggioRepositoryImpl();
+	private QuizRepository quizRepo = new QuizRepositoryImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -142,9 +147,24 @@ public class QuizServlet extends HttpServlet {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("quiz.jsp");
 			requestDispatcher.forward(request, response);
 		} else {
+			int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
+			if(request.getSession().getAttribute("utente") != null) {
+				Utente utente = (Utente) request.getSession().getAttribute("utente");
+				Boolean check = true;
+				Quiz quizz = quizRepo.findById(idCapitolo);
+				for(Quiz quizzz : utente.getQuiz()) {
+					if(quizzz.getId() == quizz.getId()) {
+						check = false;
+					}
+				}
+				if(check != false) {
+					utente.getQuiz().add(quizz);
+				}
+				utente.setNextQuiz(idCapitolo+1);
+			}
 			request.setAttribute("risposteGiuste", risposteGiuste);
 			request.setAttribute("risposteSbagliate", risposteSbagliate);
-			int idCapitolo = Integer.parseInt(request.getParameter("idCapitolo"));
+			
 			request.getRequestDispatcher("mostrarisultati.jsp?idCapitolo=" + idCapitolo).forward(request, response);
 		}
 

@@ -39,7 +39,12 @@
     							<% } else {%>
     								<a href="teoria?idCapitolo=<%=capitolo.getId() %>&idLinguaggio=<%=capitolo.getLinguaggio().getId() %>" class="btn btn-danger">Vai a <%=capitolo.getNome() %></a>
     							<% } %>
-    							<a href="#" class="btn btn-danger">Quiz (Nome Quiz)</a>
+    							<%if(utente.getNextQuiz() == 0) { %>
+    							<a href="#" class="btn btn-danger">Non hai completato quiz</a>
+    							<% } else { %>
+    							<% Capitolo capitoloQuiz = (Capitolo) request.getAttribute("capitoloQuiz"); %>
+    							<a href="quiz?idCapitolo=<%=capitoloQuiz.getId() %>&idLinguaggio=<%=capitoloQuiz.getLinguaggio().getId()%>" class="btn btn-danger">Quiz <%=capitoloQuiz.getNome() %></a>
+    							<% } %>
   							</div>
   						</div>
 					</div>
@@ -56,8 +61,9 @@
     								}
     							}
     							%>	
+    							<% Integer contaQuiz = (Integer) request.getAttribute("contaQuiz"); %>
                                 <% int badgeTotali = badges.size(); %>
-    							<p>Quiz completati 0/<%= numeroQuiz%></p>
+    							<p>Quiz completati <%=contaQuiz == null ? 0 : contaQuiz%>/<%= numeroQuiz%></p>
     							<p>Badge ottenuti <%=badgeOttenuti %>/<%=badgeTotali %></p>
   							</div>
   						</div>

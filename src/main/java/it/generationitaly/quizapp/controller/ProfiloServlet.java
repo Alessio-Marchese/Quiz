@@ -38,6 +38,16 @@ public class ProfiloServlet extends HttpServlet {
 		if(utente.getSegnaLibro() != null) {
 			request.setAttribute("capitolo", capitoloRepo.findById(utente.getSegnaLibro()));
 		}
+		if(utente.getNextQuiz() > 0) {
+			request.setAttribute("capitoloQuiz", capitoloRepo.findById(utente.getNextQuiz()));
+		}
+		int contaQuiz = 0;
+		for(Object obj : utente.getQuiz()) {
+			if(obj != null) {
+				contaQuiz++;
+			}
+		}
+		request.setAttribute("contaQuiz", contaQuiz);
 		Long quiz = 0L;
 		quiz += capitoloRepo.countCapitoli();
 		List<Linguaggio> linguaggi = linguaggioRepo.findAll();
@@ -57,6 +67,9 @@ public class ProfiloServlet extends HttpServlet {
 		Utente utente = (Utente) request.getSession().getAttribute("utente");
 		if(utente.getSegnaLibro() != null) {
 			request.setAttribute("capitolo", capitoloRepo.findById(utente.getSegnaLibro()));
+		}
+		if(utente.getNextQuiz() > 0) {
+			request.setAttribute("capitoloQuiz", capitoloRepo.findById(utente.getNextQuiz()));
 		}
 		Long quiz = 0L;
 		quiz += capitoloRepo.countCapitoli();

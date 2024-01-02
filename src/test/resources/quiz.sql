@@ -44,6 +44,8 @@ CREATE TABLE IF NOT EXISTS `quiz`.`utente` (
   `data_nascita` DATE NOT NULL,
   `numero_telefono` BIGINT NOT NULL,
   `segnalibro` INT NULL,
+  `next_quiz` INT NOT NULL,
+  `quiz_completati` INT NOT NULL,
   `indirizzo_id` INT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
@@ -180,8 +182,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `quiz`.`quiz` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) VISIBLE)
+  PRIMARY KEY (`id`)
+)
 ENGINE = InnoDB;
 
 
@@ -207,19 +209,7 @@ CREATE TABLE IF NOT EXISTS contatti (
     ore_invio TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS contatti (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    telefono VARCHAR(15) NOT NULL,
-    oggetto VARCHAR(50) NOT NULL,
-    messaggio TEXT NOT NULL,
-    ore_invio TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-      
-	

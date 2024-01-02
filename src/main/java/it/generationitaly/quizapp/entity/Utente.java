@@ -68,8 +68,19 @@ public class Utente {
 			inverseJoinColumns = @JoinColumn(name = "quiz_id"))
 	private List<Quiz> quiz;
 	
+	@Column(name="next_quiz",nullable = false)
+	private Integer nextQuiz = 0;
+	
 	@Column(name="segnalibro",nullable = true)
 	private Integer segnaLibro;
+
+	public Integer getNextQuiz() {
+		return nextQuiz;
+	}
+
+	public void setNextQuiz(Integer nextQuiz) {
+		this.nextQuiz = nextQuiz;
+	}
 
 	public Integer getSegnaLibro() {
 		return segnaLibro;

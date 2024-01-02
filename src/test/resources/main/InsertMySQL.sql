@@ -1,5 +1,5 @@
 -- utente root
-insert into utente values('1','root','admin','email1@gmail.com','nome1','cognome1','2000-08-10',3289346,NULL,NULL);
+insert into utente values('1','root','admin','email1@gmail.com','nome1','cognome1','2000-08-10',3289346,NULL,0,0,NULL);
 -- linguaggi
 insert into linguaggio values('1','Java');
 insert into linguaggio values('2','HTML');
@@ -68,6 +68,64 @@ INSERT INTO capitolo (linguaggio_id, nome) VALUES (4, 'DOM (Document Object Mode
 INSERT INTO capitolo (linguaggio_id, nome) VALUES (4, 'AJAX e Fetch API');
 INSERT INTO capitolo (linguaggio_id, nome) VALUES (4, 'Async/Await');
 INSERT INTO capitolo (linguaggio_id, nome) VALUES (4, 'ES6+ Features');
+
+-- capitoli java
+INSERT INTO quiz (nome) VALUES ('Introduzione');
+INSERT INTO quiz (nome) VALUES ('Variabili');
+INSERT INTO quiz (nome) VALUES ('Operatori');
+INSERT INTO quiz (nome) VALUES ('Strutture di controllo');
+INSERT INTO quiz (nome) VALUES ('Array');
+INSERT INTO quiz (nome) VALUES ('Stringhe');
+INSERT INTO quiz (nome) VALUES ('Funzioni');
+INSERT INTO quiz (nome) VALUES ('Oggetti e Classi');
+INSERT INTO quiz (nome) VALUES ('Ereditarietà');
+INSERT INTO quiz (nome) VALUES ('Polimorfismo');
+INSERT INTO quiz (nome) VALUES ('Gestione delle eccezioni');
+INSERT INTO quiz (nome) VALUES ('Collezioni');
+INSERT INTO quiz (nome) VALUES ('Interfacce');
+INSERT INTO quiz (nome) VALUES ('Servlet');
+INSERT INTO quiz (nome) VALUES ('JDBC');
+INSERT INTO quiz (nome) VALUES ('Design Patterns');
+-- capitoli html
+INSERT INTO quiz (nome) VALUES ('Introduzione a HTML');
+INSERT INTO quiz (nome) VALUES ('Struttura di Base di una Pagina HTML');
+INSERT INTO quiz (nome) VALUES ('Elementi di Testo e Formattazione');
+INSERT INTO quiz (nome) VALUES ('Collegamenti e Immagini');
+INSERT INTO quiz (nome) VALUES ('Tabelle e Moduli');
+INSERT INTO quiz (nome) VALUES ('Uso di CSS con HTML');
+INSERT INTO quiz (nome) VALUES ('Elementi Semantici in HTML5');
+INSERT INTO quiz (nome) VALUES ('Multimedia e Grafica');
+INSERT INTO quiz (nome) VALUES ('Accessibilità e Best Practices');
+INSERT INTO quiz (nome) VALUES ('HTML Avanzato e API');
+-- capitoli CSS
+INSERT INTO quiz (nome) VALUES ('Introduzione');
+INSERT INTO quiz (nome) VALUES ('Selezione degli elementi');
+INSERT INTO quiz (nome) VALUES ('Box Model');
+INSERT INTO quiz (nome) VALUES ('Layout con Flexbox');
+INSERT INTO quiz (nome) VALUES ('Layout con Grid');
+INSERT INTO quiz (nome) VALUES ('Posizionamento');
+INSERT INTO quiz (nome) VALUES ('Transizioni e Animazioni');
+INSERT INTO quiz (nome) VALUES ('Media Queries');
+INSERT INTO quiz (nome) VALUES ('Responsive Design');
+INSERT INTO quiz (nome) VALUES ('Pseudo-classi e Pseudo-elementi');
+INSERT INTO quiz (nome) VALUES ('Font e Testo');
+INSERT INTO quiz (nome) VALUES ('Colori e Sfondi');
+INSERT INTO quiz (nome) VALUES ('Trasformazioni e Transizioni');
+-- capitoli JavaScript
+INSERT INTO quiz (nome) VALUES ('Introduzione a JavaScript');
+INSERT INTO quiz (nome) VALUES ('Variabili e Tipi di Dati');
+INSERT INTO quiz (nome) VALUES ('Operatori');
+INSERT INTO quiz (nome) VALUES ('Strutture di Controllo (if, else, switch)');
+INSERT INTO quiz (nome) VALUES ('Cicli (for, while, do-while)');
+INSERT INTO quiz (nome) VALUES ('Funzioni');
+INSERT INTO quiz (nome) VALUES ('Array');
+INSERT INTO quiz (nome) VALUES ('Oggetti e Prototipi');
+INSERT INTO quiz (nome) VALUES ('Gestione degli Errori (try, catch)');
+INSERT INTO quiz (nome) VALUES ('Eventi e Callback');
+INSERT INTO quiz (nome) VALUES ('DOM (Document Object Model)');
+INSERT INTO quiz (nome) VALUES ('AJAX e Fetch API');
+INSERT INTO quiz (nome) VALUES ('Async/Await');
+INSERT INTO quiz (nome) VALUES ('ES6+ Features');
 
 -- Quiz multiplo sull'introduzione generale di Java (Capitolo ID: 1)
 
@@ -273,77 +331,68 @@ INSERT INTO quiz_vero_falso (domanda, bool, capitolo_id) VALUES
 
 
 
--- Quiz Vero/Falso sul capitolo "Collezioni" in Java (Capitolo ID: 14)
+-- Quiz Vero/Falso sul capitolo "Collezioni" in Java (Capitolo ID: 12)
 
 INSERT INTO quiz_vero_falso (domanda, bool, capitolo_id) VALUES 
-("In Java, un oggetto 'HashMap' può contenere chiavi duplicate?", FALSE, 14),
-("La classe 'TreeMap' in Java ordina automaticamente le chiavi in ordine crescente?", TRUE, 14),
-("In Java, l'interfaccia 'List' è un'esempio di una collezione non ordinata?", FALSE, 14),
-("La classe 'LinkedHashSet' in Java mantiene l'ordine di inserimento degli elementi?", TRUE, 14),
-("In Java, il metodo 'remove()' della classe 'ArrayList' rimuove l'elemento in base alla posizione?", FALSE, 14);
+("In Java, un oggetto 'HashMap' può contenere chiavi duplicate?", FALSE, 12),
+("La classe 'TreeMap' in Java ordina automaticamente le chiavi in ordine crescente?", TRUE, 12),
+("In Java, l'interfaccia 'List' è un'esempio di una collezione non ordinata?", FALSE, 12),
+("La classe 'LinkedHashSet' in Java mantiene l'ordine di inserimento degli elementi?", TRUE, 12),
+("In Java, il metodo 'remove()' della classe 'ArrayList' rimuove l'elemento in base alla posizione?", FALSE, 12);
 
 -- Quiz multiplo sul capitolo "Interfacce" in Java (Capitolo ID: 15)
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id) VALUES 
-("Qual è il termine corretto per un'interfaccia con un solo metodo in Java?", "Interfaccia funzionale", "Interfaccia singola", "Interfaccia specifica", 15),
-("Cosa rappresenta 'default' in un metodo di interfaccia in Java?", "Implementazione di default", "Valore predefinito del metodo", "Blocco di codice predefinito", 15),
-("Cosa succede se una classe implementa un'interfaccia in Java ma non fornisce l'implementazione di tutti i suoi metodi?", "La classe deve essere dichiarata astratta", "Si verifica un errore di compilazione", "Il programma funziona correttamente", 15);
+("Qual è il termine corretto per un'interfaccia con un solo metodo in Java?", "Interfaccia funzionale", "Interfaccia singola", "Interfaccia specifica", 13),
+("Cosa rappresenta 'default' in un metodo di interfaccia in Java?", "Implementazione di default", "Valore predefinito del metodo", "Blocco di codice predefinito", 13),
+("Cosa succede se una classe implementa un'interfaccia in Java ma non fornisce l'implementazione di tutti i suoi metodi?", "La classe deve essere dichiarata astratta", "Si verifica un errore di compilazione", "Il programma funziona correttamente", 13);
 
--- Quiz Vero/Falso sul capitolo "Interfacce" in Java (Capitolo ID: 15)
-
-INSERT INTO quiz_vero_falso (domanda, bool, capitolo_id) VALUES 
-("In Java, una classe può estendere più di una classe ma implementare una sola interfaccia?", TRUE, 15),
-("In un'interfaccia in Java, tutti i metodi sono implicitamente 'public' e 'abstract'?", TRUE, 15),
-("La parola chiave 'implements' in Java è utilizzata per estendere un'interfaccia?", FALSE, 15),
-("In Java, un'interfaccia può contenere variabili di istanza?", FALSE, 15),
-("Un'interfaccia in Java può ereditare da una classe?", FALSE, 15);
-
-
-
-
-
-
--- Quiz multiplo sul capitolo "Servlet" in Java (Capitolo ID: 18)
-
--- Quiz Vero/Falso sull'argomento "Servlet" in Java (Capitolo ID: 18)
+-- Quiz Vero/Falso sul capitolo "Interfacce" in Java (Capitolo ID: 13)
 
 INSERT INTO quiz_vero_falso (domanda, bool, capitolo_id) VALUES 
-("Le Servlet in Java sono utilizzate per sviluppare interfacce utente grafiche?", FALSE, 18),
-("Le Servlet possono essere utilizzate per gestire richieste HTTP in applicazioni web?", TRUE, 18),
-("Una Servlet in Java può essere creata estendendo la classe 'HttpServlet'?", TRUE, 18),
-("Le Servlet in Java possono essere scritte in qualsiasi linguaggio di programmazione?", FALSE, 18),
-("La configurazione di una Servlet in Java può essere definita nel file 'web.xml'?", TRUE, 18);
+("In Java, una classe può estendere più di una classe ma implementare una sola interfaccia?", TRUE, 13),
+("In un'interfaccia in Java, tutti i metodi sono implicitamente 'public' e 'abstract'?", TRUE, 13),
+("La parola chiave 'implements' in Java è utilizzata per estendere un'interfaccia?", FALSE, 13),
+("In Java, un'interfaccia può contenere variabili di istanza?", FALSE, 13),
+("Un'interfaccia in Java può ereditare da una classe?", FALSE, 13);
 
--- Quiz multiplo sul capitolo "JDBC" in Java (Capitolo ID: 19)
+-- Quiz Vero/Falso sull'argomento "Servlet" in Java (Capitolo ID: 14)
+
+INSERT INTO quiz_vero_falso (domanda, bool, capitolo_id) VALUES 
+("Le Servlet in Java sono utilizzate per sviluppare interfacce utente grafiche?", FALSE, 14),
+("Le Servlet possono essere utilizzate per gestire richieste HTTP in applicazioni web?", TRUE, 14),
+("Una Servlet in Java può essere creata estendendo la classe 'HttpServlet'?", TRUE, 14),
+("Le Servlet in Java possono essere scritte in qualsiasi linguaggio di programmazione?", FALSE, 14),
+("La configurazione di una Servlet in Java può essere definita nel file 'web.xml'?", TRUE, 14);
+
+-- Quiz multiplo sul capitolo "JDBC" in Java (Capitolo ID: 15)
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id) VALUES 
-("Qual è lo scopo di JDBC in Java?", "Fornire un'interfaccia per l'accesso al database", "Gestire interfacce utente grafiche", "Creare applicazioni web", 19),
-("Quale oggetto in JDBC rappresenta una connessione al database?", "Connection", "ResultSet", "Statement", 19),
-("In JDBC, cosa rappresenta un'istruzione SQL preparata?", "Un'istruzione SQL precompilata", "Un'istruzione SQL crittografata", "Un'istruzione SQL di sola lettura", 19),
-("Cosa fa il metodo 'executeUpdate()' in JDBC?", "Esegue un'istruzione SQL di aggiornamento", "Esegue una query SQL", "Restituisce un risultato di query", 19),
-("Quale interfaccia in JDBC è responsabile dell'esecuzione di query SQL?", "Statement", "ResultSet", "Connection", 19);
+("Qual è lo scopo di JDBC in Java?", "Fornire un'interfaccia per l'accesso al database", "Gestire interfacce utente grafiche", "Creare applicazioni web", 15),
+("Quale oggetto in JDBC rappresenta una connessione al database?", "Connection", "ResultSet", "Statement", 15),
+("In JDBC, cosa rappresenta un'istruzione SQL preparata?", "Un'istruzione SQL precompilata", "Un'istruzione SQL crittografata", "Un'istruzione SQL di sola lettura", 15),
+("Cosa fa il metodo 'executeUpdate()' in JDBC?", "Esegue un'istruzione SQL di aggiornamento", "Esegue una query SQL", "Restituisce un risultato di query", 15),
+("Quale interfaccia in JDBC è responsabile dell'esecuzione di query SQL?", "Statement", "ResultSet", "Connection", 15);
 
--- Quiz Vero/Falso sul capitolo "JDBC" in Java (Capitolo ID: 19)
+-- Quiz Vero/Falso sul capitolo "JDBC" in Java (Capitolo ID: 15)
 
 INSERT INTO quiz_vero_falso (domanda, bool, capitolo_id) VALUES 
-("In JDBC, la classe 'DriverManager' è responsabile della gestione dei driver del database?", TRUE, 19),
-("Un'eccezione 'SQLException' può verificarsi durante l'interazione con un database in JDBC?", TRUE, 19),
-("In JDBC, il metodo 'executeQuery()' è utilizzato per eseguire aggiornamenti del database?", FALSE, 19),
-("L'utilizzo di JDBC è limitato solo a database relazionali in Java?", FALSE, 19);
+("In JDBC, la classe 'DriverManager' è responsabile della gestione dei driver del database?", TRUE, 15),
+("Un'eccezione 'SQLException' può verificarsi durante l'interazione con un database in JDBC?", TRUE, 15),
+("In JDBC, il metodo 'executeQuery()' è utilizzato per eseguire aggiornamenti del database?", FALSE, 15),
+("L'utilizzo di JDBC è limitato solo a database relazionali in Java?", FALSE, 15);
 
--- Quiz multiplo sul capitolo "Design Patterns" in Java (Capitolo ID: 20)
-
--- Quiz multiplo sull'argomento "Design Patterns" in Java (Capitolo ID: 20)
+-- Quiz multiplo sull'argomento "Design Patterns" in Java (Capitolo ID: 16)
 
 INSERT INTO quiz_multiplo (domanda, corretta, errore1, errore2, capitolo_id) VALUES 
-("Cosa rappresenta il design pattern 'Singleton'?", "Assicura che una classe abbia una sola istanza e fornisce un punto di accesso globale", "Definisce una dipendenza uno a molti tra oggetti", "Introduce la creazione di oggetti casuali", 20),
-("Cosa definisce il design pattern 'Factory Method'?", "Definisce un'interfaccia per la creazione di un oggetto e lascia la scelta della sua classe alle sottoclassi", "Definisce una dipendenza uno a molti tra oggetti", "Introduce la creazione di oggetti casuali", 20);
+("Cosa rappresenta il design pattern 'Singleton'?", "Assicura che una classe abbia una sola istanza e fornisce un punto di accesso globale", "Definisce una dipendenza uno a molti tra oggetti", "Introduce la creazione di oggetti casuali", 16),
+("Cosa definisce il design pattern 'Factory Method'?", "Definisce un'interfaccia per la creazione di un oggetto e lascia la scelta della sua classe alle sottoclassi", "Definisce una dipendenza uno a molti tra oggetti", "Introduce la creazione di oggetti casuali", 16);
 
--- Quiz Vero/Falso sull'argomento "Design Patterns" in Java (Capitolo ID: 20)
+-- Quiz Vero/Falso sull'argomento "Design Patterns" in Java (Capitolo ID: 16)
 
 INSERT INTO quiz_vero_falso (domanda, bool, capitolo_id) VALUES 
-("Il design pattern 'Singleton' permette la creazione di più istanze di una classe?", FALSE, 20),
-("Il design pattern 'Factory Method' lascia la scelta della classe di un oggetto alle sottoclassi?", TRUE, 20);
+("Il design pattern 'Singleton' permette la creazione di più istanze di una classe?", FALSE, 16),
+("Il design pattern 'Factory Method' lascia la scelta della classe di un oggetto alle sottoclassi?", TRUE, 16);
 
 -- teoria introduzione a java (CAPITOLO 1)
 insert into contenuto(contenuto, capitolo_id, tipo) values('Java: Un Linguaggio di Programmazione Versatile','1','titolo');
