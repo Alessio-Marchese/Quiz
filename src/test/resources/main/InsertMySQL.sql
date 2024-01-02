@@ -1,5 +1,5 @@
 -- utente root
-insert into utente values('1','root','admin','email1@gmail.com','nome1','cognome1','2000-08-10',3289346,NULL);
+insert into utente values('1','root','admin','email1@gmail.com','nome1','cognome1','2000-08-10',3289346,NULL,NULL);
 -- linguaggi
 insert into linguaggio values('1','Java');
 insert into linguaggio values('2','HTML');
