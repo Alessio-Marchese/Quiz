@@ -3,6 +3,7 @@
     import="java.util.List"
     import="java.text.SimpleDateFormat"
     import="it.generationitaly.quizapp.entity.Badge"
+    import="it.generationitaly.quizapp.entity.Capitolo"
     %>
 <!DOCTYPE html>
 <html>
@@ -32,7 +33,12 @@
   						<div class="card-body" style="border: 3px solid black; border-radius: 10px;">
     						<p class="card-text text-wrap">Questo è il tuo hub personale, da qui puoi recuperare gli ultimi argomenti studiati o riprendere gli esercizi dall'ultimo quiz svolto</p>
     						<div class="d-flex justify-content-between">
-    							<a href="#" class="btn btn-danger">Teoria (Nome Teoria)</a>
+    							<% Capitolo capitolo = (Capitolo) request.getAttribute("capitolo"); %>
+    							<% if(capitolo == null) { %>
+    								<a href="#" class="btn btn-danger">Non hai un segnalibro</a>
+    							<% } else {%>
+    								<a href="teoria?idCapitolo=<%=capitolo.getId() %>&idLinguaggio=<%=capitolo.getLinguaggio().getId() %>" class="btn btn-danger">Vai a <%=capitolo.getNome() %></a>
+    							<% } %>
     							<a href="#" class="btn btn-danger">Quiz (Nome Quiz)</a>
   							</div>
   						</div>

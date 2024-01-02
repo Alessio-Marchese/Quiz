@@ -67,6 +67,17 @@ public class Utente {
 			joinColumns = @JoinColumn(name="utente_id"),
 			inverseJoinColumns = @JoinColumn(name = "quiz_id"))
 	private List<Quiz> quiz;
+	
+	@Column(name="segnalibro",nullable = true)
+	private Integer segnaLibro;
+
+	public Integer getSegnaLibro() {
+		return segnaLibro;
+	}
+
+	public void setSegnaLibro(Integer segnaLibro) {
+		this.segnaLibro = segnaLibro;
+	}
 
 	public int getId() {
 		return id;

@@ -10,6 +10,7 @@ import java.util.List;
 
 import it.generationitaly.quizapp.entity.Badge;
 import it.generationitaly.quizapp.entity.Linguaggio;
+import it.generationitaly.quizapp.entity.Utente;
 import it.generationitaly.quizapp.repository.BadgeRepository;
 import it.generationitaly.quizapp.repository.CapitoloRepository;
 import it.generationitaly.quizapp.repository.LinguaggioRepository;
@@ -33,6 +34,10 @@ public class ProfiloServlet extends HttpServlet {
 			response.sendRedirect("welcome");
 			return;
 		}
+		Utente utente = (Utente) request.getSession().getAttribute("utente");
+		if(utente.getSegnaLibro() != null) {
+			request.setAttribute("capitolo", capitoloRepo.findById(utente.getSegnaLibro()));
+		}
 		Long quiz = 0L;
 		quiz += capitoloRepo.countCapitoli();
 		List<Linguaggio> linguaggi = linguaggioRepo.findAll();
@@ -48,6 +53,10 @@ public class ProfiloServlet extends HttpServlet {
 		if(request.getSession().getAttribute("utente") == null) {
 			response.sendRedirect("welcome");
 			return;
+		}
+		Utente utente = (Utente) request.getSession().getAttribute("utente");
+		if(utente.getSegnaLibro() != null) {
+			request.setAttribute("capitolo", capitoloRepo.findById(utente.getSegnaLibro()));
 		}
 		Long quiz = 0L;
 		quiz += capitoloRepo.countCapitoli();
