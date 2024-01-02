@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `quiz`.`utente` (
   `nome` VARCHAR(45) NOT NULL,
   `cognome` VARCHAR(45) NOT NULL,
   `data_nascita` DATE NOT NULL,
-  `numero_telefono` INT NOT NULL,
+  `numero_telefono` BIGINT NOT NULL,
   `indirizzo_id` INT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
