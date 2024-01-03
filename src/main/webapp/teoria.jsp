@@ -79,6 +79,7 @@
 				style="margin-top: 50px; margin-left: 50px; color: white; width: 800px; height: 700px; background-color: #242625; overflow: scroll;">
 
 
+			<div>
 				<div class="nextprev">
 					<%
 					int currentCapitoloId = ((Capitolo) request.getAttribute("capitolo")).getId();
@@ -92,6 +93,7 @@
 					<a href="teoria?idCapitolo=<%=prevCapitoloId%>&idLinguaggio=<%=linguaggio.getId()%>">
 						<button type="button" class="btn btn-danger"> &lt; Prev</button> 
 					</a>
+					
  
  <% } else { %>
 	 <a href="index.jsp">
@@ -100,6 +102,10 @@
  <%
 					}
 					%>
+				<%if(utente != null) { %>
+								<a href="segnalibro?segnalibro=<%=currentCapitoloId %>&linguaggioId=<%=linguaggio.getId() %>" class="btn btn-danger" style="margin-right: auto; margin-left: auto;" type="button">Segnalibro</a>					
+				
+				<% } %>
 <% if (nextCapitoloId <= capitoli.get(capitoli.size()-1).getId()) {
  %>
 					</a> <a href="teoria?idCapitolo=<%=nextCapitoloId%>&idLinguaggio=<%=linguaggio.getId()%>">
@@ -109,7 +115,7 @@
 					}
 					%>
 				</div>
-
+				<div style="height: 20px;"></div>
 				<%
 				for (Contenuto contenuto : contenuti) {
 				%>
@@ -139,6 +145,7 @@
 				}
 				}
 				%>
+			</div>
 			</div>
 		</div>
 	</div>

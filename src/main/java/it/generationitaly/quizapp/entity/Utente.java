@@ -48,7 +48,7 @@ public class Utente {
 	private Date dataNascita;
 	
 	@Column(name = "numero_telefono", nullable = true)
-	private Integer numeroTelefono;
+	private Long numeroTelefono;
 	
 	@OneToOne(cascade = {  CascadeType.MERGE, CascadeType.REMOVE} )
 	@JoinColumn(name = "indirizzo_id", unique = true, nullable = true)
@@ -67,6 +67,28 @@ public class Utente {
 			joinColumns = @JoinColumn(name="utente_id"),
 			inverseJoinColumns = @JoinColumn(name = "quiz_id"))
 	private List<Quiz> quiz;
+	
+	@Column(name="next_quiz",nullable = false)
+	private Integer nextQuiz = 0;
+	
+	@Column(name="segnalibro",nullable = true)
+	private Integer segnaLibro;
+
+	public Integer getNextQuiz() {
+		return nextQuiz;
+	}
+
+	public void setNextQuiz(Integer nextQuiz) {
+		this.nextQuiz = nextQuiz;
+	}
+
+	public Integer getSegnaLibro() {
+		return segnaLibro;
+	}
+
+	public void setSegnaLibro(Integer segnaLibro) {
+		this.segnaLibro = segnaLibro;
+	}
 
 	public int getId() {
 		return id;
@@ -124,11 +146,11 @@ public class Utente {
 		this.dataNascita = dataNascita;
 	}
 
-	public Integer getNumeroTelefono() {
+	public Long getNumeroTelefono() {
 		return numeroTelefono;
 	}
 
-	public void setNumeroTelefono(Integer numeroTelefono) {
+	public void setNumeroTelefono(Long numeroTelefono) {
 		this.numeroTelefono = numeroTelefono;
 	}
 

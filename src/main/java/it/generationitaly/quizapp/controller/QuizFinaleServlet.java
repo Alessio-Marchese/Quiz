@@ -42,6 +42,7 @@ public class QuizFinaleServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		Random random = new Random();
 		if(request.getSession().getAttribute("utente") == null) {
 			response.sendRedirect("welcome");
 			return;
@@ -50,11 +51,11 @@ public class QuizFinaleServlet extends HttpServlet {
 
 		int contatoreDomande = 0;
 		Integer idLinguaggio = idLinguaggio = Integer.parseInt(request.getParameter("idLinguaggio"));
-		if(utente.getBadges().get(--idLinguaggio) != null) {
+		if(utente.getBadges().size() > 0 && utente.getBadges().get(--idLinguaggio) != null) {
 			response.sendRedirect("welcome");
 			return;
 		}
-		List<Object> quiz = new ArrayList<Object>();
+		List<Object> quizAll = new ArrayList<Object>();
 		List<Capitolo> capitoli = new ArrayList<Capitolo>();
 
 		Linguaggio linguaggio = linguaggioRepo.findById(idLinguaggio);
@@ -63,10 +64,18 @@ public class QuizFinaleServlet extends HttpServlet {
 		capitoli = linguaggio.getCapitoli();
 		for (Capitolo capitolo : capitoli) {
 			List<QuizMultiplo> qM = capitolo.getQuizMultipli();
-			quiz.addAll(qM);
+			quizAll.addAll(qM);
 			List<QuizVeroFalso> qVF = capitolo.getQuizVeroFalso();
-			quiz.addAll(qVF);
+			quizAll.addAll(qVF);
 		}
+		List<Object> quiz = new ArrayList<Object>();
+		for(int i = 0; i < 10; i++) {
+			int randomInt = random.nextInt(quizAll.size());
+			quiz.add(quizAll.get(randomInt));
+			quizAll.remove(randomInt);
+			
+		}
+		
 
 		List<Object> risposteGiuste = new ArrayList<Object>();
 		List<Object> risposteSbagliate = new ArrayList<Object>();
@@ -75,7 +84,7 @@ public class QuizFinaleServlet extends HttpServlet {
 		request.getSession().setAttribute("quiz", quiz);
 		request.getSession().setAttribute("risposteGiuste", risposteGiuste);
 		request.getSession().setAttribute("risposteSbagliate", risposteSbagliate);
-		Random random = new Random();
+		
 		int random1 = random.nextInt(quiz.size());
 		Object object = quiz.get(random1);
 		request.setAttribute("quiz", object);
@@ -111,44 +120,47 @@ public class QuizFinaleServlet extends HttpServlet {
 					}
 				}
 			}
-			quiz.remove(objToRemove);
-			if (risposta.equals("vero")) {
-				rispostaAsBoolean = true;
-			} else if (risposta.equals("falso")) {
-				rispostaAsBoolean = false;
-			}
+			if(risposta != null) {
+				quiz.remove(objToRemove);
+				if (risposta.equals("vero")) {
+					rispostaAsBoolean = true;
+				} else if (risposta.equals("falso")) {
+					rispostaAsBoolean = false;
+				}
 
-			Boolean checkBool = vf.getBool();
-			if (checkBool == rispostaAsBoolean) {
-				risposteGiuste.add(vf);
-			} else if (checkBool != rispostaAsBoolean) {
-				risposteSbagliate.add(vf);
+				Boolean checkBool = vf.getBool();
+				if (checkBool == rispostaAsBoolean) {
+					risposteGiuste.add(vf);
+				} else if (checkBool != rispostaAsBoolean) {
+					risposteSbagliate.add(vf);
+				}
 			}
-
 		} else {
 			int id = Integer.parseInt(request.getParameter("idQM"));
 			QuizMultiplo qm = quizMultiploRepo.findById(id);
 			String risposta = request.getParameter("risposta");
-			String check = qm.getCorretta();
-			Object objToRemove = null;
-			for (Object o : quiz) {
-				if (o instanceof QuizMultiplo) {
-					QuizMultiplo objAsQM = (QuizMultiplo) o;
-					if (objAsQM.getId() == qm.getId()) {
-						objToRemove = o;
+			if(risposta != null) {
+				String check = qm.getCorretta();
+				Object objToRemove = null;
+				for (Object o : quiz) {
+					if (o instanceof QuizMultiplo) {
+						QuizMultiplo objAsQM = (QuizMultiplo) o;
+						if (objAsQM.getId() == qm.getId()) {
+							objToRemove = o;
+						}
 					}
 				}
-			}
-			quiz.remove(objToRemove);
-			if (check.equals(risposta)) {
-				risposteGiuste.add(qm);
-			} else if (!check.equals(risposta)) {
-				risposteSbagliate.add(qm);
-			}
+				quiz.remove(objToRemove);
+				if (check.equals(risposta)) {
+					risposteGiuste.add(qm);
+				} else if (!check.equals(risposta)) {
+					risposteSbagliate.add(qm);
+				}
+			}			
 		}
 
 		Random random = new Random();
-		if (contatoreDomande < 10) {
+		if (quiz.size() > 0) {
 			int random1 = random.nextInt(quiz.size());
 			Object object = quiz.get(random1);
 			request.setAttribute("quiz", object);

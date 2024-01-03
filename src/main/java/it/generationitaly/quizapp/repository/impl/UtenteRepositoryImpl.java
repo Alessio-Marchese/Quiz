@@ -67,7 +67,7 @@ public class UtenteRepositoryImpl extends JpaRepositoryImpl<Utente,Integer> impl
 	}
 
 	@Override
-	public Utente findByNumeroTelefono(int numero) {
+	public Utente findByNumeroTelefono(Long numero) {
 		Utente utente = null;
 		EntityManager em = null;
 		EntityTransaction tx = null;

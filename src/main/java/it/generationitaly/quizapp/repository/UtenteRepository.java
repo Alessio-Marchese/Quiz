@@ -8,5 +8,5 @@ public interface UtenteRepository extends JpaRepository<Utente,Integer> {
 	
 	Utente findByEmail(String email);
 	
-	Utente findByNumeroTelefono(int numero);
+	Utente findByNumeroTelefono(Long numero);
 }
