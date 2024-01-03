@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <title>Chi Siamo - QuizMaster Team</title>
 <link href="style/StileChiSiamo.css" rel="stylesheet" type="text/css">
@@ -12,9 +13,33 @@
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
 <link rel="icon" href="https://i.ibb.co/1fCPvSh/QUIZ5.png">
+=======
+    <meta charset="UTF-8">
+    <title>Chi Siamo - QuizMaster Team</title>
+    
+    <!-- Importazione e applicazione del font Roboto Mono -->
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+    /* Applica il font Roboto Mono a tutti gli elementi della pagina */
+    body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
+        font-family: 'Roboto Mono', monospace;
+    }
+    </style>
+
+    <link href="style/StileChiSiamo.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+          crossorigin="anonymous">
+>>>>>>> branch 'sviluppo' of https://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@github.com/Alessio-Marchese/Quiz.git
 </head>
+<<<<<<< HEAD
 <body>
 	<%@ include file="include/header.jsp"%>
+=======
+<body> 
+    <%@ include file="include/header.jsp" %>
+>>>>>>> branch 'sviluppo' of https://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@github.com/Alessio-Marchese/Quiz.git
 
 	<main class="container">
 		<section class="about-us my-5">
