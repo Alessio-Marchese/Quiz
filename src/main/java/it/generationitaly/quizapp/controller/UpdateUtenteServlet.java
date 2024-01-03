@@ -29,15 +29,6 @@ public class UpdateUtenteServlet extends HttpServlet {
 		}
 		Utente utente = (Utente) request.getSession().getAttribute("utente");
 		Long tel = Long.parseLong(request.getParameter("newNumeroTelefono"));
-		 if (!request.getParameter("newEmail").equals(utente.getEmail())
-				&& utenteRepository.findByEmail(request.getParameter("email")) != null) {
-			response.sendRedirect("profilo?erroreEmail");
-			return;
-		} else if (tel != utente.getNumeroTelefono() && utenteRepository.findByNumeroTelefono(tel) != null) {
-			response.sendRedirect("profilo?erroreNumero");
-			return;
-		}
-
 		utente.setEmail(request.getParameter("newEmail"));
 		utente.setNome(request.getParameter("newNome"));
 		utente.setCognome(request.getParameter("newCognome"));
