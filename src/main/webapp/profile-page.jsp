@@ -10,7 +10,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="style/profiloStyle.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap">
 <link

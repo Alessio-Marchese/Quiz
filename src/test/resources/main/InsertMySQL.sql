@@ -627,3 +627,42 @@ insert into contenuto(contenuto, capitolo_id, tipo) values('L''uso appropriato d
 insert into contenuto(contenuto, capitolo_id, tipo) values('','16','spazio');
 insert into contenuto(contenuto, capitolo_id, tipo) values('img/java_design_patterns.png','16','immagine');
 insert into contenuto(contenuto, capitolo_id, tipo) values('','16','spazio');
+
+-- Introduzione a html(CAPITOLO 17)
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('HTML: Introduzione al Linguaggio di Markup', 17, 'titolo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('', 17, 'spazio');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Scopo di HTML', 17, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('HTML è un linguaggio di markup utilizzato per definire la struttura e il significato del contenuto web. Attraverso lutilizzo di tag e attributi, permette di creare documenti strutturati che possono includere testo, immagini, link e altri elementi multimediali.', 17, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Struttura di Base', 17, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('', 17, 'spazio');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Un documento HTML di base inizia con un elemento radice <html> che contiene la testata <head> e il corpo <body>. Il tag <head> include metadati, collegamenti a fogli di stile e script. Il tag <body> contiene il contenuto visualizzato nel browser.', 17, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Utilizzo dei Tag', 17, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('HTML offre una vasta gamma di tag per definire la struttura di una pagina web. Ci sono tag per la formattazione del testo, linserimento di immagini, la creazione di liste, tabelle e molto altro ancora.', 17, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('img/html_intro.jpg', 17, 'immagine');
+
+-- Introduzione a css
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('CSS: Introduzione ai Fogli di Stile in Cascata', 27, 'titolo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('', 27, 'spazio');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Scopo dei Fogli di Stile', 27, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('I fogli di stile in cascata (CSS) sono un linguaggio utilizzato per definire la presentazione di un documento scritto in HTML o XML. Consentono di modificare l''aspetto e la disposizione degli elementi di una pagina web.', 27, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Utilizzo dei Selettori CSS', 27, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('I selettori CSS vengono utilizzati per identificare gli elementi HTML a cui verranno applicati gli stili. Consentono di mirare specificamente a determinati elementi HTML o gruppi di elementi per applicare regole di stile. Sono molto flessibili e consentono di selezionare elementi in base alle loro classi, ID, tipi e altri attributi.', 27, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('', 27, 'spazio');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Ereditarietà e Sovrascrittura', 27, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('CSS supporta l''ereditarietà, il che significa che le proprietà di stile assegnate a un elemento verranno ereditate dai suoi elementi figlio. Inoltre, è possibile sovrascrivere le proprietà di stile quando necessario, applicando regole più specifiche o direttive di stile.', 27, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Utilizzo delle Regole @media', 27, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Le regole @media consentono di applicare determinati stili in base alle caratteristiche del dispositivo, come dimensioni dello schermo, orientamento e altro. Questo permette la creazione di design responsivi e adattabili a diverse piattaforme.', 27, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('img/css_intro.jpg', 27, 'immagine');
+
+-- Introduzione a javaScript(CAPITOLO 40)
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('JavaScript: Introduzione al Linguaggio di Programmazione', 40, 'titolo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('', 40, 'spazio');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Scopo di JavaScript', 40, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('JavaScript è un linguaggio di scripting ampiamente utilizzato per aggiungere interattività e dinamicità alle pagine web. È utilizzato per manipolare il contenuto HTML, modificare lo stile e gestire eventi interattivi senza richiedere un caricamento di pagina.', 40, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Varietà di Utilizzi', 40, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('', 40, 'spazio');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Oltre alla programmazione lato client per pagine web, JavaScript è utilizzato anche per lo sviluppo di applicazioni web, server-side development, applicazioni mobili e molto altro ancora.', 40, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Sintassi e Funzionalità', 40, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('La sintassi di JavaScript è simile ad altri linguaggi di programmazione. Offre una vasta gamma di funzionalità, inclusi tipi di dati, loop, condizioni, funzioni e oggetti.', 40, 'paragrafo');
+INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('img/javascript_intro.jpg', 40, 'immagine');
+  

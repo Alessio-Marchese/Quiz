@@ -9,13 +9,13 @@
 </head>
 <body>
 	<div class="grazie"
-		style="justify-content: center; text-align: center; color: #e91e63;">
-		<h1 style="font-size: 40px;">Grazie!</h1>
-		<p style="font-size: 20px;">Grazie per averci contattato. Ti
+		style="justify-content: center; text-align: center;">
+		<h1 style="font-size: 40px; color: #e91e63;">Grazie!</h1>
+		<p style="font-size: 20px; color: #fff: ;">Grazie per averci contattato. Ti
 			risponderemo al più presto.</p>
 	</div>
 	<div class="home-button"
-		style="display: inline-block; padding: 10px 650px; font-size: 10px; text-align: center; font-weight: bold;">
+		style="display: inline-block; padding: 10px 550px; font-size: 10px; text-align: center; font-weight: bold;">
 		<a href="index.jsp">
 			<button type="submit" class="button"
 				style="background-color: #e91e63; width: 100px; height: 50px; padding: 12px 20px; border-radius: 5px; cursor: pointer;">

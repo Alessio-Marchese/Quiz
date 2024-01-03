@@ -68,5 +68,7 @@
 
 .titolo-cap{
 	color: white;
+	display: flex;
+	text-align: center;
 }
 
