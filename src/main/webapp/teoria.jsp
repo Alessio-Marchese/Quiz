@@ -18,6 +18,7 @@
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
 	<link rel="stylesheet" href="style/teoria.css">
+	<link rel="icon" href="https://i.ibb.co/1fCPvSh/QUIZ5.png" >
 <style>
 	.custom-scrollbar::-webkit-scrollbar {
   width: 12px;
@@ -115,7 +116,7 @@
 					}
 					%>
 				</div>
-				<div style="height: 20px;"></div>
+				<div style="height: 20px; border: "></div>
 				<%
 				for (Contenuto contenuto : contenuti) {
 				%>
@@ -123,22 +124,22 @@
 				switch (contenuto.getTipo().getValue()) {
 				case "paragrafo":
 				%>
-				<p class="paragrafo-cap"><%=contenuto.getContenuto()%></p>
+				<p class="paragrafo-cap" style=" border:3px solid red "><%=contenuto.getContenuto()%></p>
 				<%
 				break;
 				case "titolo":
 				%>
-				<h1 class="titolo-cap"><%=contenuto.getContenuto()%></h1>
+				<h1 class="titolo-cap" style=" border:3px solid yellow "><%=contenuto.getContenuto()%></h1>
 				<%
 				break;
 				case "spazio":
 				%>
-				<div style="height: 20px;"></div>
+				<div style="height: 20px; border:3px solid green "></div>
 				<%
 				break;
 				case "immagine":
 				%>
-				<div class="img-cap">
+				<div class="img-cap" style=" border:5px solid purple; margin: 3px ">
 				<img src="<%=contenuto.getContenuto()%>" alt="1"
 					border="0" style="height: auto;" />
 					</div>

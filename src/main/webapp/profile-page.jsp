@@ -17,6 +17,7 @@
 	rel="stylesheet"
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
+	<link rel="icon" href="https://i.ibb.co/1fCPvSh/QUIZ5.png" >
 </head>
 <body
 	style="background-color: #24262b; font-family: 'Roboto Mono', monospace; color: white;">

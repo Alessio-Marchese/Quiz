@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Grazie!</title>
 <link href="style/contatti.css" rel="stylesheet" type="text/css">
+<link rel="icon" href="https://i.ibb.co/1fCPvSh/QUIZ5.png" >
 </head>
 <body>
 	<div class="grazie"

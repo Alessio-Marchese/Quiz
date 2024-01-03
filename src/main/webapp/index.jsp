@@ -16,7 +16,7 @@
 	crossorigin="anonymous">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap">
 
-
+<link rel="icon" href="https://i.ibb.co/1fCPvSh/QUIZ5.png" >
 
 </head>
 <body style="background-color: #24262b;

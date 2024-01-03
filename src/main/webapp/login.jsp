@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <title>Login</title>
 <link href="style/login-style2.css" rel="stylesheet" type="text/css">
+<link rel="icon" href="https://i.ibb.co/1fCPvSh/QUIZ5.png" >
 </head>
 <body>
 <div class="login-box">

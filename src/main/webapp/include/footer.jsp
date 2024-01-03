@@ -16,8 +16,8 @@
   	 		<div class="col footer-col">
   	 			<h4>I nostri social</h4>
   	 			<div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
-  	 				<a href="#"><i class="fab fa-instagram"></i></a>
+  	 				<a href="#"><i class="bi bi-facebook"></i></a>
+  	 				<a href="#"><i class="bi bi-instagram"></i></a>
   	 			</div>
   	 		</div>
   	 	</div>
