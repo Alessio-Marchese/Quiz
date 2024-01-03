@@ -640,7 +640,7 @@ INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Utilizzo dei Tag', 
 INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('HTML offre una vasta gamma di tag per definire la struttura di una pagina web. Ci sono tag per la formattazione del testo, linserimento di immagini, la creazione di liste, tabelle e molto altro ancora.', 17, 'paragrafo');
 INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('img/html_intro.jpg', 17, 'immagine');
 
--- Introduzione a css(CAPITOLO 27)
+-- Introduzione a css
 INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('CSS: Introduzione ai Fogli di Stile in Cascata', 27, 'titolo');
 INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('', 27, 'spazio');
 INSERT INTO contenuto(contenuto, capitolo_id, tipo) VALUES ('Scopo dei Fogli di Stile', 27, 'paragrafo');
