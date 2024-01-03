@@ -138,8 +138,10 @@
 				break;
 				case "immagine":
 				%>
-				<img class="img-cap" src="<%=contenuto.getContenuto()%>" alt="1"
+				<div class="img-cap">
+				<img src="<%=contenuto.getContenuto()%>" alt="1"
 					border="0" style="height: auto;" />
+					</div>
 				<%
 				break;
 				}
